@@ -1,0 +1,27 @@
+2025-03-15 11:45:04.140 ERROR 1112 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'logging.level.com.doyatama.university' to org.springframework.boot.logging.LogLevel:
+
+    Property: logging.level.com.doyatama.university
+    Value: DEBUG  # Sesuaikan dengan package aplikasi kamu
+    Origin: class path resource [application.properties] - 33:39
+    Reason: failed to convert java.lang.String to org.springframework.boot.logging.LogLevel (caused by java.lang.IllegalArgumentException: No enum constant org.springframework.boot.logging.LogLevel.DEBUG  # Sesuaikan dengan package aplikasi kamu)
+
+Action:
+
+Update your application's configuration. The following values are valid:
+
+    DEBUG
+    ERROR
+    FATAL
+    INFO
+    OFF
+    TRACE
+    WARN
+
