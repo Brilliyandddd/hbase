@@ -90,8 +90,8 @@ public class RPSDetailRepository {
         client.insertRecord(tableRPSDetail, rowKey, "main", "week", rpsDetail.getWeek().toString());
         client.insertRecord(tableRPSDetail, rowKey, "main", "weekLabel", rpsDetail.getWeekLabel());
 
-        client.insertRecord(tableRPSDetail, rowKey, "rps", "id", rpsDetail.getRps().getId());
-        client.insertRecord(tableRPSDetail, rowKey, "rps", "name", rpsDetail.getRps().getName());
+        client.insertRecord(tableRPSDetail, rowKey, "rps", "id", rpsDetail.getRps().getIdRps());
+        client.insertRecord(tableRPSDetail, rowKey, "rps", "name", rpsDetail.getRps().getNameRps());
         client.insertRecord(tableRPSDetail, rowKey, "main", "sub_cp_mk", rpsDetail.getSub_cp_mk().toString());
          
         // learning_material
@@ -194,8 +194,8 @@ public class RPSDetailRepository {
 
         TableName tableRPSDetail = TableName.valueOf(tableName);
         client.insertRecord(tableRPSDetail, rpsDetailId, "main", "week", rpsDetail.getWeek().toString());
-        client.insertRecord(tableRPSDetail, rpsDetailId, "rps", "id", rpsDetail.getRps().getId());
-        client.insertRecord(tableRPSDetail, rpsDetailId, "rps", "name", rpsDetail.getRps().getName());
+        client.insertRecord(tableRPSDetail, rpsDetailId, "rps", "id", rpsDetail.getRps().getIdRps());
+        client.insertRecord(tableRPSDetail, rpsDetailId, "rps", "name", rpsDetail.getRps().getNameRps());
         client.insertRecord(tableRPSDetail, rpsDetailId, "main", "sub_cp_mk", rpsDetail.getSub_cp_mk().toString());
         // learning_material
         for (int i = 0; i < rpsDetail.getLearning_materials().size(); i++) {

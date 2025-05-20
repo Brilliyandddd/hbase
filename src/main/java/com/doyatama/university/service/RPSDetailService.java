@@ -72,7 +72,7 @@ public class RPSDetailService {
         ZonedDateTime zonedDateTime = ZonedDateTime.now(zoneId);
         Instant instant = zonedDateTime.toInstant();
 
-        if (rpsResponse.getName() != null &&
+        if (rpsResponse.getNameRps() != null &&
                 formLearningResponse.getName() != null &&
                 learningMethodList.size() != 0 &&
                 assessmentCriteriaList.size() != 0 &&
@@ -117,7 +117,7 @@ public class RPSDetailService {
         ZonedDateTime zonedDateTime = ZonedDateTime.now(zoneId);
         Instant instant = zonedDateTime.toInstant();
 
-        if (rpsResponse.getName() != null &&
+        if (rpsResponse.getNameRps() != null &&
                 formLearningResponse.getName() != null &&
                 learningMethodList.size() != 0 &&
                 assessmentCriteriaList.size() != 0 &&

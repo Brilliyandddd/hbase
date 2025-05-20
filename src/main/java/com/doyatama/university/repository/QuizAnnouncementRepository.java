@@ -74,8 +74,8 @@ public class QuizAnnouncementRepository {
             }
         }
         client.insertRecord(tableQuizAnnouncement, rowKey, "main", "message", quizAnnouncement.getMessage().toString());
-        client.insertRecord(tableQuizAnnouncement, rowKey, "rps", "id", quizAnnouncement.getRps().getId());
-        client.insertRecord(tableQuizAnnouncement, rowKey, "rps", "name", quizAnnouncement.getRps().getName());
+        client.insertRecord(tableQuizAnnouncement, rowKey, "rps", "id", quizAnnouncement.getRps().getIdRps());
+        client.insertRecord(tableQuizAnnouncement, rowKey, "rps", "name", quizAnnouncement.getRps().getNameRps());
 
         // Get time now
         ZoneId zoneId = ZoneId.of("Asia/Jakarta");
@@ -147,8 +147,8 @@ public class QuizAnnouncementRepository {
             client.insertRecord(tableQuiz, quizId, "questions", "q_" + i, new Gson().toJson(question));
         }
 
-        client.insertRecord(tableQuiz, quizId, "rps", "id", quiz.getRps().getId());
-        client.insertRecord(tableQuiz, quizId, "rps", "name", quiz.getRps().getName());
+        client.insertRecord(tableQuiz, quizId, "rps", "id", quiz.getRps().getIdRps());
+        client.insertRecord(tableQuiz, quizId, "rps", "name", quiz.getRps().getNameRps());
 
         // Get time now
         ZoneId zoneId = ZoneId.of("Asia/Jakarta");

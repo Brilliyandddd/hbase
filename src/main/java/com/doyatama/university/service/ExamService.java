@@ -53,7 +53,7 @@ public class ExamService {
         ZonedDateTime zonedDateTime = ZonedDateTime.now(zoneId);
         Instant instant = zonedDateTime.toInstant();
 
-        if ( rpsResponse.getName() != null) {
+        if ( rpsResponse.getNameRps() != null) {
 
             exam.setName(examRequest.getName());
             exam.setDescription(examRequest.getDescription());
@@ -85,7 +85,7 @@ public class ExamService {
         List<Question> questionList = questionRepository.findAllById(examRequest.getQuestions());
         RPS rpsResponse = rpsRepository.findById(examRequest.getRps_id());
 
-        if (questionList.size() != 0 && rpsResponse.getName() != null) {
+        if (questionList.size() != 0 && rpsResponse.getNameRps() != null) {
             exam.setName(examRequest.getName());
             exam.setDescription(examRequest.getDescription());
             exam.setMin_grade(examRequest.getMin_grade());

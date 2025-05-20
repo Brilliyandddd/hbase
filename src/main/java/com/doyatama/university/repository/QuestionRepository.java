@@ -134,7 +134,7 @@ public class QuestionRepository {
         }
         client.insertRecord(tableQuestion, rowKey, "rps_detail", "id", question.getRps_detail().getId());
         client.insertRecord(tableQuestion, rowKey, "rps_detail", "sub_cp_mk", question.getRps_detail().getSub_cp_mk());
-        client.insertRecord(tableQuestion, rowKey, "detail", "rps_id", question.getRps_detail().getRps().getId());
+        client.insertRecord(tableQuestion, rowKey, "detail", "rps_id", question.getRps_detail().getRps().getIdRps());
     
 
         client.insertRecord(tableQuestion, rowKey, "detail", "created_by", "Doyatama");
@@ -214,7 +214,7 @@ public class QuestionRepository {
         // }
         client.insertRecord(tableQuestion, rowKey, "rps_detail", "id", question.getRps_detail().getId());
         client.insertRecord(tableQuestion, rowKey, "rps_detail", "sub_cp_mk", question.getRps_detail().getSub_cp_mk());
-        client.insertRecord(tableQuestion, rowKey, "detail", "rps_id", question.getRps_detail().getRps().getId());
+        client.insertRecord(tableQuestion, rowKey, "detail", "rps_id", question.getRps_detail().getRps().getIdRps());
 
         client.insertRecord(tableQuestion, rowKey, "detail", "created_by", "Doyatama");
         return question;

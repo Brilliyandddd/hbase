@@ -16,6 +16,8 @@ import com.doyatama.university.repository.RPSRepository;
 import com.doyatama.university.repository.StudyProgramRepository;
 import com.doyatama.university.repository.SubjectRepository;
 import com.doyatama.university.util.AppConstants;
+
+import org.apache.poi.hpsf.Array;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -26,7 +28,11 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class RPSService {
@@ -61,87 +67,144 @@ public class RPSService {
     public RPS createRPS(RPSRequest rpsRequest) throws IOException {
     RPS rps = new RPS();
 
+    System.out.println("id" + rpsRequest.getIdRps());
+    if (rpsRequest.getIdRps() == null) {
+        rpsRequest.setIdRps(UUID.randomUUID().toString());
+    }
+
     // Initialize lists
-    List<LearningMedia> mediaList = new ArrayList<>();
-    List<Lecture> lectureList = new ArrayList<>();
+    // Map<String, LearningMedia> typeLearningMedia = new HashMap<>();
+    // List<LearningMedia> mediaList = new ArrayList<>(typeLearningMedia.values());
+    Map<String, Lecture> roleLecturers = new HashMap<>();
+    List<Lecture> lectureList = new ArrayList<>(roleLecturers.values());
 
     // Handle Learning Media
-    if (rpsRequest.getIdLearningMediaSoftware() != null) {
-        LearningMedia software = learningMediaRepository.findById(rpsRequest.getIdLearningMediaSoftware());
-        if (software != null) mediaList.add(software);
-    }
-    
-    if (rpsRequest.getIdLearningMediaHardware() != null) {
-        LearningMedia hardware = learningMediaRepository.findById(rpsRequest.getIdLearningMediaHardware());
-        if (hardware != null) mediaList.add(hardware);
-    }
+    // if (rpsRequest.getIdLearningMediaSoftware() != null) {
+    //     LearningMedia software = learningMediaRepository.findById(rpsRequest.getIdLearningMediaSoftware());
+    //     if (software != null) mediaList.add(software);
+    // }
 
-    // Handle Lectures
-    if (rpsRequest.getDeveloper_lecturer_id() != null) {
-        Lecture developer = lectureRepository.findById(rpsRequest.getDeveloper_lecturer_id());
-        if (developer != null) lectureList.add(developer);
-    }
+    // if (rpsRequest.getIdLearningMediaSoftware() != null){
+    //     System.out.println("Hardware " + rpsRequest.getIdLearningMediaSoftware());
+    //     LearningMedia software = learningMediaRepository.findById(rpsRequest.getIdLearningMediaSoftware());
+    //     if (software != null){
+    //         typeLearningMedia.put("software", software);
+    //     }
+    // }
     
-    if (rpsRequest.getCoordinator_lecturer_id() != null) {
-        Lecture coordinator = lectureRepository.findById(rpsRequest.getCoordinator_lecturer_id());
-        if (coordinator != null) lectureList.add(coordinator);
-    }
+    // if (rpsRequest.getIdLearningMediaHardware() != null){
+    //     System.out.println("Hardware " + rpsRequest.getIdLearningMediaHardware());
+    //     LearningMedia hardware = learningMediaRepository.findById(rpsRequest.getIdLearningMediaHardware());
+    //     if (hardware != null){
+    //         typeLearningMedia.put("hardware", hardware);
+    //     }
+    // }
+
+
+
+    // Handle Developer lecturer
+    // if (rpsRequest.getDeveloper_lecturer_id() != null) {
+    //     System.out.println("Developer " + rpsRequest.getDeveloper_lecturer_id());
+    //     Lecture developer = lectureRepository.findById(rpsRequest.getDeveloper_lecturer_id());
+    //     if (developer != null) {
+    //         roleLecturers.put("developer", developer);
+    //     }
+    // }
     
-    if (rpsRequest.getInstructor_lecturer_id() != null) {
-        Lecture instructor = lectureRepository.findById(rpsRequest.getInstructor_lecturer_id());
-        if (instructor != null) lectureList.add(instructor);
-    }
+    // // Handle Coordinator lecturer
+    // if (rpsRequest.getCoordinator_lecturer_id() != null) {
+    //     System.out.println("Coordinator " + rpsRequest.getCoordinator_lecturer_id());
+    //     Lecture coordinator = lectureRepository.findById(rpsRequest.getCoordinator_lecturer_id());
+    //     if (coordinator != null) {
+    //         roleLecturers.put("coordinator", coordinator);
+    //     }
+    // }
+    
+    // // Handle Instructor lecturer
+    // if (rpsRequest.getInstructor_lecturer_id() != null) {
+    //     System.out.println("Instructor " + rpsRequest.getInstructor_lecturer_id());
+    //     Lecture instructor = lectureRepository.findById(rpsRequest.getInstructor_lecturer_id());
+    //     if (instructor != null) {
+    //         roleLecturers.put("instructor", instructor);
+    //     }
+    // }
+
+    StudyProgram studyProgram = studyProgramRepository.findById(rpsRequest.getIdProgramStudi());
+    Subject subject = subjectRepository.findById(rpsRequest.getIdSubject());
+    LearningMedia learningMediaSoftware = learningMediaRepository.findById(rpsRequest.getIdLearningMediaSoftware());
+    LearningMedia learningMediaHardware = learningMediaRepository.findById(rpsRequest.getIdLearningMediaHardware());
+    Lecture developerLecturer = lectureRepository.findById(rpsRequest.getDeveloper_lecturer_id());
+    Lecture coordinatorLecturer = lectureRepository.findById(rpsRequest.getCoordinator_lecturer_id());
+    Lecture instructorLecturer = lectureRepository.findById(rpsRequest.getInstructor_lecturer_id());
 
     // Set basic fields
-    rps.setName(rpsRequest.getName());
+    System.out.println("nameRps " + rpsRequest.getNameRps());
+    System.out.println("learning media software " + learningMediaSoftware);
+    System.out.println("learning media hardware " + learningMediaHardware);
+
+    rps.setIdRps(rpsRequest.getIdRps());
+    rps.setNameRps(rpsRequest.getNameRps());
     rps.setSks(rpsRequest.getSks());
     rps.setSemester(rpsRequest.getSemester());
     rps.setCplProdi(rpsRequest.getCplProdi());
     rps.setCplMk(rpsRequest.getCplMk());
+    rps.setStudyProgram(studyProgram);
+    rps.setSubject(subject);
+    rps.setLearningMediaSoftware(learningMediaSoftware);
+    rps.setLearningMediaHardware(learningMediaHardware);
+    rps.setDeveloperLecturer(developerLecturer);
+    rps.setCoordinatorLecturer(coordinatorLecturer);
+    rps.setInstructorLecturer(instructorLecturer);
     
-    // Set relational fields (with null checks)
-    if (rpsRequest.getIdProgramStudi() != null) {
-        rps.setStudyProgram(studyProgramRepository.findById(rpsRequest.getIdProgramStudi()));
-    }
-    
-    if (rpsRequest.getIdSubject() != null) {
-        rps.setSubject(subjectRepository.findById(rpsRequest.getIdSubject()));
-    }
-
-    rps.setLearningMedia(mediaList.isEmpty() ? null : mediaList);
-    rps.setLecture(lectureList.isEmpty() ? null : lectureList);
+    ObjectMapper mapper = new ObjectMapper();
+try {
+    String jsonLectures = mapper.writeValueAsString(lectureList);
+    System.out.println(jsonLectures);
+} catch (Exception e) {
+    e.printStackTrace();
+}
     rps.setCreatedAt(Instant.now());
 
     return rpsRepository.save(rps);
 }
 
-    public DefaultResponse<RPS> getRPSById(String rpsId) throws IOException {
-        RPS rps = rpsRepository.findById(rpsId);
-
-        return new DefaultResponse<>(
-            rps != null && rps.isValid() ? rps : null,
-            rps != null && rps.isValid() ? 1 : 0,
-            rps != null ? "Successfully retrieved data" : "RPS not found"
-        );
+    public DefaultResponse<RPS> getRPSById(String idRps) throws IOException {
+        // Retrieve Mapel
+        RPS rps = rpsRepository.findById(idRps);
+        return new DefaultResponse<>(rps.isValid() ? rps : null, rps.isValid() ? 1 : 0, "Successfully get data");
     }
 
-    public RPS updateRPS(String rpsId, RPSRequest rpsRequest) throws IOException {
+    public RPS updateRPS(String idRps, RPSRequest rpsRequest) throws IOException {
+        StudyProgram studyProgram = studyProgramRepository.findById(rpsRequest.getIdProgramStudi());
+        Subject subject = subjectRepository.findById(rpsRequest.getIdSubject());
+        LearningMedia learningMediaSoftware = learningMediaRepository.findById(rpsRequest.getIdLearningMediaSoftware());
+        LearningMedia learningMediaHardware = learningMediaRepository.findById(rpsRequest.getIdLearningMediaHardware());
+        Lecture developerLecturer = lectureRepository.findById(rpsRequest.getDeveloper_lecturer_id());
+        Lecture coordinatorLecturer = lectureRepository.findById(rpsRequest.getCoordinator_lecturer_id());
+        Lecture instructorLecturer = lectureRepository.findById(rpsRequest.getInstructor_lecturer_id());
         RPS rps = new RPS();
-        rps.setName(rpsRequest.getName());
+        rps.setNameRps(rpsRequest.getNameRps());
         rps.setSks(rpsRequest.getSks());
         rps.setSemester(rpsRequest.getSemester());
         rps.setCplProdi(rpsRequest.getCplProdi());
         rps.setCplMk(rpsRequest.getCplMk());
+        rps.setStudyProgram(studyProgram);
+        rps.setSubject(subject);
+        rps.setLearningMediaSoftware(learningMediaSoftware);
+        rps.setLearningMediaHardware(learningMediaHardware);
+        rps.setDeveloperLecturer(developerLecturer);
+        rps.setCoordinatorLecturer(coordinatorLecturer);
+        rps.setInstructorLecturer(instructorLecturer);
 
-        return rpsRepository.update(rpsId, rps);
+        return rpsRepository.update(idRps, rps);
     }
 
-    public void deleteRPSById(String rpsId) throws IOException {
-        RPS rps = rpsRepository.findById(rpsId);
+    public void deleteRPSById(String idRps) throws IOException {
+        RPS rps = rpsRepository.findById(idRps);
         if (rps != null && rps.isValid()) {
-            rpsRepository.deleteById(rpsId);
+            rpsRepository.deleteById(idRps);
         } else {
-            throw new ResourceNotFoundException("RPS", "id", rpsId);
+            throw new ResourceNotFoundException("RPS", "id", idRps);
         }
     }
 

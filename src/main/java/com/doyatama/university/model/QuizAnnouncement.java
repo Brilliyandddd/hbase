@@ -111,7 +111,7 @@ public class QuizAnnouncement {
         }
         String message = String.format(
                 "Berdasarkan %s Anda diwajibkan menilai soal yang terdapat pada %s dimulai pada tanggal %s ",
-                this.getRps().getName(),
+                this.getRps().getNameRps(),
                 this.getName(),
                 this.getDate_start()
         );

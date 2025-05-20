@@ -124,7 +124,7 @@ public class QuizAnnouncementService {
         ZonedDateTime zonedDateTime = ZonedDateTime.now(zoneId);
         Instant instant = zonedDateTime.toInstant();
 
-        if (rpsResponse.getName() != null) {
+        if (rpsResponse.getNameRps() != null) {
             quizAnnouncement.setName(quizAnnouncementRequest.getName());
             quizAnnouncement.setDescription(quizAnnouncementRequest.getDescription());
             quizAnnouncement.setMin_grade(quizAnnouncementRequest.getMin_grade());
@@ -159,7 +159,7 @@ public class QuizAnnouncementService {
         List<Question> questionList = questionRepository.findAllById(quizAnnouncementRequest.getQuestions());
         RPS rpsResponse = rpsRepository.findById(quizAnnouncementRequest.getRps_id());
 
-        if (questionList.size() != 0 && rpsResponse.getName() != null) {
+        if (questionList.size() != 0 && rpsResponse.getNameRps() != null) {
             quizAnnouncement.setName(quizAnnouncementRequest.getName());
             quizAnnouncement.setDescription(quizAnnouncementRequest.getDescription());
             quizAnnouncement.setMin_grade(quizAnnouncementRequest.getMin_grade());

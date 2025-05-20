@@ -87,8 +87,8 @@ public class QuizRepository {
         client.insertRecord(tableQuiz, rowKey, "main", "date_end", quiz.getDate_end().toString());
 //        client.insertRecord(tableQuiz, rowKey, "main", "devLecturerIds", quiz.getRps().getDev_lecturers().toString());
         client.insertRecord(tableQuiz, rowKey, "main", "message", quiz.getMessage().toString());
-        client.insertRecord(tableQuiz, rowKey, "rps", "id", quiz.getRps().getId());
-        client.insertRecord(tableQuiz, rowKey, "rps", "name", quiz.getRps().getName());
+        client.insertRecord(tableQuiz, rowKey, "rps", "id", quiz.getRps().getIdRps());
+        client.insertRecord(tableQuiz, rowKey, "rps", "name", quiz.getRps().getNameRps());
         client.insertRecord(tableQuiz, rowKey, "main", "type_quiz", quiz.getType_quiz());
         // Get time now
         ZoneId zoneId = ZoneId.of("Asia/Jakarta");
@@ -158,8 +158,8 @@ public class QuizRepository {
             client.insertRecord(tableQuiz, quizId, "questions", "q_" + i, new Gson().toJson(question));
         }
 
-        client.insertRecord(tableQuiz, quizId, "rps", "id", quiz.getRps().getId());
-        client.insertRecord(tableQuiz, quizId, "rps", "name", quiz.getRps().getName());
+        client.insertRecord(tableQuiz, quizId, "rps", "id", quiz.getRps().getIdRps());
+        client.insertRecord(tableQuiz, quizId, "rps", "name", quiz.getRps().getNameRps());
 
         // Get time now
         ZoneId zoneId = ZoneId.of("Asia/Jakarta");

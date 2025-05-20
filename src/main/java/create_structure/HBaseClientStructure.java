@@ -59,7 +59,7 @@ public class HBaseClientStructure {
 
         // Create Tabel RPS
         TableName tableRPS = TableName.valueOf("rps");
-        String[] RPS = { "main", "learning_media", "study_program", "subject", "lecture", "detail" };
+        String[] RPS = { "main", "learningMediaSoftware","learningMediaHardware", "studyProgram", "subject", "developerLecturer", "coordinatorLecturer","instructorLecturer", "detail" };
         client.deleteTable(tableRPS);
         client.createTable(tableRPS, RPS);
 
@@ -749,403 +749,403 @@ public class HBaseClientStructure {
        client.insertRecord(tableLearningMedia, "LM002", "detail", "created_by", "Doyatama");
 //
 //        // RPS
-       client.insertRecord(tableRPS, "RPS001", "main", "id", "RPS001");
-       client.insertRecord(tableRPS, "RPS001", "main", "name", "Dummy RPS");
-       client.insertRecord(tableRPS, "RPS001", "main", "sks", "3");
-       client.insertRecord(tableRPS, "RPS001", "main", "semester", "3");
-       client.insertRecord(tableRPS, "RPS001", "main", "cpl_prodi", "Dummy CPL Prodi");
-       client.insertRecord(tableRPS, "RPS001", "main", "cpl_mk", "Dummy CPL MK");
-       client.insertRecord(tableRPS, "RPS001", "study_program", "id", "SP001");
-       client.insertRecord(tableRPS, "RPS001", "study_program", "name", "D4 Teknik Informatika");
-       client.insertRecord(tableRPS, "RPS001", "subject", "id", "SB001");
-       client.insertRecord(tableRPS, "RPS001", "subject", "name", "Pemrograman Berbasis Object");
-       client.insertRecord(tableRPS, "RPS001", "ka_study_program", "id", "LEC001");
-       client.insertRecord(tableRPS, "RPS001", "ka_study_program", "name", "2");
-       client.insertRecord(tableRPS, "RPS001", "detail", "created_by", "Doyatama");
-       client.insertRecord(tableRPS, "RPS001", "detail", "created_at", instant.toString());
+    //    client.insertRecord(tableRPS, "RPS001", "main", "id", "RPS001");
+    //    client.insertRecord(tableRPS, "RPS001", "main", "name", "Dummy RPS");
+    //    client.insertRecord(tableRPS, "RPS001", "main", "sks", "3");
+    //    client.insertRecord(tableRPS, "RPS001", "main", "semester", "3");
+    //    client.insertRecord(tableRPS, "RPS001", "main", "cpl_prodi", "Dummy CPL Prodi");
+    //    client.insertRecord(tableRPS, "RPS001", "main", "cpl_mk", "Dummy CPL MK");
+    //    client.insertRecord(tableRPS, "RPS001", "study_program", "id", "SP001");
+    //    client.insertRecord(tableRPS, "RPS001", "study_program", "name", "D4 Teknik Informatika");
+    //    client.insertRecord(tableRPS, "RPS001", "subject", "id", "SB001");
+    //    client.insertRecord(tableRPS, "RPS001", "subject", "name", "Pemrograman Berbasis Object");
+    //    client.insertRecord(tableRPS, "RPS001", "ka_study_program", "id", "LEC001");
+    //    client.insertRecord(tableRPS, "RPS001", "ka_study_program", "name", "2");
+    //    client.insertRecord(tableRPS, "RPS001", "detail", "created_by", "Doyatama");
+    //    client.insertRecord(tableRPS, "RPS001", "detail", "created_at", instant.toString());
 //
 //        // RPS Detail
-       client.insertRecord(tableRPSDetail, "RPSD001", "main", "id", "RPSD001");
-       client.insertRecord(tableRPSDetail, "RPSD001", "main", "week", "2");
-       client.insertRecord(tableRPSDetail, "RPSD001", "rps", "id", "RPS001");
-       client.insertRecord(tableRPSDetail, "RPSD001", "rps", "name", "Dummy RPS");
-       client.insertRecord(tableRPSDetail, "RPSD001", "main", "sub_cp_mk", "Dummy Sub CP MK");
-       client.insertRecord(tableRPSDetail, "RPSD001", "learning_materials", "lm_1", "Dummy Learning Material");
-       client.insertRecord(tableRPSDetail, "RPSD001", "form_learning", "id", "BP001");
-       client.insertRecord(tableRPSDetail, "RPSD001", "form_learning", "name", "Daring");
-       client.insertRecord(tableRPSDetail, "RPSD001", "assignments", "lm_1",  "Dummy Penugasan");
-       client.insertRecord(tableRPSDetail, "RPSD001", "estimated_times", "et_1", "Dummy Estimasi Waktu");
-       client.insertRecord(tableRPSDetail, "RPSD001", "student_learning_experiences", "sle_1", "Dummy Pengalaman Mahasiswa");
-       client.insertRecord(tableRPSDetail, "RPSD001", "assessment_indicators", "ai_1", "Dummy Assessment Indikator");
-       client.insertRecord(tableRPSDetail, "RPSD001", "main", "weight", "3");
-       client.insertRecord(tableRPSDetail, "RPSD001", "detail", "created_by", "Doyatama");
-       client.insertRecord(tableRPSDetail, "RPSD001", "detail", "created_at", instant.toString());
+    //    client.insertRecord(tableRPSDetail, "RPSD001", "main", "id", "RPSD001");
+    //    client.insertRecord(tableRPSDetail, "RPSD001", "main", "week", "2");
+    //    client.insertRecord(tableRPSDetail, "RPSD001", "rps", "id", "RPS001");
+    //    client.insertRecord(tableRPSDetail, "RPSD001", "rps", "name", "Dummy RPS");
+    //    client.insertRecord(tableRPSDetail, "RPSD001", "main", "sub_cp_mk", "Dummy Sub CP MK");
+    //    client.insertRecord(tableRPSDetail, "RPSD001", "learning_materials", "lm_1", "Dummy Learning Material");
+    //    client.insertRecord(tableRPSDetail, "RPSD001", "form_learning", "id", "BP001");
+    //    client.insertRecord(tableRPSDetail, "RPSD001", "form_learning", "name", "Daring");
+    //    client.insertRecord(tableRPSDetail, "RPSD001", "assignments", "lm_1",  "Dummy Penugasan");
+    //    client.insertRecord(tableRPSDetail, "RPSD001", "estimated_times", "et_1", "Dummy Estimasi Waktu");
+    //    client.insertRecord(tableRPSDetail, "RPSD001", "student_learning_experiences", "sle_1", "Dummy Pengalaman Mahasiswa");
+    //    client.insertRecord(tableRPSDetail, "RPSD001", "assessment_indicators", "ai_1", "Dummy Assessment Indikator");
+    //    client.insertRecord(tableRPSDetail, "RPSD001", "main", "weight", "3");
+    //    client.insertRecord(tableRPSDetail, "RPSD001", "detail", "created_by", "Doyatama");
+    //    client.insertRecord(tableRPSDetail, "RPSD001", "detail", "created_at", instant.toString());
 //
-//        // RPS
-       String id = "RPS-PBO-001";
-       client.insertRecord(tableRPS, id, "main", "id", id);
-       client.insertRecord(tableRPS, id, "main", "name", "PEMROGRAMAN BERBASIS OBJEK");
-       client.insertRecord(tableRPS, id, "main", "sks", "2");
-       client.insertRecord(tableRPS, id, "main", "semester", "3");
-       client.insertRecord(tableRPS, id, "main", "cpl_prodi", "S8 Menginternalisasi nilai, norma, dan etika akademik.");
-       client.insertRecord(tableRPS, id, "main", "cpl_mk", "Menguasai Konsep OOP, Class dan Object, Enkapsulasi, Inheritance, Abstraksi, Polimorfisme, GUI, database (JDBC), dan Java API; Mampu memahami perbedaan OOP dan struktural; Mampu membuat desain aplikasi menggunakan konsep dan prinsip OOP dengan penuh tanggung jawab serta memperhatikan nilai, norma, dan etika akademik.");
-       client.insertRecord(tableRPS, id, "study_program", "id", "SP001");
-       client.insertRecord(tableRPS, id, "study_program", "name", "D4 Teknik Informatika");
-       client.insertRecord(tableRPS, id, "subject", "id", "SB001");
-       client.insertRecord(tableRPS, id, "subject", "name", "Pemrograman Berbasis Object");
+       // RPS
+//        String id = "RPS-PBO-001";
+//        client.insertRecord(tableRPS, id, "main", "id", id);
+//        client.insertRecord(tableRPS, id, "main", "name", "PEMROGRAMAN BERBASIS OBJEK");
+//        client.insertRecord(tableRPS, id, "main", "sks", "2");
+//        client.insertRecord(tableRPS, id, "main", "semester", "3");
+//        client.insertRecord(tableRPS, id, "main", "cpl_prodi", "S8 Menginternalisasi nilai, norma, dan etika akademik.");
+//        client.insertRecord(tableRPS, id, "main", "cpl_mk", "Menguasai Konsep OOP, Class dan Object, Enkapsulasi, Inheritance, Abstraksi, Polimorfisme, GUI, database (JDBC), dan Java API; Mampu memahami perbedaan OOP dan struktural; Mampu membuat desain aplikasi menggunakan konsep dan prinsip OOP dengan penuh tanggung jawab serta memperhatikan nilai, norma, dan etika akademik.");
+//        client.insertRecord(tableRPS, id, "study_program", "id", "SP001");
+//        client.insertRecord(tableRPS, id, "study_program", "name", "D4 Teknik Informatika");
+//        client.insertRecord(tableRPS, id, "subject", "id", "SB001");
+//        client.insertRecord(tableRPS, id, "subject", "name", "Pemrograman Berbasis Object");
 
             // Create an ObjectMapper instance
-       ObjectMapper objectMapper = new ObjectMapper();
-//
-//        // Create the lecturer objects
-       HashMap<String, String> lecturer1 = new HashMap<String, String>() {{
-           put("id", "Dosen7");
-            put("name", "Banni Satria Andoko, S. Kom., M.MSI");
-           // ... add the rest of the properties
-       }};
-       HashMap<String, String> lecturer2 = new HashMap<String, String>() {{
-           put("id", "Dosen8");
-           put("name", "Priska Choirina, S.S.T., M.Tr.T");
-           // ... add the rest of the properties
-       }};
-       HashMap<String, String> lecturer3 = new HashMap<String, String>() {{
-           put("id", "Dosen1");
-           put("name", "Imam Fahrur Rozi, ST., MT");
-           // ... add the rest of the properties
-       }};
-       HashMap<String, String> lecturer4 = new HashMap<String, String>() {{
-           put("id", "Dosen10");
-           put("name", "ranpo123");
-           // ... add the rest of the properties
-       }};
+//        ObjectMapper objectMapper = new ObjectMapper();
+// //
+// //        // Create the lecturer objects
+//        HashMap<String, String> lecturer1 = new HashMap<String, String>() {{
+//            put("id", "Dosen7");
+//             put("name", "Banni Satria Andoko, S. Kom., M.MSI");
+//            // ... add the rest of the properties
+//        }};
+//        HashMap<String, String> lecturer2 = new HashMap<String, String>() {{
+//            put("id", "Dosen8");
+//            put("name", "Priska Choirina, S.S.T., M.Tr.T");
+//            // ... add the rest of the properties
+//        }};
+//        HashMap<String, String> lecturer3 = new HashMap<String, String>() {{
+//            put("id", "Dosen1");
+//            put("name", "Imam Fahrur Rozi, ST., MT");
+//            // ... add the rest of the properties
+//        }};
+//        HashMap<String, String> lecturer4 = new HashMap<String, String>() {{
+//            put("id", "Dosen10");
+//            put("name", "ranpo123");
+//            // ... add the rest of the properties
+//        }};
 
 
 
-        // Serialize the lecturer objects to JSON strings
-       String lecturerJson1 = objectMapper.writeValueAsString(lecturer1);
-       String lecturerJson2 = objectMapper.writeValueAsString(lecturer2);
-       String lecturerJson3 = objectMapper.writeValueAsString(lecturer3);
-       String lecturerJson4 = objectMapper.writeValueAsString(lecturer4);
+//         // Serialize the lecturer objects to JSON strings
+//        String lecturerJson1 = objectMapper.writeValueAsString(lecturer1);
+//        String lecturerJson2 = objectMapper.writeValueAsString(lecturer2);
+//        String lecturerJson3 = objectMapper.writeValueAsString(lecturer3);
+//        String lecturerJson4 = objectMapper.writeValueAsString(lecturer4);
 
 
-        // Store the JSON strings in HBase
-       client.insertRecord(tableRPS, id, "dev_lecturers", "Dosen7", lecturerJson1);
-       client.insertRecord(tableRPS, id, "dev_lecturers", "Dosen8", lecturerJson2);
-       client.insertRecord(tableRPS, id, "dev_lecturers", "Dosen1", lecturerJson3);
-       client.insertRecord(tableRPS, id, "dev_lecturers", "Dosen10", lecturerJson4);
+//         // Store the JSON strings in HBase
+//        client.insertRecord(tableRPS, id, "dev_lecturers", "Dosen7", lecturerJson1);
+//        client.insertRecord(tableRPS, id, "dev_lecturers", "Dosen8", lecturerJson2);
+//        client.insertRecord(tableRPS, id, "dev_lecturers", "Dosen1", lecturerJson3);
+//        client.insertRecord(tableRPS, id, "dev_lecturers", "Dosen10", lecturerJson4);
 
-       client.insertRecord(tableRPS, id, "detail", "created_by", "Doyatama");
-       client.insertRecord(tableRPS, id, "detail", "created_at", "2024-06-03T17:21:19.853011600Z");
+//        client.insertRecord(tableRPS, id, "detail", "created_by", "Doyatama");
+//        client.insertRecord(tableRPS, id, "detail", "created_at", "2024-06-03T17:21:19.853011600Z");
 
         // RPS Detail
-        List<Map<String, String>> rpsDetailsToInsert = Arrays.asList(
-            new HashMap<String, String>() {{
-                put("main_id", "RPS-PBO-001-1");
-                put("main_week", "1");
-                put("rps_id", "RPS-PBO-001");
-                put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
-                put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
-                put("learning_materials_lm_1", "Penjelasan silabus dan kontrak kuliah; ●Pengantar Konsep Dasar PBO; ●Penjelasan tentang perbedaan paradigma berorientasi objek dengan paradigma struktural");
-                put("form_learning_id", "BP002");
-                put("form_learning_name", "Luring");
-                put("assignments_lm_1", "-");
-                put("estimated_times_et_1", "150");
-                put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
-                put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
-                put("main_weight", "1.0");
-                put("detail_created_by", "Doyatama");
-                put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
-            }},
-            new HashMap<String, String>() {{
-                put("main_id", "RPS-PBO-001-2");
-                put("main_week", "2");
-                put("rps_id", "RPS-PBO-001");
-                put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
-                put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
-                put("learning_materials_lm_1", "Konsep Dasar PBO: •Pengenalan PBO e Perbedaan paradigma berorientasi objek dengan paradigma struktural Konsep dasar PBO: a. Class b. Object c. Enkapsulasi d. Inheritance e. Polimorfisme • Pengenalan pemodelan UML");
-                put("form_learning_id", "BP002");
-                put("form_learning_name", "Luring");
-                put("assignments_lm_1", "-");
-                put("estimated_times_et_1", "150");
-                put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
-                put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
-                put("main_weight", "1.0");
-                put("detail_created_by", "Doyatama");
-                put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
-            }},
-            new HashMap<String, String>() {{
-                put("main_id", "RPS-PBO-001-3");
-                put("main_week", "3");
-                put("rps_id", "RPS-PBO-001");
-                put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
-                put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
-                put("learning_materials_lm_1", "Enkapsulasi: e Konstruktor •Access modifier •Atribut/Method Class •Atribut/Method Instansiasi •Setter dan Getter •UML: Notasi access modifier dan notasi static");
-                put("form_learning_id", "BP002");
-                put("form_learning_name", "Luring");
-                put("assignments_lm_1", "-");
-                put("estimated_times_et_1", "150");
-                put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
-                put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
-                put("main_weight", "1.0");
-                put("detail_created_by", "Doyatama");
-                put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
-            }},
-            new HashMap<String, String>() {{
-                put("main_id", "RPS-PBO-001-4");
-                put("main_week", "4");
-                put("rps_id", "RPS-PBO-001");
-                put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
-                put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
-                put("learning_materials_lm_1", "Relasi Class: •Relasi Has-A (Studi kasus class 1 memiliki hubungan has-a dengan 1 objek dari klass lain) •Penggambaran relasi class dengan diagram class •Relasi Has-A (Studi kasus class 1 memiliki hubungan has-a dengan lebih dari 1 objek dari klass lain)");
-                put("form_learning_id", "BP002");
-                put("form_learning_name", "Luring");
-                put("assignments_lm_1", "-");
-                put("estimated_times_et_1", "150");
-                put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
-                put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
-                put("main_weight", "1.0");
-                put("detail_created_by", "Doyatama");
-                put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
-            }},
-            new HashMap<String, String>() {{
-                put("main_id", "RPS-PBO-001-5");
-                put("main_week", "5");
-                put("rps_id", "RPS-PBO-001");
-                put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
-                put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
-                put("learning_materials_lm_1", "Kuis 1 Materi pertemuan 1- 4");
-                put("form_learning_id", "BP002");
-                put("form_learning_name", "Luring");
-                put("assignments_lm_1", "-");
-                put("estimated_times_et_1", "150");
-                put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
-                put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
-                put("main_weight", "1.0");
-                put("detail_created_by", "Doyatama");
-                put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
-            }},
-                new HashMap<String, String>() {{
-                    put("main_id", "RPS-PBO-001-6");
-                    put("main_week", "6");
-                    put("rps_id", "RPS-PBO-001");
-                    put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
-                    put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
-                    put("learning_materials_lm_1", "Inheritance: Pengertian Inheritance 'Single dan Multilevell Inheritance 'Super keyword eUML:relasi inheritance");
-                    put("form_learning_id", "BP002");
-                    put("form_learning_name", "Luring");
-                    put("assignments_lm_1", "-");
-                    put("estimated_times_et_1", "150");
-                    put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
-                    put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
-                    put("main_weight", "1.0");
-                    put("detail_created_by", "Doyatama");
-                    put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
-                }},
-                new HashMap<String, String>() {{
-                    put("main_id", "RPS-PBO-001-7");
-                    put("main_week", "7");
-                    put("rps_id", "RPS-PBO-001");
-                    put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
-                    put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
-                    put("learning_materials_lm_1", "Inheritance: Pengertian Inheritance 'Single dan Multilevell Inheritance 'Super keyword eUML:relasi inheritance");
-                    put("form_learning_id", "BP002");
-                    put("form_learning_name", "Luring");
-                    put("assignments_lm_1", "-");
-                    put("estimated_times_et_1", "150");
-                    put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
-                    put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
-                    put("main_weight", "1.0");
-                    put("detail_created_by", "Doyatama");
-                    put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
-                }},
-                new HashMap<String, String>() {{
-                    put("main_id", "RPS-PBO-001-8");
-                    put("main_week", "8");
-                    put("rps_id", "RPS-PBO-001");
-                    put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
-                    put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
-                    put("learning_materials_lm_1", "UTS •Materi 6-8 pertemuan •Overriding •Overloading");
-                    put("form_learning_id", "BP002");
-                    put("form_learning_name", "Luring");
-                    put("assignments_lm_1", "-");
-                    put("estimated_times_et_1", "150");
-                    put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
-                    put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
-                    put("main_weight", "1.0");
-                    put("detail_created_by", "Doyatama");
-                    put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
-                }},
-                new HashMap<String, String>() {{
-                    put("main_id", "RPS-PBO-001-9");
-                    put("main_week", "9");
-                    put("rps_id", "RPS-PBO-001");
-                    put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
-                    put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
-                    put("learning_materials_lm_1", "Overriding & Overloading");
-                    put("form_learning_id", "BP002");
-                    put("form_learning_name", "Luring");
-                    put("assignments_lm_1", "-");
-                    put("estimated_times_et_1", "150");
-                    put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
-                    put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
-                    put("main_weight", "1.0");
-                    put("detail_created_by", "Doyatama");
-                    put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
-                }},
-                new HashMap<String, String>() {{
-                    put("main_id", "RPS-PBO-001-10");
-                    put("main_week", "10");
-                    put("rps_id", "RPS-PBO-001");
-                    put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
-                    put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
-                    put("learning_materials_lm_1", "Abstract Class: Abstract Konsep Class Abstract method UML:notasi abstract");
-                    put("form_learning_id", "BP002");
-                    put("form_learning_name", "Luring");
-                    put("assignments_lm_1", "-");
-                    put("estimated_times_et_1", "150");
-                    put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
-                    put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
-                    put("main_weight", "1.0");
-                    put("detail_created_by", "Doyatama");
-                    put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
-                }},
-                new HashMap<String, String>() {{
-                    put("main_id", "RPS-PBO-001-11");
-                    put("main_week", "11");
-                    put("rps_id", "RPS-PBO-001");
-                    put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
-                    put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
-                    put("learning_materials_lm_1", "Interface: • Konsep Interface •Beda Interface dan Abstract Class Pembuatan interface implements interface •UML:notasi yang ke interface dan relasi implements");
-                    put("form_learning_id", "BP002");
-                    put("form_learning_name", "Luring");
-                    put("assignments_lm_1", "-");
-                    put("estimated_times_et_1", "150");
-                    put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
-                    put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
-                    put("main_weight", "1.0");
-                    put("detail_created_by", "Doyatama");
-                    put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
-                }},
-                new HashMap<String, String>() {{
-                    put("main_id", "RPS-PBO-001-12");
-                    put("main_week", "12");
-                    put("rps_id", "RPS-PBO-001");
-                    put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
-                    put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
-                    put("learning_materials_lm_1", "Polimorfisme: Konsep polimorfisme oheterogeneous collection polymorphic arguments evirtual method invocation •casting object");
-                    put("form_learning_id", "BP002");
-                    put("form_learning_name", "Luring");
-                    put("assignments_lm_1", "-");
-                    put("estimated_times_et_1", "150");
-                    put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
-                    put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
-                    put("main_weight", "1.0");
-                    put("detail_created_by", "Doyatama");
-                    put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
-                }},
-                new HashMap<String, String>() {{
-                    put("main_id", "RPS-PBO-001-13");
-                    put("main_week", "13");
-                    put("rps_id", "RPS-PBO-001");
-                    put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
-                    put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
-                    put("learning_materials_lm_1", "Materi 09-12 pertemuan");
-                    put("form_learning_id", "BP002");
-                    put("form_learning_name", "Luring");
-                    put("assignments_lm_1", "-");
-                    put("estimated_times_et_1", "150");
-                    put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
-                    put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
-                    put("main_weight", "1.0");
-                    put("detail_created_by", "Doyatama");
-                    put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
-                }},
-                new HashMap<String, String>() {{
-                    put("main_id", "RPS-PBO-001-14");
-                    put("main_week", "14");
-                    put("rps_id", "RPS-PBO-001");
-                    put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
-                    put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
-                    put("learning_materials_lm_1", "GUI: Fra me, Textfield, Menu, Button, Label, Combobox, Radiobutton, Checkbox Event Handling (actionperformed)");
-                    put("form_learning_id", "BP002");
-                    put("form_learning_name", "Luring");
-                    put("assignments_lm_1", "-");
-                    put("estimated_times_et_1", "150");
-                    put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
-                    put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
-                    put("main_weight", "1.0");
-                    put("detail_created_by", "Doyatama");
-                    put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
-                }},
-                new HashMap<String, String>() {{
-                    put("main_id", "RPS-PBO-001-15");
-                    put("main_week", "15");
-                    put("rps_id", "RPS-PBO-001");
-                    put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
-                    put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
-                    put("learning_materials_lm_1", "GUi, Database, dan Java API: 'JDBC MySQL 'CRUD dengan GUI •Java Docs");
-                    put("form_learning_id", "BP002");
-                    put("form_learning_name", "Luring");
-                    put("assignments_lm_1", "-");
-                    put("estimated_times_et_1", "150");
-                    put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
-                    put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
-                    put("main_weight", "1.0");
-                    put("detail_created_by", "Doyatama");
-                    put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
-                }},
-                new HashMap<String, String>() {{
-                    put("main_id", "RPS-PBO-001-16");
-                    put("main_week", "16");
-                    put("rps_id", "RPS-PBO-001");
-                    put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
-                    put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
-                    put("learning_materials_lm_1", "Tugas Besar: Perancangan diagram class dari kasus diberikan. yang diberikan");
-                    put("form_learning_id", "BP002");
-                    put("form_learning_name", "Luring");
-                    put("assignments_lm_1", "-");
-                    put("estimated_times_et_1", "150");
-                    put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
-                    put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
-                    put("main_weight", "1.0");
-                    put("detail_created_by", "Doyatama");
-                    put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
-                }},
-                new HashMap<String, String>() {{
-                    put("main_id", "RPS-PBO-001-17");
-                    put("main_week", "17");
-                    put("rps_id", "RPS-PBO-001");
-                    put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
-                    put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
-                    put("learning_materials_lm_1", "UAS: e Materi mulai pertemuan 1-16");
-                    put("form_learning_id", "BP002");
-                    put("form_learning_name", "Luring");
-                    put("assignments_lm_1", "-");
-                    put("estimated_times_et_1", "150");
-                    put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
-                    put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
-                    put("main_weight", "1.0");
-                    put("detail_created_by", "Doyatama");
-                    put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
-                }}
-        );
-        for (Map<String, String> rpsDetail : rpsDetailsToInsert) {
-            String RPSDetailid = rpsDetail.get("main_id");
-            client.insertRecord(tableRPSDetail, RPSDetailid, "main", "id", rpsDetail.get("main_id"));
-            client.insertRecord(tableRPSDetail, RPSDetailid, "main", "week", rpsDetail.get("main_week"));
-            client.insertRecord(tableRPSDetail, RPSDetailid, "rps", "id", rpsDetail.get("rps_id"));
-            client.insertRecord(tableRPSDetail, RPSDetailid, "rps", "name", rpsDetail.get("rps_name"));
-            client.insertRecord(tableRPSDetail, RPSDetailid, "main", "sub_cp_mk", rpsDetail.get("main_sub_cp_mk"));
-            client.insertRecord(tableRPSDetail, RPSDetailid, "learning_materials", "lm_1", rpsDetail.get("learning_materials_lm_1"));
-            client.insertRecord(tableRPSDetail, RPSDetailid, "form_learning", "id", rpsDetail.get("form_learning_id"));
-            client.insertRecord(tableRPSDetail, RPSDetailid, "form_learning", "name", rpsDetail.get("form_learning_name"));
-            client.insertRecord(tableRPSDetail, RPSDetailid, "assignments", "lm_1", rpsDetail.get("assignments_lm_1"));
-            client.insertRecord(tableRPSDetail, RPSDetailid, "estimated_times", "et_1", rpsDetail.get("estimated_times_et_1"));
-            client.insertRecord(tableRPSDetail, RPSDetailid, "student_learning_experiences", "sle_1", rpsDetail.get("student_learning_experiences_sle_1"));
-            client.insertRecord(tableRPSDetail, RPSDetailid, "assessment_indicators", "ai_1", rpsDetail.get("assessment_indicators_ai_1"));
-            client.insertRecord(tableRPSDetail, RPSDetailid, "main", "weight", rpsDetail.get("main_weight"));
-            client.insertRecord(tableRPSDetail, RPSDetailid, "detail", "created_by", rpsDetail.get("detail_created_by"));
-        }
+        // List<Map<String, String>> rpsDetailsToInsert = Arrays.asList(
+        //     new HashMap<String, String>() {{
+        //         put("main_id", "RPS-PBO-001-1");
+        //         put("main_week", "1");
+        //         put("rps_id", "RPS-PBO-001");
+        //         put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
+        //         put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
+        //         put("learning_materials_lm_1", "Penjelasan silabus dan kontrak kuliah; ●Pengantar Konsep Dasar PBO; ●Penjelasan tentang perbedaan paradigma berorientasi objek dengan paradigma struktural");
+        //         put("form_learning_id", "BP002");
+        //         put("form_learning_name", "Luring");
+        //         put("assignments_lm_1", "-");
+        //         put("estimated_times_et_1", "150");
+        //         put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
+        //         put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
+        //         put("main_weight", "1.0");
+        //         put("detail_created_by", "Doyatama");
+        //         put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
+        //     }},
+        //     new HashMap<String, String>() {{
+        //         put("main_id", "RPS-PBO-001-2");
+        //         put("main_week", "2");
+        //         put("rps_id", "RPS-PBO-001");
+        //         put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
+        //         put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
+        //         put("learning_materials_lm_1", "Konsep Dasar PBO: •Pengenalan PBO e Perbedaan paradigma berorientasi objek dengan paradigma struktural Konsep dasar PBO: a. Class b. Object c. Enkapsulasi d. Inheritance e. Polimorfisme • Pengenalan pemodelan UML");
+        //         put("form_learning_id", "BP002");
+        //         put("form_learning_name", "Luring");
+        //         put("assignments_lm_1", "-");
+        //         put("estimated_times_et_1", "150");
+        //         put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
+        //         put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
+        //         put("main_weight", "1.0");
+        //         put("detail_created_by", "Doyatama");
+        //         put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
+        //     }},
+        //     new HashMap<String, String>() {{
+        //         put("main_id", "RPS-PBO-001-3");
+        //         put("main_week", "3");
+        //         put("rps_id", "RPS-PBO-001");
+        //         put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
+        //         put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
+        //         put("learning_materials_lm_1", "Enkapsulasi: e Konstruktor •Access modifier •Atribut/Method Class •Atribut/Method Instansiasi •Setter dan Getter •UML: Notasi access modifier dan notasi static");
+        //         put("form_learning_id", "BP002");
+        //         put("form_learning_name", "Luring");
+        //         put("assignments_lm_1", "-");
+        //         put("estimated_times_et_1", "150");
+        //         put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
+        //         put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
+        //         put("main_weight", "1.0");
+        //         put("detail_created_by", "Doyatama");
+        //         put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
+        //     }},
+        //     new HashMap<String, String>() {{
+        //         put("main_id", "RPS-PBO-001-4");
+        //         put("main_week", "4");
+        //         put("rps_id", "RPS-PBO-001");
+        //         put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
+        //         put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
+        //         put("learning_materials_lm_1", "Relasi Class: •Relasi Has-A (Studi kasus class 1 memiliki hubungan has-a dengan 1 objek dari klass lain) •Penggambaran relasi class dengan diagram class •Relasi Has-A (Studi kasus class 1 memiliki hubungan has-a dengan lebih dari 1 objek dari klass lain)");
+        //         put("form_learning_id", "BP002");
+        //         put("form_learning_name", "Luring");
+        //         put("assignments_lm_1", "-");
+        //         put("estimated_times_et_1", "150");
+        //         put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
+        //         put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
+        //         put("main_weight", "1.0");
+        //         put("detail_created_by", "Doyatama");
+        //         put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
+        //     }},
+        //     new HashMap<String, String>() {{
+        //         put("main_id", "RPS-PBO-001-5");
+        //         put("main_week", "5");
+        //         put("rps_id", "RPS-PBO-001");
+        //         put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
+        //         put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
+        //         put("learning_materials_lm_1", "Kuis 1 Materi pertemuan 1- 4");
+        //         put("form_learning_id", "BP002");
+        //         put("form_learning_name", "Luring");
+        //         put("assignments_lm_1", "-");
+        //         put("estimated_times_et_1", "150");
+        //         put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
+        //         put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
+        //         put("main_weight", "1.0");
+        //         put("detail_created_by", "Doyatama");
+        //         put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
+        //     }},
+        //         new HashMap<String, String>() {{
+        //             put("main_id", "RPS-PBO-001-6");
+        //             put("main_week", "6");
+        //             put("rps_id", "RPS-PBO-001");
+        //             put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
+        //             put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
+        //             put("learning_materials_lm_1", "Inheritance: Pengertian Inheritance 'Single dan Multilevell Inheritance 'Super keyword eUML:relasi inheritance");
+        //             put("form_learning_id", "BP002");
+        //             put("form_learning_name", "Luring");
+        //             put("assignments_lm_1", "-");
+        //             put("estimated_times_et_1", "150");
+        //             put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
+        //             put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
+        //             put("main_weight", "1.0");
+        //             put("detail_created_by", "Doyatama");
+        //             put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
+        //         }},
+        //         new HashMap<String, String>() {{
+        //             put("main_id", "RPS-PBO-001-7");
+        //             put("main_week", "7");
+        //             put("rps_id", "RPS-PBO-001");
+        //             put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
+        //             put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
+        //             put("learning_materials_lm_1", "Inheritance: Pengertian Inheritance 'Single dan Multilevell Inheritance 'Super keyword eUML:relasi inheritance");
+        //             put("form_learning_id", "BP002");
+        //             put("form_learning_name", "Luring");
+        //             put("assignments_lm_1", "-");
+        //             put("estimated_times_et_1", "150");
+        //             put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
+        //             put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
+        //             put("main_weight", "1.0");
+        //             put("detail_created_by", "Doyatama");
+        //             put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
+        //         }},
+        //         new HashMap<String, String>() {{
+        //             put("main_id", "RPS-PBO-001-8");
+        //             put("main_week", "8");
+        //             put("rps_id", "RPS-PBO-001");
+        //             put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
+        //             put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
+        //             put("learning_materials_lm_1", "UTS •Materi 6-8 pertemuan •Overriding •Overloading");
+        //             put("form_learning_id", "BP002");
+        //             put("form_learning_name", "Luring");
+        //             put("assignments_lm_1", "-");
+        //             put("estimated_times_et_1", "150");
+        //             put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
+        //             put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
+        //             put("main_weight", "1.0");
+        //             put("detail_created_by", "Doyatama");
+        //             put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
+        //         }},
+        //         new HashMap<String, String>() {{
+        //             put("main_id", "RPS-PBO-001-9");
+        //             put("main_week", "9");
+        //             put("rps_id", "RPS-PBO-001");
+        //             put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
+        //             put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
+        //             put("learning_materials_lm_1", "Overriding & Overloading");
+        //             put("form_learning_id", "BP002");
+        //             put("form_learning_name", "Luring");
+        //             put("assignments_lm_1", "-");
+        //             put("estimated_times_et_1", "150");
+        //             put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
+        //             put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
+        //             put("main_weight", "1.0");
+        //             put("detail_created_by", "Doyatama");
+        //             put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
+        //         }},
+        //         new HashMap<String, String>() {{
+        //             put("main_id", "RPS-PBO-001-10");
+        //             put("main_week", "10");
+        //             put("rps_id", "RPS-PBO-001");
+        //             put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
+        //             put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
+        //             put("learning_materials_lm_1", "Abstract Class: Abstract Konsep Class Abstract method UML:notasi abstract");
+        //             put("form_learning_id", "BP002");
+        //             put("form_learning_name", "Luring");
+        //             put("assignments_lm_1", "-");
+        //             put("estimated_times_et_1", "150");
+        //             put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
+        //             put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
+        //             put("main_weight", "1.0");
+        //             put("detail_created_by", "Doyatama");
+        //             put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
+        //         }},
+        //         new HashMap<String, String>() {{
+        //             put("main_id", "RPS-PBO-001-11");
+        //             put("main_week", "11");
+        //             put("rps_id", "RPS-PBO-001");
+        //             put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
+        //             put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
+        //             put("learning_materials_lm_1", "Interface: • Konsep Interface •Beda Interface dan Abstract Class Pembuatan interface implements interface •UML:notasi yang ke interface dan relasi implements");
+        //             put("form_learning_id", "BP002");
+        //             put("form_learning_name", "Luring");
+        //             put("assignments_lm_1", "-");
+        //             put("estimated_times_et_1", "150");
+        //             put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
+        //             put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
+        //             put("main_weight", "1.0");
+        //             put("detail_created_by", "Doyatama");
+        //             put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
+        //         }},
+        //         new HashMap<String, String>() {{
+        //             put("main_id", "RPS-PBO-001-12");
+        //             put("main_week", "12");
+        //             put("rps_id", "RPS-PBO-001");
+        //             put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
+        //             put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
+        //             put("learning_materials_lm_1", "Polimorfisme: Konsep polimorfisme oheterogeneous collection polymorphic arguments evirtual method invocation •casting object");
+        //             put("form_learning_id", "BP002");
+        //             put("form_learning_name", "Luring");
+        //             put("assignments_lm_1", "-");
+        //             put("estimated_times_et_1", "150");
+        //             put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
+        //             put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
+        //             put("main_weight", "1.0");
+        //             put("detail_created_by", "Doyatama");
+        //             put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
+        //         }},
+        //         new HashMap<String, String>() {{
+        //             put("main_id", "RPS-PBO-001-13");
+        //             put("main_week", "13");
+        //             put("rps_id", "RPS-PBO-001");
+        //             put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
+        //             put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
+        //             put("learning_materials_lm_1", "Materi 09-12 pertemuan");
+        //             put("form_learning_id", "BP002");
+        //             put("form_learning_name", "Luring");
+        //             put("assignments_lm_1", "-");
+        //             put("estimated_times_et_1", "150");
+        //             put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
+        //             put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
+        //             put("main_weight", "1.0");
+        //             put("detail_created_by", "Doyatama");
+        //             put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
+        //         }},
+        //         new HashMap<String, String>() {{
+        //             put("main_id", "RPS-PBO-001-14");
+        //             put("main_week", "14");
+        //             put("rps_id", "RPS-PBO-001");
+        //             put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
+        //             put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
+        //             put("learning_materials_lm_1", "GUI: Fra me, Textfield, Menu, Button, Label, Combobox, Radiobutton, Checkbox Event Handling (actionperformed)");
+        //             put("form_learning_id", "BP002");
+        //             put("form_learning_name", "Luring");
+        //             put("assignments_lm_1", "-");
+        //             put("estimated_times_et_1", "150");
+        //             put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
+        //             put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
+        //             put("main_weight", "1.0");
+        //             put("detail_created_by", "Doyatama");
+        //             put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
+        //         }},
+        //         new HashMap<String, String>() {{
+        //             put("main_id", "RPS-PBO-001-15");
+        //             put("main_week", "15");
+        //             put("rps_id", "RPS-PBO-001");
+        //             put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
+        //             put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
+        //             put("learning_materials_lm_1", "GUi, Database, dan Java API: 'JDBC MySQL 'CRUD dengan GUI •Java Docs");
+        //             put("form_learning_id", "BP002");
+        //             put("form_learning_name", "Luring");
+        //             put("assignments_lm_1", "-");
+        //             put("estimated_times_et_1", "150");
+        //             put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
+        //             put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
+        //             put("main_weight", "1.0");
+        //             put("detail_created_by", "Doyatama");
+        //             put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
+        //         }},
+        //         new HashMap<String, String>() {{
+        //             put("main_id", "RPS-PBO-001-16");
+        //             put("main_week", "16");
+        //             put("rps_id", "RPS-PBO-001");
+        //             put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
+        //             put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
+        //             put("learning_materials_lm_1", "Tugas Besar: Perancangan diagram class dari kasus diberikan. yang diberikan");
+        //             put("form_learning_id", "BP002");
+        //             put("form_learning_name", "Luring");
+        //             put("assignments_lm_1", "-");
+        //             put("estimated_times_et_1", "150");
+        //             put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
+        //             put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
+        //             put("main_weight", "1.0");
+        //             put("detail_created_by", "Doyatama");
+        //             put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
+        //         }},
+        //         new HashMap<String, String>() {{
+        //             put("main_id", "RPS-PBO-001-17");
+        //             put("main_week", "17");
+        //             put("rps_id", "RPS-PBO-001");
+        //             put("rps_name", "PEMROGRAMAN BERBASIS OBJEK");
+        //             put("main_sub_cp_mk", ".Mahasiswa mampu memahami isi silabus\ndan kontrak kuliah;\n•Mahasiswa\nmemahami\ndasar PBO;\n• Mahasiswa\nmembedakan\nmampu\nkonsep\nmampu\nparadigma berorientasi\nobjek\ndengan\nparadigma struktural.");
+        //             put("learning_materials_lm_1", "UAS: e Materi mulai pertemuan 1-16");
+        //             put("form_learning_id", "BP002");
+        //             put("form_learning_name", "Luring");
+        //             put("assignments_lm_1", "-");
+        //             put("estimated_times_et_1", "150");
+        //             put("student_learning_experiences_sle_1", "en engar an materi dari dosen dan berdiskusi; Diskusi menerapkan konsep dasar PBO dipandu materi dosen dengan presentasi pengampu mata kuliah");
+        //             put("assessment_indicators_ai_1", "• Ketepatan menjelaskan dasar PBO; Ketepatan menjelaskan konsep dan memberi studi kasus perbedaan tentang paradigma berorientasi objek denga n paradigma struktural;");
+        //             put("main_weight", "1.0");
+        //             put("detail_created_by", "Doyatama");
+        //             put("detail_created_at", "2024-06-03T17:21:19.853011600Z");
+        //         }}
+        // );
+        // for (Map<String, String> rpsDetail : rpsDetailsToInsert) {
+        //     String RPSDetailid = rpsDetail.get("main_id");
+        //     client.insertRecord(tableRPSDetail, RPSDetailid, "main", "id", rpsDetail.get("main_id"));
+        //     client.insertRecord(tableRPSDetail, RPSDetailid, "main", "week", rpsDetail.get("main_week"));
+        //     client.insertRecord(tableRPSDetail, RPSDetailid, "rps", "id", rpsDetail.get("rps_id"));
+        //     client.insertRecord(tableRPSDetail, RPSDetailid, "rps", "name", rpsDetail.get("rps_name"));
+        //     client.insertRecord(tableRPSDetail, RPSDetailid, "main", "sub_cp_mk", rpsDetail.get("main_sub_cp_mk"));
+        //     client.insertRecord(tableRPSDetail, RPSDetailid, "learning_materials", "lm_1", rpsDetail.get("learning_materials_lm_1"));
+        //     client.insertRecord(tableRPSDetail, RPSDetailid, "form_learning", "id", rpsDetail.get("form_learning_id"));
+        //     client.insertRecord(tableRPSDetail, RPSDetailid, "form_learning", "name", rpsDetail.get("form_learning_name"));
+        //     client.insertRecord(tableRPSDetail, RPSDetailid, "assignments", "lm_1", rpsDetail.get("assignments_lm_1"));
+        //     client.insertRecord(tableRPSDetail, RPSDetailid, "estimated_times", "et_1", rpsDetail.get("estimated_times_et_1"));
+        //     client.insertRecord(tableRPSDetail, RPSDetailid, "student_learning_experiences", "sle_1", rpsDetail.get("student_learning_experiences_sle_1"));
+        //     client.insertRecord(tableRPSDetail, RPSDetailid, "assessment_indicators", "ai_1", rpsDetail.get("assessment_indicators_ai_1"));
+        //     client.insertRecord(tableRPSDetail, RPSDetailid, "main", "weight", rpsDetail.get("main_weight"));
+        //     client.insertRecord(tableRPSDetail, RPSDetailid, "detail", "created_by", rpsDetail.get("detail_created_by"));
+        // }
 
 //         //insert question
         for (int i = 0; i <100; i++) {

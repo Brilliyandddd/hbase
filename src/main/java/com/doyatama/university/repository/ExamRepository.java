@@ -66,8 +66,8 @@ public class ExamRepository {
             }
         }
 
-        client.insertRecord(tableExam, rowKey, "rps", "id", exam.getRps().getId());
-        client.insertRecord(tableExam, rowKey, "rps", "name", exam.getRps().getName());
+        client.insertRecord(tableExam, rowKey, "rps", "id", exam.getRps().getIdRps());
+        client.insertRecord(tableExam, rowKey, "rps", "name", exam.getRps().getNameRps());
 
         // Get time now
         ZoneId zoneId = ZoneId.of("Asia/Jakarta");
@@ -146,8 +146,8 @@ public class ExamRepository {
             }
         }
 
-        client.insertRecord(tableExam, examId, "rps", "id", exam.getRps().getId());
-        client.insertRecord(tableExam, examId, "rps", "name", exam.getRps().getName());
+        client.insertRecord(tableExam, examId, "rps", "id", exam.getRps().getIdRps());
+        client.insertRecord(tableExam, examId, "rps", "name", exam.getRps().getNameRps());
 
         // Get time now
         ZoneId zoneId = ZoneId.of("Asia/Jakarta");

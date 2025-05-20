@@ -3,46 +3,58 @@ package com.doyatama.university.model;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class RPS {
-    private String id;
-    private String name;
+    private String idRps;
+    private String nameRps;
     private Integer sks;
     private Integer semester;
     private String cplProdi;
     private String cplMk;
     private Instant created_at;
 
-    private List<LearningMedia> learningMedia;
-    private List<Lecture> lecture;
+    private LearningMedia learningMediaSoftware;
+    private LearningMedia learningMediaHardware;
+    private Map<String , LearningMedia> typeLearningMedia;
+    private Lecture developerLecturer;
+    private Lecture coordinatorLecturer;
+    private Lecture instructorLecturer;
+    private Map<String, Lecture> roleLecturers;
+
 
     // private List<String> mediaPembelajaran = new ArrayList<>();
     private StudyProgram studyProgram;
-    private Subject idSubject;
+    private Subject subject;
     // private List<Lecture> lecturers = new ArrayList<>();
     // private List<RPSDetail> rpsDetails = new ArrayList<>();
 
     public RPS() {}
 
-    public RPS(String id, String name, Integer sks, Integer semester, String cplProdi, String cplMk, List<LearningMedia> learningMedia, List<Lecture> lecture, Instant created_at) {
-        this.id = id;
-        this.name = name;
+    public RPS(String idRps, String nameRps, Integer sks, Integer semester, String cplProdi, String cplMk, LearningMedia learningMediaSoftware,LearningMedia learningMediaHardware, Lecture developerLecturer, Lecture coordinatorLecturer, Lecture instructorLecturer,StudyProgram studyProgram,Subject subject, Instant created_at) {
+        this.idRps = idRps;
+        this.nameRps = nameRps;
         this.sks = sks;
         this.semester = semester;
         this.cplProdi = cplProdi;
         this.cplMk = cplMk;
-        this.learningMedia = learningMedia;
-        this.lecture = lecture;
+        this.learningMediaSoftware = learningMediaSoftware;
+        this.learningMediaHardware = learningMediaHardware;
+        this.developerLecturer = developerLecturer;
+        this.coordinatorLecturer = coordinatorLecturer;
+        this.instructorLecturer = instructorLecturer;
+        this.studyProgram = studyProgram;
+        this.subject = subject;
         this.created_at = created_at;
     }
 
     // Standard Getters & Setters
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public String getIdRps() { return idRps; }
+    public void setIdRps(String idRps) { this.idRps = idRps; }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public String getNameRps() { return nameRps; }
+    public void setNameRps(String nameRps) { this.nameRps = nameRps; }
 
     public Integer getSks() { return sks; }
     public void setSks(Integer sks) { this.sks = sks; }
@@ -59,12 +71,39 @@ public class RPS {
     public Instant getCreateAt() { return created_at; }
     public void setCreatedAt(Instant created_at) { this.created_at = created_at; }
 
-    public List<LearningMedia> getLearningMedia() { return learningMedia; }
-    public void setLearningMedia(List<LearningMedia> learningMedia) { this.learningMedia = learningMedia; }
-    
-    public List<Lecture> getLecture() {return lecture; }
-    public void setLecture (List<Lecture> lecture) {this.lecture = lecture; }
+    public LearningMedia getLearningMediaSoftware() { return learningMediaSoftware; }
+    public void setLearningMediaSoftware(LearningMedia learningMediaSoftware) { this.learningMediaSoftware = learningMediaSoftware; }
 
+    public LearningMedia getLearningMediaHardware() { return learningMediaHardware; }
+    public void setLearningMediaHardware(LearningMedia learningMediaHardware) { this.learningMediaHardware = learningMediaHardware; }
+
+    public Map<String, LearningMedia> getTypeLearningMedia(){
+        return typeLearningMedia;
+    }
+
+    public void setTypeLearningMedia(Map<String, LearningMedia> typeLearninngMedia){
+        this.typeLearningMedia = typeLearninngMedia;
+    }
+
+    public Lecture getDeveloperLecturer() { return developerLecturer; }
+    public void setDeveloperLecturer(Lecture developerLecturer) { this.developerLecturer = developerLecturer; }
+
+    public Lecture getCoordinatorLecturer() { return coordinatorLecturer; }
+    public void setCoordinatorLecturer(Lecture coordinatorLecturer) { this.coordinatorLecturer = coordinatorLecturer; }
+
+    public Lecture getInstructorLecturer() { return instructorLecturer; }
+    public void setInstructorLecturer(Lecture instructorLecturer) { this.instructorLecturer = instructorLecturer; }
+    
+    // public List<Lecture> getLecture() {return lecture; }
+    // public void setLecture (List<Lecture> lecture) {this.lecture = lecture; }
+
+    public Map<String, Lecture> getRoleLecturers() {
+        return roleLecturers;
+    }
+    
+    public void setRoleLecturers(Map<String, Lecture> roleLecturers) {
+        this.roleLecturers = roleLecturers;
+    }
     // public List<String> getMandatorys() {
     //     return mandatory;
     // }
@@ -87,8 +126,8 @@ public class RPS {
     public StudyProgram getStudyProgram() { return studyProgram; }
     public void setStudyProgram(StudyProgram studyProgram) { this.studyProgram = studyProgram; }
 
-    public Subject getSubject() { return idSubject; }
-    public void setSubject(Subject idSubject) { this.idSubject = idSubject; }
+    public Subject getSubject() { return subject; }
+    public void setSubject(Subject subject) { this.subject = subject; }
 
     // public List<Lecture> getLecturers() { return lecturers; }
     // public void setLecturers(List<Lecture> lecturers) {
@@ -102,14 +141,14 @@ public class RPS {
 
     // Validasi minimum
     public boolean isValid() {
-        return id != null && name != null && sks != null && semester != null && cplProdi != null && cplMk != null;
+        return idRps != null && nameRps != null && sks != null && semester != null && cplProdi != null && cplMk != null;
     }
 
     // Setter dinamis untuk import Excel
     public void set(String fieldName, String value) {
         switch (fieldName) {
-            case "id": this.id = value; break;
-            case "name": this.name = value; break;
+            case "idRps": this.idRps = value; break;
+            case "nameRps": this.nameRps = value; break;
             case "sks": this.sks = Integer.parseInt(value); break;
             case "semester": this.semester = Integer.parseInt(value); break;
             case "cplProdi": this.cplProdi = value; break;

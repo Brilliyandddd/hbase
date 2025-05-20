@@ -105,7 +105,7 @@ public class ExerciseService {
         ZonedDateTime zonedDateTime = ZonedDateTime.now(zoneId);
         Instant instant = zonedDateTime.toInstant();
 
-        if ( rpsResponse.getName() != null) {
+        if ( rpsResponse.getNameRps() != null) {
 
             exercise.setName(exerciseRequest.getName());
             exercise.setDescription(exerciseRequest.getDescription());
@@ -137,7 +137,7 @@ public class ExerciseService {
         List<Question> questionList = questionRepository.findAllById(exerciseRequest.getQuestions());
         RPS rpsResponse = rpsRepository.findById(exerciseRequest.getRps_id());
 
-        if (questionList.size() != 0 && rpsResponse.getName() != null) {
+        if (questionList.size() != 0 && rpsResponse.getNameRps() != null) {
             exercise.setName(exerciseRequest.getName());
             exercise.setDescription(exerciseRequest.getDescription());
             exercise.setMin_grade(exerciseRequest.getMin_grade());

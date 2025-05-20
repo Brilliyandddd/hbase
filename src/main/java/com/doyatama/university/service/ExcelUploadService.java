@@ -51,10 +51,10 @@ public class ExcelUploadService {
                     Cell cell = cellIterator.next();
                     switch (cellIndex) {
                         case 0:
-                            rps.setId(cell.getStringCellValue());
+                            rps.setIdRps(cell.getStringCellValue());
                             break;
                         case 1:
-                            rps.setName(cell.getStringCellValue());
+                            rps.setNameRps(cell.getStringCellValue());
                             break;
                         case 2:
                             rps.setSks((int) cell.getNumericCellValue());
@@ -128,8 +128,8 @@ public class ExcelUploadService {
                             cell = cellIterator.next(); // Move to the next cell for subject name
                             String rpsName = cell.getStringCellValue().trim();
                             RPS rps = new RPS();
-                            rps.setId(rpsId);
-                            rps.setName(rpsName);
+                            rps.setIdRps(rpsId);
+                            rps.setNameRps(rpsName);
                             rpsDetail.setRps(rps);
                             break;
                         case 3:

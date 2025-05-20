@@ -67,8 +67,8 @@ public class ExerciseRepository {
             }
         }
 
-        client.insertRecord(tableExercise, rowKey, "rps", "id", exercise.getRps().getId());
-        client.insertRecord(tableExercise, rowKey, "rps", "name", exercise.getRps().getName());
+        client.insertRecord(tableExercise, rowKey, "rps", "id", exercise.getRps().getIdRps());
+        client.insertRecord(tableExercise, rowKey, "rps", "name", exercise.getRps().getNameRps());
 
         // Get time now
         ZoneId zoneId = ZoneId.of("Asia/Jakarta");
@@ -149,8 +149,8 @@ public class ExerciseRepository {
             }
         }
 
-        client.insertRecord(tableExercise, exerciseId, "rps", "id", exercise.getRps().getId());
-        client.insertRecord(tableExercise, exerciseId, "rps", "name", exercise.getRps().getName());
+        client.insertRecord(tableExercise, exerciseId, "rps", "id", exercise.getRps().getIdRps());
+        client.insertRecord(tableExercise, exerciseId, "rps", "name", exercise.getRps().getNameRps());
 
         // Get time now
         ZoneId zoneId = ZoneId.of("Asia/Jakarta");

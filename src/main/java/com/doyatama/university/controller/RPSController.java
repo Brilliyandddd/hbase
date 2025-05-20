@@ -31,8 +31,8 @@ public class RPSController {
     private RPSService rpsService = new RPSService();
     
     @GetMapping
-    public PagedResponse<RPS> getRPSs(@RequestParam(value = "page", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) int page,
-                                              @RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size) throws IOException {
+    public PagedResponse<RPS> getRPS(@RequestParam(value = "page", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) int page,
+        @RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size) throws IOException {
         return rpsService.getAllRPS(page, size);
     }
 
@@ -59,36 +59,36 @@ public class RPSController {
                     .body(new ApiResponse(false, "Please check relational ID"));
         }else{
             URI location = ServletUriComponentsBuilder
-                    .fromCurrentRequest().path("/{rpsId}")
-                    .buildAndExpand(rps.getId()).toUri();
+                    .fromCurrentRequest().path("/{idRps}")
+                    .buildAndExpand(rps.getIdRps()).toUri();
 
             return ResponseEntity.created(location)
                     .body(new ApiResponse(true, "RPS Created Successfully"));
         }
     }
 
-    @GetMapping("/{rpsId}")
-    public DefaultResponse<RPS> getRPSById(@PathVariable String rpsId) throws IOException {
-        return rpsService.getRPSById(rpsId);
+    @GetMapping("/{idRps}")
+    public DefaultResponse<RPS> getRPSById(@PathVariable String idRps) throws IOException {
+        return rpsService.getRPSById(idRps);
     }
 
 
-    @PutMapping("/{rpsId}")
-    public ResponseEntity<?> updateRPS(@PathVariable String rpsId,
+    @PutMapping("/{idRps}")
+    public ResponseEntity<?> updateRPS(@PathVariable String idRps,
                                            @Valid @RequestBody RPSRequest rpsRequest) throws IOException {
-        RPS rps = rpsService.updateRPS(rpsId, rpsRequest);
+        RPS rps = rpsService.updateRPS(idRps, rpsRequest);
 
         URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest().path("/{rpsId}")
-                .buildAndExpand(rps.getId()).toUri();
+                .fromCurrentRequest().path("/{idRps}")
+                .buildAndExpand(rps.getIdRps()).toUri();
 
         return ResponseEntity.created(location)
                 .body(new ApiResponse(true, "RPS Updated Successfully"));
     }
 
-    @DeleteMapping("/{rpsId}")
-    public HttpStatus deleteRPS(@PathVariable (value = "rpsId") String rpsId) throws IOException {
-        rpsService.deleteRPSById(rpsId);
+    @DeleteMapping("/{idRps}")
+    public HttpStatus deleteRPS(@PathVariable (value = "idRps") String idRps) throws IOException {
+        rpsService.deleteRPSById(idRps);
         return HttpStatus.FORBIDDEN;
     }
 }

@@ -3,7 +3,8 @@ package com.doyatama.university.payload;
 import java.util.List;
 
 public class RPSRequest {
-    private String name;
+    private String idRps;
+    private String nameRps;
     private Integer sks;
     private Integer semester;
     private String cplProdi;
@@ -23,9 +24,10 @@ public class RPSRequest {
     // Constructor default
     public RPSRequest() {}
 
-    public RPSRequest(String name, Integer sks, Integer semester, String cplProdi, String cplMk,
+    public RPSRequest(String idRps,String nameRps, Integer sks, Integer semester, String cplProdi, String cplMk,
     String idLearningMediaSoftware, String idLearningMediaHardware, String developer_lecturer_id, String coordinator_lecturer_id, String instructor_lecturer_id, String idProgramStudi, String idSubject) {
-        this.name = name;
+        this.idRps = idRps;
+        this.nameRps = nameRps;
         this.sks = sks;
         this.semester = semester;
         this.cplProdi = cplProdi;
@@ -35,11 +37,16 @@ public class RPSRequest {
         this.developer_lecturer_id = developer_lecturer_id;
         this.coordinator_lecturer_id = coordinator_lecturer_id;
         this.instructor_lecturer_id = instructor_lecturer_id;
+        this.idProgramStudi = idProgramStudi;
+        this.idSubject = idSubject;
     }
 
     // Getters & Setters
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public String getIdRps() { return idRps; }
+    public void setIdRps(String idRps) { this.idRps = idRps;}
+
+    public String getNameRps() { return nameRps; }
+    public void setNameRps(String nameRps) { this.nameRps = nameRps; }
 
     public Integer getSks() { return sks; }
     public void setSks(Integer sks) { this.sks = sks; }
@@ -97,7 +104,8 @@ public class RPSRequest {
     // Setter dinamis untuk import Excel
     public void set(String fieldName, String value) {
         switch (fieldName) {
-            case "name": this.name = value; break;
+            case "idRps": this.idRps = value; break;
+            case "nameRps": this.nameRps = value; break;
             case "sks": this.sks = Integer.parseInt(value); break;
             case "semester": this.semester = Integer.parseInt(value); break;
             case "cplProdi": this.cplProdi = value; break;
