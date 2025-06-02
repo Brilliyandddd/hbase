@@ -30,7 +30,7 @@ public class QuizRepository {
         Map<String, String> columnMapping = new HashMap<>();
 
         // Add the mappings to the HashMap
-        columnMapping.put("id", "id");
+        columnMapping.put("idQuiz", "idQuiz");
         columnMapping.put("name", "name");
         columnMapping.put("description", "description");
         columnMapping.put("questions", "questions");
@@ -78,7 +78,7 @@ public class QuizRepository {
 
 
     private void saveCommonAttributes(Quiz quiz, HBaseCustomClient client, String rowKey, TableName tableQuiz) throws IOException {
-        client.insertRecord(tableQuiz, rowKey, "main", "id", rowKey);
+        client.insertRecord(tableQuiz, rowKey, "main", "idQuiz", rowKey);
         client.insertRecord(tableQuiz, rowKey, "main", "name", quiz.getName());
         client.insertRecord(tableQuiz, rowKey, "main", "description", quiz.getDescription().toString());
         client.insertRecord(tableQuiz, rowKey, "main", "min_grade", quiz.getMin_grade().toString());
@@ -87,8 +87,8 @@ public class QuizRepository {
         client.insertRecord(tableQuiz, rowKey, "main", "date_end", quiz.getDate_end().toString());
 //        client.insertRecord(tableQuiz, rowKey, "main", "devLecturerIds", quiz.getRps().getDev_lecturers().toString());
         client.insertRecord(tableQuiz, rowKey, "main", "message", quiz.getMessage().toString());
-        client.insertRecord(tableQuiz, rowKey, "rps", "id", quiz.getRps().getIdRps());
-        client.insertRecord(tableQuiz, rowKey, "rps", "name", quiz.getRps().getNameRps());
+        client.insertRecord(tableQuiz, rowKey, "rps", "idRps", quiz.getRps().getIdRps());
+        client.insertRecord(tableQuiz, rowKey, "rps", "nameRps", quiz.getRps().getNameRps());
         client.insertRecord(tableQuiz, rowKey, "main", "type_quiz", quiz.getType_quiz());
         // Get time now
         ZoneId zoneId = ZoneId.of("Asia/Jakarta");
@@ -108,7 +108,7 @@ public class QuizRepository {
         Map<String, String> columnMapping = new HashMap<>();
 
         // Add the mappings to the HashMap
-        columnMapping.put("id", "id");
+        columnMapping.put("idQuiz", "idQuiz");
         columnMapping.put("name", "name");
         columnMapping.put("description", "description");
         columnMapping.put("questions", "questions");
@@ -128,7 +128,7 @@ public class QuizRepository {
         Map<String, String> columnMapping = new HashMap<>();
 
         // Add the mappings to the HashMap
-        columnMapping.put("id", "id");
+        columnMapping.put("idQuiz", "idQuiz");
         columnMapping.put("name", "name");
         columnMapping.put("description", "description");
         columnMapping.put("questions", "questions");
@@ -158,8 +158,8 @@ public class QuizRepository {
             client.insertRecord(tableQuiz, quizId, "questions", "q_" + i, new Gson().toJson(question));
         }
 
-        client.insertRecord(tableQuiz, quizId, "rps", "id", quiz.getRps().getIdRps());
-        client.insertRecord(tableQuiz, quizId, "rps", "name", quiz.getRps().getNameRps());
+        client.insertRecord(tableQuiz, quizId, "rps", "idRps", quiz.getRps().getIdRps());
+        client.insertRecord(tableQuiz, quizId, "rps", "nameRps", quiz.getRps().getNameRps());
 
         // Get time now
         ZoneId zoneId = ZoneId.of("Asia/Jakarta");

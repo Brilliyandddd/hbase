@@ -81,7 +81,7 @@ public class AnswerController {
                 }else{
                     URI location = ServletUriComponentsBuilder
                             .fromCurrentRequest().path("/{answerId}")
-                            .buildAndExpand(answer.getId()).toUri();
+                            .buildAndExpand(answer.getIdAnswer()).toUri();
 
                     return ResponseEntity.created(location)
                             .body(new ApiResponse(true, "Answer Created Successfully"));
@@ -103,7 +103,7 @@ public class AnswerController {
                 }else{
                     URI location = ServletUriComponentsBuilder
                             .fromCurrentRequest().path("/{answerId}")
-                            .buildAndExpand(answer.getId()).toUri();
+                            .buildAndExpand(answer.getIdAnswer()).toUri();
 
                     return ResponseEntity.created(location)
                             .body(new ApiResponse(true, "Answer Created Successfully"));
@@ -164,7 +164,7 @@ public class AnswerController {
 
             URI location = ServletUriComponentsBuilder
                     .fromCurrentRequest().path("/{answerId}")
-                    .buildAndExpand(answer.getId()).toUri();
+                    .buildAndExpand(answer.getIdAnswer()).toUri();
 
             return ResponseEntity.created(location)
                     .body(new ApiResponse(true, "Answer Updated Successfully"));

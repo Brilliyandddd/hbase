@@ -4,7 +4,7 @@ import java.time.Instant;
 import java.util.List;
 
 public class Exercise {
-    private String id;
+    private String idExercise;
     private String name;
     private String description;
     private List<Question> questions;
@@ -21,8 +21,8 @@ public class Exercise {
     public Exercise() {
     }
 
-    public Exercise(String id, String name, String description, List<Question> questions, RPS rps, Integer min_grade, Integer duration, Instant date_start, Instant date_end, Instant created_at, String type_exercise, RPSDetail rps_detail) {
-        this.id = id;
+    public Exercise(String idExercise, String name, String description, List<Question> questions, RPS rps, Integer min_grade, Integer duration, Instant date_start, Instant date_end, Instant created_at, String type_exercise, RPSDetail rps_detail) {
+        this.idExercise = idExercise;
         this.name = name;
         this.description = description;
         this.questions = questions;
@@ -37,12 +37,12 @@ public class Exercise {
 
     }
 
-    public String getId() {
-        return id;
+    public String getIdExercise() {
+        return idExercise;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdExercise(String idExercise) {
+        this.idExercise = idExercise;
     }
 
     public String getName() {
@@ -135,7 +135,7 @@ public class Exercise {
     }
 
     public boolean isValid() {
-        return this.id != null &&
+        return this.idExercise != null &&
                 this.name != null &&
                 this.description != null &&
                 this.min_grade != null &&
@@ -146,8 +146,8 @@ public class Exercise {
 
     public void set(String fieldName, String value) {
         switch (fieldName) {
-            case "id":
-                this.id = value;
+            case "idExercise":
+                this.idExercise = value;
                 break;
             case "name":
                 this.name = value;

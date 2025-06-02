@@ -2,6 +2,7 @@ package com.doyatama.university.repository;
 
 import com.doyatama.university.helper.HBaseCustomClient;
 import com.doyatama.university.model.RPS;
+import com.doyatama.university.model.RPSDetail;
 import com.google.gson.Gson;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
@@ -163,7 +164,7 @@ public class RPSRepository {
         // Gson gson = new Gson();
         TableName tableRPS = TableName.valueOf(tableName);
 
-        System.out.println("study program  " + rps.getStudyProgram().getId());
+        System.out.println("Data edit " + rps);
 
         client.insertRecord(tableRPS, idRps, "main", "nameRps", rps.getNameRps());
         client.insertRecord(tableRPS, idRps, "main", "sks", rps.getSks().toString());
@@ -171,10 +172,15 @@ public class RPSRepository {
         client.insertRecord(tableRPS, idRps, "main", "cplProdi", rps.getCplProdi());
         client.insertRecord(tableRPS, idRps, "main", "cplMk", rps.getCplMk());
 
-        client.insertRecord(tableRPS, idRps, "studyProgram", "id", rps.getStudyProgram().getId());
-        client.insertRecord(tableRPS, idRps, "studyProgram", "name", rps.getStudyProgram().getName());
-        client.insertRecord(tableRPS, idRps, "subject", "id", rps.getSubject().getId());
-        client.insertRecord(tableRPS, idRps, "subject", "name", rps.getSubject().getName());
+        if(rps.getStudyProgram() !=null){
+            client.insertRecord(tableRPS, idRps, "studyProgram", "id", rps.getStudyProgram().getId());
+            client.insertRecord(tableRPS, idRps, "studyProgram", "name", rps.getStudyProgram().getName());
+        }
+
+        if(rps.getSubject() !=null){
+            client.insertRecord(tableRPS, idRps, "subject", "id", rps.getSubject().getId());
+            client.insertRecord(tableRPS, idRps, "subject", "name", rps.getSubject().getName());
+        }
 
         if (rps.getLearningMediaSoftware() != null) {
             client.insertRecord(tableRPS, idRps, "learningMediaSoftware", "id", rps.getLearningMediaSoftware().getId());
@@ -200,34 +206,6 @@ public class RPSRepository {
             client.insertRecord(tableRPS, idRps, "instructorLecturer", "id", rps.getInstructorLecturer().getId());
             client.insertRecord(tableRPS, idRps, "instructorLecturer", "name", rps.getInstructorLecturer().getName());
         }
-
-    // if (rps.getRoleLecturers() != null && !rps.getRoleLecturers().isEmpty()) {
-    //     for (Map.Entry<String, Lecture> entry : rps.getRoleLecturers().entrySet()) {
-    //         String role = entry.getKey();       // developer, coordinator, or instructor
-    //         Lecture lecture = entry.getValue(); // the corresponding Lecture object
-            
-    //         if (lecture != null) {
-    //             // Save data with role as part of the qualifier
-    //             client.insertRecord(tableRPS, idRps, "lecture", role + "_id", lecture.getId());
-    //             client.insertRecord(tableRPS, idRps, "lecture", role + "_name", lecture.getName());
-                
-    //             // Add more fields if needed
-    //             if (lecture.getNidn() != null) {
-    //                 client.insertRecord(tableRPS, idRps, "lecture", role + "_nidn", lecture.getNidn());
-    //             }
-                
-    //             if (lecture.getStudyProgram() != null) {
-    //                 client.insertRecord(tableRPS, idRps, "lecture", role + "_study_program", lecture.getStudyProgram().getName());
-    //             }
-    //         }
-    //     }
-    // }
-
-        // client.insertRecord(tableRPS, rpsId, "lecture", "id", rps.getLecture().getId());
-        // client.insertRecord(tableRPS, rpsId, "lecture", "name", rps.getLecture().getName());
-
-        // client.insertRecord(tableRPS, rpsId, "main", "ka_study_program", rps.getKaStudyProgram());
-
         // Timestamp
         Instant instant = ZonedDateTime.now(ZoneId.of("Asia/Jakarta")).toInstant();
         client.insertRecord(tableRPS, idRps, "detail", "created_by", "Doyatama");

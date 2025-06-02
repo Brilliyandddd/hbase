@@ -47,7 +47,7 @@ public class ExerciseController {
         }else{
             URI location = ServletUriComponentsBuilder
                     .fromCurrentRequest().path("/{exerciseId}")
-                    .buildAndExpand(exercise.getId()).toUri();
+                    .buildAndExpand(exercise.getIdExercise()).toUri();
 
             return ResponseEntity.created(location)
                     .body(new ApiResponse(true, "Exercise Created Successfully"));
@@ -67,7 +67,7 @@ public class ExerciseController {
 
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{exerciseId}")
-                .buildAndExpand(exercise.getId()).toUri();
+                .buildAndExpand(exercise.getIdExercise()).toUri();
 
         return ResponseEntity.created(location)
                 .body(new ApiResponse(true, "Exercise Updated Successfully"));

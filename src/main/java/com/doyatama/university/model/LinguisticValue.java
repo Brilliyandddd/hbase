@@ -22,7 +22,7 @@ public class LinguisticValue {
     public LinguisticValue() {
     }
     // Constructor
-    public LinguisticValue(String name, float value1, float value2, float value3, float value4,String file_path) {
+    public LinguisticValue(String id,String name, float value1, float value2, float value3, float value4,String file_path) {
         this.id = id;
         this.name = name;
         this.value1 = value1;

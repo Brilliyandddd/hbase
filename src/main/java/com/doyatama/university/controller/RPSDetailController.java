@@ -26,7 +26,8 @@ public class RPSDetailController {
 
     @GetMapping
     public PagedResponse<RPSDetail> getRPSDetails(@RequestParam(value = "page", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) int page,
-                                      @RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size, @RequestParam(value = "rpsID", defaultValue = "*") String rpsID) throws IOException {
+                                      @RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size, 
+                                      @RequestParam(value = "rpsID", defaultValue = "*") String rpsID) throws IOException {
         return rpsDetailService.getAllRPSDetail(page, size, rpsID);
     }
     @CrossOrigin

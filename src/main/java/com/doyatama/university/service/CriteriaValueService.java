@@ -139,17 +139,17 @@ public class CriteriaValueService {
         // Debugging: Print the size and contents of questions
         System.out.println("Questions size: " + questions.size());
         for (Question question : questions) {
-            System.out.println("Question ID: " + question.getId());
+            System.out.println("Question ID: " + question.getIdQuestion());
         }
 
         // Now you can proceed with your existing logic
         List<CriteriaValue> criteriaValueResponse = new ArrayList<>();
 
         for (Question question : questions) {
-            List<CriteriaValue> criteriaValues = criteriaValueRepository.findAllByQuestion(question.getId(), Integer.MAX_VALUE);
+            List<CriteriaValue> criteriaValues = criteriaValueRepository.findAllByQuestion(question.getIdQuestion(), Integer.MAX_VALUE);
 
             // Debugging: Print the size and contents of criteriaValues
-            System.out.println("CriteriaValues size for question " + question.getId() + ": " + criteriaValues.size());
+            System.out.println("CriteriaValues size for question " + question.getIdQuestion() + ": " + criteriaValues.size());
             for (CriteriaValue criteriaValue : criteriaValues) {
                 System.out.println("CriteriaValue ID: " + criteriaValue.getId());
             }

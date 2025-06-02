@@ -4,7 +4,7 @@ import java.time.Instant;
 import java.util.List;
 
 public class Quiz {
-    private String id;
+    private String idQuiz;
     private String name;
     private String description;
     private List<Question> questions;
@@ -24,8 +24,8 @@ public class Quiz {
     public Quiz() {
     }
 
-    public Quiz(String id, String name, String description, List<Question> questions, RPS rps, Integer min_grade,String message,String type_quiz ,Integer duration, Instant date_start, Instant date_end, Instant created_at) {
-        this.id = id;
+    public Quiz(String idQuiz, String name, String description, List<Question> questions, RPS rps, Integer min_grade,String message,String type_quiz ,Integer duration, Instant date_start, Instant date_end, Instant created_at) {
+        this.idQuiz = idQuiz;
         this.name = name;
         this.description = description;
         this.questions = questions;
@@ -40,11 +40,11 @@ public class Quiz {
     }
 
     public String getId() {
-        return id;
+        return idQuiz;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String idQuiz) {
+        this.idQuiz = idQuiz;
     }
     public List<String> getDevLecturerIds() {
         return devLecturerIds;
@@ -160,7 +160,7 @@ public class Quiz {
     }
 
     public boolean isValid() {
-        return this.id != null &&
+        return this.idQuiz != null &&
                 this.name != null &&
                 this.description != null &&
                 this.min_grade != null &&
@@ -171,8 +171,8 @@ public class Quiz {
 
     public void set(String fieldName, String value) {
         switch (fieldName) {
-            case "id":
-                this.id = value;
+            case "idQuiz":
+                this.idQuiz = value;
                 break;
             case "name":
                 this.name = value;

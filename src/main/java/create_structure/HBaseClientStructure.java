@@ -137,7 +137,7 @@ public class HBaseClientStructure {
 
          //Create Tabel Pertanyaan
          TableName tableQuestion = TableName.valueOf("questions");
-         String[] questions = { "main", "rps_detail", "detail" };
+         String[] questions = { "main", "rps_detail", "detail", "rps" };
          client.deleteTable(tableQuestion);
          client.createTable(tableQuestion, questions);
 
@@ -146,6 +146,12 @@ public class HBaseClientStructure {
          String[] answers = { "main", "question", "detail" };
          client.deleteTable(tableAnswer);
          client.createTable(tableAnswer, answers);
+
+         // Create Tabel Analisa Kausalitas
+         TableName tableCausality = TableName.valueOf("causality");
+            String[] causality = { "main", "lecture", "subject" };
+            client.deleteTable(tableCausality);
+            client.createTable(tableCausality, causality);
 
         // Create Tabel Ujian
         TableName tableExam = TableName.valueOf("exams");
@@ -545,6 +551,269 @@ public class HBaseClientStructure {
        client.insertRecord(tableLecture, "LEC002", "user", "username", "dosen");
        client.insertRecord(tableLecture, "LEC002", "detail", "created_by", "Doyatama");
 
+       // Insert Linguistic Value
+       client.insertRecord(tableLinguisticValue, "LV001", "main", "id", "LV001");
+       client.insertRecord(tableLinguisticValue, "LV001", "main", "name", "Nothing");
+       client.insertRecord(tableLinguisticValue, "LV001", "main", "value1", "0.00");
+       client.insertRecord(tableLinguisticValue, "LV001", "main", "value2", "0.00");
+       client.insertRecord(tableLinguisticValue, "LV001", "main", "value3", "0.03");
+       client.insertRecord(tableLinguisticValue, "LV001", "main", "value4", "0.07");
+
+       client.insertRecord(tableLinguisticValue, "LV002", "main", "id", "LV002");
+       client.insertRecord(tableLinguisticValue, "LV002", "main", "name", "Between nothing and very bad");
+       client.insertRecord(tableLinguisticValue, "LV002", "main", "value1", "0.00");
+       client.insertRecord(tableLinguisticValue, "LV002", "main", "value2", "0.03");
+       client.insertRecord(tableLinguisticValue, "LV002", "main", "value3", "0.03");
+       client.insertRecord(tableLinguisticValue, "LV002", "main", "value4", "0.07");
+
+       client.insertRecord(tableLinguisticValue, "LV003", "main", "id", "LV003");
+       client.insertRecord(tableLinguisticValue, "LV003", "main", "name", "Very bad");
+       client.insertRecord(tableLinguisticValue, "LV003", "main", "value1", "0.03");
+       client.insertRecord(tableLinguisticValue, "LV003", "main", "value2", "0.07");
+       client.insertRecord(tableLinguisticValue, "LV003", "main", "value3", "0.10");
+       client.insertRecord(tableLinguisticValue, "LV003", "main", "value4", "0.14");
+
+       client.insertRecord(tableLinguisticValue, "LV004", "main", "id", "LV004");
+       client.insertRecord(tableLinguisticValue, "LV004", "main", "name", "At least very bad");
+       client.insertRecord(tableLinguisticValue, "LV004", "main", "value1", "0.07");
+       client.insertRecord(tableLinguisticValue, "LV004", "main", "value2", "0.10");
+       client.insertRecord(tableLinguisticValue, "LV004", "main", "value3", "0.93");
+       client.insertRecord(tableLinguisticValue, "LV004", "main", "value4", "0.97");
+
+       client.insertRecord(tableLinguisticValue, "LV005", "main", "id", "LV005");
+       client.insertRecord(tableLinguisticValue, "LV005", "main", "name", "Between very bad and bad");
+       client.insertRecord(tableLinguisticValue, "LV005", "main", "value1", "0.07");
+       client.insertRecord(tableLinguisticValue, "LV005", "main", "value2", "0.10");
+       client.insertRecord(tableLinguisticValue, "LV005", "main", "value3", "0.21");
+       client.insertRecord(tableLinguisticValue, "LV005", "main", "value4", "0.24");
+
+       client.insertRecord(tableLinguisticValue, "LV006", "main", "id", "LV006");
+       client.insertRecord(tableLinguisticValue, "LV006", "main", "name", "Between very bad and medium");
+       client.insertRecord(tableLinguisticValue, "LV006", "main", "value1", "0.07");
+       client.insertRecord(tableLinguisticValue, "LV006", "main", "value2", "0.10");
+       client.insertRecord(tableLinguisticValue, "LV006", "main", "value3", "0.41");
+       client.insertRecord(tableLinguisticValue, "LV006", "main", "value4", "0.45");
+
+       client.insertRecord(tableLinguisticValue, "LV007", "main", "id", "LV007");
+       client.insertRecord(tableLinguisticValue, "LV007", "main", "name", "At most very bad");
+       client.insertRecord(tableLinguisticValue, "LV007", "main", "value1", "0.00");
+       client.insertRecord(tableLinguisticValue, "LV007", "main", "value2", "0.00");
+       client.insertRecord(tableLinguisticValue, "LV007", "main", "value3", "0.03");
+       client.insertRecord(tableLinguisticValue, "LV007", "main", "value4", "0.07");
+
+       client.insertRecord(tableLinguisticValue, "LV008", "main", "id", "LV008");
+       client.insertRecord(tableLinguisticValue, "LV008", "main", "name", "Bad");
+       client.insertRecord(tableLinguisticValue, "LV008", "main", "value1", "0.21");
+       client.insertRecord(tableLinguisticValue, "LV008", "main", "value2", "0.24");
+       client.insertRecord(tableLinguisticValue, "LV008", "main", "value3", "0.28");
+       client.insertRecord(tableLinguisticValue, "LV008", "main", "value4", "0.31");
+
+       client.insertRecord(tableLinguisticValue, "LV009", "main", "id", "LV009");
+       client.insertRecord(tableLinguisticValue, "LV009", "main", "name", "At least bad");
+       client.insertRecord(tableLinguisticValue, "LV009", "main", "value1", "0.24");
+       client.insertRecord(tableLinguisticValue, "LV009", "main", "value2", "0.28");
+       client.insertRecord(tableLinguisticValue, "LV009", "main", "value3", "0.93");
+       client.insertRecord(tableLinguisticValue, "LV009", "main", "value4", "0.97");
+
+       client.insertRecord(tableLinguisticValue, "LV010", "main", "id", "LV010");
+       client.insertRecord(tableLinguisticValue, "LV010", "main", "name", "Between bad and medium");
+       client.insertRecord(tableLinguisticValue, "LV010", "main", "value1", "0.24");
+       client.insertRecord(tableLinguisticValue, "LV010", "main", "value2", "0.28");
+       client.insertRecord(tableLinguisticValue, "LV010", "main", "value3", "0.41");
+       client.insertRecord(tableLinguisticValue, "LV010", "main", "value4", "0.45");
+
+       client.insertRecord(tableLinguisticValue, "LV011", "main", "id", "LV011");
+       client.insertRecord(tableLinguisticValue, "LV011", "main", "name", "Between bad and good");
+       client.insertRecord(tableLinguisticValue, "LV011", "main", "value1", "0.24");
+       client.insertRecord(tableLinguisticValue, "LV011", "main", "value2", "0.28");
+       client.insertRecord(tableLinguisticValue, "LV011", "main", "value3", "0.59");
+       client.insertRecord(tableLinguisticValue, "LV011", "main", "value4", "0.62");
+
+       client.insertRecord(tableLinguisticValue, "LV012", "main", "id", "LV012");
+       client.insertRecord(tableLinguisticValue, "LV012", "main", "name", "Between bad and very good");
+       client.insertRecord(tableLinguisticValue, "LV012", "main", "value1", "0.24");
+       client.insertRecord(tableLinguisticValue, "LV012", "main", "value2", "0.28");
+       client.insertRecord(tableLinguisticValue, "LV012", "main", "value3", "0.76");
+       client.insertRecord(tableLinguisticValue, "LV012", "main", "value4", "0.79");
+
+       client.insertRecord(tableLinguisticValue, "LV013", "main", "id", "LV013");
+       client.insertRecord(tableLinguisticValue, "LV013", "main", "name", "At most bad");
+       client.insertRecord(tableLinguisticValue, "LV013", "main", "value1", "0.00");
+       client.insertRecord(tableLinguisticValue, "LV013", "main", "value2", "0.00");
+       client.insertRecord(tableLinguisticValue, "LV013", "main", "value3", "0.21");
+       client.insertRecord(tableLinguisticValue, "LV013", "main", "value4", "0.24");
+
+       client.insertRecord(tableLinguisticValue, "LV014", "main", "id", "LV014");
+       client.insertRecord(tableLinguisticValue, "LV014", "main", "name", "Medium");
+       client.insertRecord(tableLinguisticValue, "LV014", "main", "value1", "0.41");
+       client.insertRecord(tableLinguisticValue, "LV014", "main", "value2", "0.45");
+       client.insertRecord(tableLinguisticValue, "LV014", "main", "value3", "0.48");
+       client.insertRecord(tableLinguisticValue, "LV014", "main", "value4", "0.52");
+
+       client.insertRecord(tableLinguisticValue, "LV015", "main", "id", "LV015");
+       client.insertRecord(tableLinguisticValue, "LV015", "main", "name", "At least medium");
+       client.insertRecord(tableLinguisticValue, "LV015", "main", "value1", "0.45");
+       client.insertRecord(tableLinguisticValue, "LV015", "main", "value2", "0.48");
+       client.insertRecord(tableLinguisticValue, "LV015", "main", "value3", "0.93");
+       client.insertRecord(tableLinguisticValue, "LV015", "main", "value4", "0.97");
+
+       client.insertRecord(tableLinguisticValue, "LV016", "main", "id", "LV016");
+       client.insertRecord(tableLinguisticValue, "LV016", "main", "name", "Between medium and good");
+       client.insertRecord(tableLinguisticValue, "LV016", "main", "value1", "0.45");
+       client.insertRecord(tableLinguisticValue, "LV016", "main", "value2", "0.48");
+       client.insertRecord(tableLinguisticValue, "LV016", "main", "value3", "0.59");
+       client.insertRecord(tableLinguisticValue, "LV016", "main", "value4", "0.62");
+
+       client.insertRecord(tableLinguisticValue, "LV017", "main", "id", "LV017");
+       client.insertRecord(tableLinguisticValue, "LV017", "main", "name", "Between medium and very good");
+       client.insertRecord(tableLinguisticValue, "LV017", "main", "value1", "0.45");
+       client.insertRecord(tableLinguisticValue, "LV017", "main", "value2", "0.48");
+       client.insertRecord(tableLinguisticValue, "LV017", "main", "value3", "0.76");
+       client.insertRecord(tableLinguisticValue, "LV017", "main", "value4", "0.79");
+
+       client.insertRecord(tableLinguisticValue, "LV018", "main", "id", "LV018");
+       client.insertRecord(tableLinguisticValue, "LV018", "main", "name", "At most medium");
+       client.insertRecord(tableLinguisticValue, "LV018", "main", "value1", "0.00");
+       client.insertRecord(tableLinguisticValue, "LV018", "main", "value2", "0.03");
+       client.insertRecord(tableLinguisticValue, "LV018", "main", "value3", "0.41");
+       client.insertRecord(tableLinguisticValue, "LV018", "main", "value4", "0.45");
+
+       client.insertRecord(tableLinguisticValue, "LV019", "main", "id", "LV019");
+       client.insertRecord(tableLinguisticValue, "LV019", "main", "name", "Good");
+       client.insertRecord(tableLinguisticValue, "LV019", "main", "value1", "0.59");
+       client.insertRecord(tableLinguisticValue, "LV019", "main", "value2", "0.62");
+       client.insertRecord(tableLinguisticValue, "LV019", "main", "value3", "0.66");
+       client.insertRecord(tableLinguisticValue, "LV019", "main", "value4", "0.69");
+
+       client.insertRecord(tableLinguisticValue, "LV020", "main", "id", "LV020");
+       client.insertRecord(tableLinguisticValue, "LV020", "main", "name", "At least good");
+       client.insertRecord(tableLinguisticValue, "LV020", "main", "value1", "0.62");
+       client.insertRecord(tableLinguisticValue, "LV020", "main", "value2", "0.66");
+       client.insertRecord(tableLinguisticValue, "LV020", "main", "value3", "0.93");
+       client.insertRecord(tableLinguisticValue, "LV020", "main", "value4", "0.97");
+
+       client.insertRecord(tableLinguisticValue, "LV021", "main", "id", "LV021");
+       client.insertRecord(tableLinguisticValue, "LV021", "main", "name", "Between good and very good");
+       client.insertRecord(tableLinguisticValue, "LV021", "main", "value1", "0.62");
+       client.insertRecord(tableLinguisticValue, "LV021", "main", "value2", "0.66");
+       client.insertRecord(tableLinguisticValue, "LV021", "main", "value3", "0.76");
+       client.insertRecord(tableLinguisticValue, "LV021", "main", "value4", "0.79");
+
+       client.insertRecord(tableLinguisticValue, "LV022", "main", "id", "LV022");
+       client.insertRecord(tableLinguisticValue, "LV022", "main", "name", "Between good and perfect");
+       client.insertRecord(tableLinguisticValue, "LV022", "main", "value1", "0.62");
+       client.insertRecord(tableLinguisticValue, "LV022", "main", "value2", "0.66");
+       client.insertRecord(tableLinguisticValue, "LV022", "main", "value3", "0.97");
+       client.insertRecord(tableLinguisticValue, "LV022", "main", "value4", "1.00");
+
+       client.insertRecord(tableLinguisticValue, "LV023", "main", "id", "LV023");
+       client.insertRecord(tableLinguisticValue, "LV023", "main", "name", "At most good");
+       client.insertRecord(tableLinguisticValue, "LV023", "main", "value1", "0.00");
+       client.insertRecord(tableLinguisticValue, "LV023", "main", "value2", "0.03");
+       client.insertRecord(tableLinguisticValue, "LV023", "main", "value3", "0.59");
+       client.insertRecord(tableLinguisticValue, "LV023", "main", "value4", "0.62");
+
+       client.insertRecord(tableLinguisticValue, "LV024", "main", "id", "LV024");
+       client.insertRecord(tableLinguisticValue, "LV024", "main", "name", "Very good");
+       client.insertRecord(tableLinguisticValue, "LV024", "main", "value1", "0.76");
+       client.insertRecord(tableLinguisticValue, "LV024", "main", "value2", "0.79");
+       client.insertRecord(tableLinguisticValue, "LV024", "main", "value3", "0.83");
+       client.insertRecord(tableLinguisticValue, "LV024", "main", "value4", "0.86");
+
+       client.insertRecord(tableLinguisticValue, "LV025", "main", "id", "LV025");
+       client.insertRecord(tableLinguisticValue, "LV025", "main", "name", "At least very good");
+       client.insertRecord(tableLinguisticValue, "LV025", "main", "value1", "0.79");
+       client.insertRecord(tableLinguisticValue, "LV025", "main", "value2", "0.83");
+       client.insertRecord(tableLinguisticValue, "LV025", "main", "value3", "0.93");
+       client.insertRecord(tableLinguisticValue, "LV025", "main", "value4", "0.97");
+
+       client.insertRecord(tableLinguisticValue, "LV026", "main", "id", "LV026");
+       client.insertRecord(tableLinguisticValue, "LV026", "main", "name", "Between very good and perfect");
+       client.insertRecord(tableLinguisticValue, "LV026", "main", "value1", "0.79");
+       client.insertRecord(tableLinguisticValue, "LV026", "main", "value2", "0.83");
+       client.insertRecord(tableLinguisticValue, "LV026", "main", "value3", "0.97");
+       client.insertRecord(tableLinguisticValue, "LV026", "main", "value4", "1.00");
+
+       client.insertRecord(tableLinguisticValue, "LV027", "main", "id", "LV027");
+       client.insertRecord(tableLinguisticValue, "LV027", "main", "name", "At most very good");
+       client.insertRecord(tableLinguisticValue, "LV027", "main", "value1", "0.00");
+       client.insertRecord(tableLinguisticValue, "LV027", "main", "value2", "0.03");
+       client.insertRecord(tableLinguisticValue, "LV027", "main", "value3", "0.76");
+       client.insertRecord(tableLinguisticValue, "LV027", "main", "value4", "0.79");
+
+       client.insertRecord(tableLinguisticValue, "LV028", "main", "id", "LV028");
+       client.insertRecord(tableLinguisticValue, "LV028", "main", "name", "At least perfect");
+       client.insertRecord(tableLinguisticValue, "LV028", "main", "value1", "0.93");
+       client.insertRecord(tableLinguisticValue, "LV028", "main", "value2", "0.97");
+       client.insertRecord(tableLinguisticValue, "LV028", "main", "value3", "1.00");
+       client.insertRecord(tableLinguisticValue, "LV028", "main", "value4", "1.00");
+
+       client.insertRecord(tableLinguisticValue, "LV029", "main", "id", "LV029");
+       client.insertRecord(tableLinguisticValue, "LV029", "main", "name", "At most perfect");
+       client.insertRecord(tableLinguisticValue, "LV029", "main", "value1", "0.00");
+       client.insertRecord(tableLinguisticValue, "LV029", "main", "value2", "0.03");
+       client.insertRecord(tableLinguisticValue, "LV029", "main", "value3", "0.97");
+       client.insertRecord(tableLinguisticValue, "LV029", "main", "value4", "1.00");
+
+       client.insertRecord(tableLinguisticValue, "LV030", "main", "id", "LV030");
+       client.insertRecord(tableLinguisticValue, "LV030", "main", "name", "Perfect");
+       client.insertRecord(tableLinguisticValue, "LV030", "main", "value1", "0.97");
+       client.insertRecord(tableLinguisticValue, "LV030", "main", "value2", "1.00");
+       client.insertRecord(tableLinguisticValue, "LV030", "main", "value3", "1.00");
+       client.insertRecord(tableLinguisticValue, "LV030", "main", "value4", "1.00");
+
+       // Insert Question Criteria
+
+       client.insertRecord(tableQuestionCriteria, "QC001", "main", "id", "QC001");
+       client.insertRecord(tableQuestionCriteria, "QC001", "main", "name", "Knowledge");
+       client.insertRecord(tableQuestionCriteria, "QC001", "main", "description", "Dummy");
+       client.insertRecord(tableQuestionCriteria, "QC001", "main", "category", "Cognitive");
+
+       client.insertRecord(tableQuestionCriteria, "QC002", "main", "id", "QC002");
+       client.insertRecord(tableQuestionCriteria, "QC002", "main", "name", "Comprehension");
+       client.insertRecord(tableQuestionCriteria, "QC002", "main", "description", "Dummy");
+       client.insertRecord(tableQuestionCriteria, "QC002", "main", "category", "Cognitive");
+
+       client.insertRecord(tableQuestionCriteria, "QC003", "main", "id", "QC003");
+       client.insertRecord(tableQuestionCriteria, "QC003", "main", "name", "Application");
+       client.insertRecord(tableQuestionCriteria, "QC003", "main", "description", "Dummy");
+       client.insertRecord(tableQuestionCriteria, "QC003", "main", "category", "Cognitive");
+
+       client.insertRecord(tableQuestionCriteria, "QC004", "main", "id", "QC004");
+       client.insertRecord(tableQuestionCriteria, "QC004", "main", "name", "Analysis");
+       client.insertRecord(tableQuestionCriteria, "QC004", "main", "description", "Dummy");
+       client.insertRecord(tableQuestionCriteria, "QC004", "main", "category", "Cognitive");
+
+       client.insertRecord(tableQuestionCriteria, "QC005", "main", "id", "QC005");
+       client.insertRecord(tableQuestionCriteria, "QC005", "main", "name", "Evaluation");
+       client.insertRecord(tableQuestionCriteria, "QC005", "main", "description", "Dummy");
+       client.insertRecord(tableQuestionCriteria, "QC005", "main", "category", "Cognitive");
+
+       client.insertRecord(tableQuestionCriteria, "QC006", "main", "id", "QC006");
+       client.insertRecord(tableQuestionCriteria, "QC006", "main", "name", "Difficulty");
+       client.insertRecord(tableQuestionCriteria, "QC006", "main", "description", "Dummy");
+       client.insertRecord(tableQuestionCriteria, "QC006", "main", "category", "Non-Cognitive");
+
+       client.insertRecord(tableQuestionCriteria, "QC007", "main", "id", "QC007");
+       client.insertRecord(tableQuestionCriteria, "QC007", "main", "name", "Discrimination");
+       client.insertRecord(tableQuestionCriteria, "QC007", "main", "description", "Dummy");
+       client.insertRecord(tableQuestionCriteria, "QC007", "main", "category", "Non-Cognitive");
+
+       client.insertRecord(tableQuestionCriteria, "QC008", "main", "id", "QC008");
+       client.insertRecord(tableQuestionCriteria, "QC008", "main", "name", "Reliability");
+       client.insertRecord(tableQuestionCriteria, "QC008", "main", "description", "Dummy");
+       client.insertRecord(tableQuestionCriteria, "QC008", "main", "category", "Non-Cognitive");
+
+       client.insertRecord(tableQuestionCriteria, "QC009", "main", "id", "QC009");
+       client.insertRecord(tableQuestionCriteria, "QC009", "main", "name", "Problem Solving");
+       client.insertRecord(tableQuestionCriteria, "QC009", "main", "description", "Dummy");
+       client.insertRecord(tableQuestionCriteria, "QC009", "main", "category", "Meta-Cognitive");
+
+       client.insertRecord(tableQuestionCriteria, "QC010", "main", "id", "QC010");
+       client.insertRecord(tableQuestionCriteria, "QC010", "main", "name", "Creativity");
+       client.insertRecord(tableQuestionCriteria, "QC010", "main", "description", "Dummy");
+       client.insertRecord(tableQuestionCriteria, "QC010", "main", "category", "Meta-Cognitive");
+
        // Define the data
       List<Map<String, String>> lecturersToInsert = Arrays.asList (
            new HashMap<String, String>() {{
@@ -749,50 +1018,121 @@ public class HBaseClientStructure {
        client.insertRecord(tableLearningMedia, "LM002", "detail", "created_by", "Doyatama");
 //
 //        // RPS
-    //    client.insertRecord(tableRPS, "RPS001", "main", "id", "RPS001");
-    //    client.insertRecord(tableRPS, "RPS001", "main", "name", "Dummy RPS");
-    //    client.insertRecord(tableRPS, "RPS001", "main", "sks", "3");
-    //    client.insertRecord(tableRPS, "RPS001", "main", "semester", "3");
-    //    client.insertRecord(tableRPS, "RPS001", "main", "cpl_prodi", "Dummy CPL Prodi");
-    //    client.insertRecord(tableRPS, "RPS001", "main", "cpl_mk", "Dummy CPL MK");
-    //    client.insertRecord(tableRPS, "RPS001", "study_program", "id", "SP001");
-    //    client.insertRecord(tableRPS, "RPS001", "study_program", "name", "D4 Teknik Informatika");
-    //    client.insertRecord(tableRPS, "RPS001", "subject", "id", "SB001");
-    //    client.insertRecord(tableRPS, "RPS001", "subject", "name", "Pemrograman Berbasis Object");
-    //    client.insertRecord(tableRPS, "RPS001", "ka_study_program", "id", "LEC001");
-    //    client.insertRecord(tableRPS, "RPS001", "ka_study_program", "name", "2");
-    //    client.insertRecord(tableRPS, "RPS001", "detail", "created_by", "Doyatama");
-    //    client.insertRecord(tableRPS, "RPS001", "detail", "created_at", instant.toString());
+       client.insertRecord(tableRPS, "RPS001", "main", "idRps", "RPS001");
+       client.insertRecord(tableRPS, "RPS001", "main", "nameRps", "RPS 1");
+       client.insertRecord(tableRPS, "RPS001", "main", "sks", "3");
+       client.insertRecord(tableRPS, "RPS001", "main", "semester", "3");
+       client.insertRecord(tableRPS, "RPS001", "main", "cplProdi", "D4 - Teknik Informatika");
+       client.insertRecord(tableRPS, "RPS001", "main", "cplMk", "Pemrograman Berbasis Object");
+       client.insertRecord(tableRPS, "RPS001", "studyProgram", "id", "SP001");
+       client.insertRecord(tableRPS, "RPS001", "studyProgram", "name", "D4 Teknik Informatika");
+       client.insertRecord(tableRPS, "RPS001", "subject", "id", "SB001");
+       client.insertRecord(tableRPS, "RPS001", "subject", "name", "Pemrograman Berbasis Object");
+       client.insertRecord(tableRPS, "RPS001", "developerLecturer", "id", "dosen6");
+       client.insertRecord(tableRPS, "RPS001", "developerLecturer", "name", "Gunawan Budiprasetyo, S.T., M.MT., Ph.D.");
+       client.insertRecord(tableRPS, "RPS001", "coordinatorLecturer", "id", "Dosen3");
+       client.insertRecord(tableRPS, "RPS001", "coordinatorLecturer", "name", "Milyun Ni’ma Shoumi, S.Kom., M.Kom.");
+       client.insertRecord(tableRPS, "RPS001", "instructorLecturer", "id", "Dosen8");
+       client.insertRecord(tableRPS, "RPS001", "instructorLecturer", "name", "Priska Choirina, S.S.T., M.Tr.T");
+       client.insertRecord(tableRPS, "RPS001", "detail", "created_by", "Doyatama");
+       client.insertRecord(tableRPS, "RPS001", "detail", "created_at", instant.toString());
+
+       client.insertRecord(tableRPS, "RPS002", "main", "idRps", "RPS002");
+       client.insertRecord(tableRPS, "RPS002", "main", "nameRps", "RPS 2");
+       client.insertRecord(tableRPS, "RPS002", "main", "sks", "3");
+       client.insertRecord(tableRPS, "RPS002", "main", "semester", "3");
+       client.insertRecord(tableRPS, "RPS002", "main", "cplProdi", "D4 - Teknik Informatika");
+       client.insertRecord(tableRPS, "RPS002", "main", "cplMk", "Pemrograman Berbasis Object");
+       client.insertRecord(tableRPS, "RPS002", "studyProgram", "id", "SP001");
+       client.insertRecord(tableRPS, "RPS002", "studyProgram", "name", "D4 Teknik Informatika");
+       client.insertRecord(tableRPS, "RPS002", "subject", "id", "SB001");
+       client.insertRecord(tableRPS, "RPS002", "subject", "name", "Pemrograman Berbasis Object");
+       client.insertRecord(tableRPS, "RPS002", "developerLecturer", "id", "dosen6");
+       client.insertRecord(tableRPS, "RPS002", "developerLecturer", "name", "Gunawan Budiprasetyo, S.T., M.MT., Ph.D.");
+       client.insertRecord(tableRPS, "RPS002", "coordinatorLecturer", "id", "Dosen3");
+       client.insertRecord(tableRPS, "RPS002", "coordinatorLecturer", "name", "Milyun Ni’ma Shoumi, S.Kom., M.Kom.");
+       client.insertRecord(tableRPS, "RPS002", "instructorLecturer", "id", "Dosen8");
+       client.insertRecord(tableRPS, "RPS002", "instructorLecturer", "name", "Priska Choirina, S.S.T., M.Tr.T");
+       client.insertRecord(tableRPS, "RPS002", "detail", "created_by", "Doyatama");
+       client.insertRecord(tableRPS, "RPS002", "detail", "created_at", instant.toString());
 //
 //        // RPS Detail
-    //    client.insertRecord(tableRPSDetail, "RPSD001", "main", "id", "RPSD001");
-    //    client.insertRecord(tableRPSDetail, "RPSD001", "main", "week", "2");
-    //    client.insertRecord(tableRPSDetail, "RPSD001", "rps", "id", "RPS001");
-    //    client.insertRecord(tableRPSDetail, "RPSD001", "rps", "name", "Dummy RPS");
-    //    client.insertRecord(tableRPSDetail, "RPSD001", "main", "sub_cp_mk", "Dummy Sub CP MK");
-    //    client.insertRecord(tableRPSDetail, "RPSD001", "learning_materials", "lm_1", "Dummy Learning Material");
-    //    client.insertRecord(tableRPSDetail, "RPSD001", "form_learning", "id", "BP001");
-    //    client.insertRecord(tableRPSDetail, "RPSD001", "form_learning", "name", "Daring");
-    //    client.insertRecord(tableRPSDetail, "RPSD001", "assignments", "lm_1",  "Dummy Penugasan");
-    //    client.insertRecord(tableRPSDetail, "RPSD001", "estimated_times", "et_1", "Dummy Estimasi Waktu");
-    //    client.insertRecord(tableRPSDetail, "RPSD001", "student_learning_experiences", "sle_1", "Dummy Pengalaman Mahasiswa");
-    //    client.insertRecord(tableRPSDetail, "RPSD001", "assessment_indicators", "ai_1", "Dummy Assessment Indikator");
-    //    client.insertRecord(tableRPSDetail, "RPSD001", "main", "weight", "3");
-    //    client.insertRecord(tableRPSDetail, "RPSD001", "detail", "created_by", "Doyatama");
-    //    client.insertRecord(tableRPSDetail, "RPSD001", "detail", "created_at", instant.toString());
+       client.insertRecord(tableRPSDetail, "RPS001-D001", "main", "id", "RPS001-D001");
+       client.insertRecord(tableRPSDetail, "RPS001-D001", "main", "week", "1");
+       client.insertRecord(tableRPSDetail, "RPS001-D001", "rps", "idRps", "RPS001");
+       client.insertRecord(tableRPSDetail, "RPS001-D001", "rps", "nameRps", "RPS 1");
+       client.insertRecord(tableRPSDetail, "RPS001-D001", "main", "sub_cp_mk", "Dummy Sub CP MK");
+    //    client.insertRecord(tableRPSDetail, "RPS001-D001", "learning_materials", "lm_1", "Dummy Learning Material");
+       client.insertRecord(tableRPSDetail, "RPS001-D001", "form_learning", "id", "BP001");
+       client.insertRecord(tableRPSDetail, "RPS001-D001", "form_learning", "name", "Daring");
+    //    client.insertRecord(tableRPSDetail, "RPS001-D001", "assignments", "lm_1",  "Dummy Penugasan");
+    //    client.insertRecord(tableRPSDetail, "RPS001-D001", "estimated_times", "et_1", "Dummy Estimasi Waktu");
+    //    client.insertRecord(tableRPSDetail, "RPS001-D001", "student_learning_experiences", "sle_1", "Dummy Pengalaman Mahasiswa");
+    //    client.insertRecord(tableRPSDetail, "RPS001-D001", "assessment_indicators", "ai_1", "Dummy Assessment Indikator");
+       client.insertRecord(tableRPSDetail, "RPS001-D001", "main", "weight", "3");
+       client.insertRecord(tableRPSDetail, "RPS001-D001", "detail", "created_by", "Doyatama");
+       client.insertRecord(tableRPSDetail, "RPS001-D001", "detail", "created_at", instant.toString());
+
+       client.insertRecord(tableRPSDetail, "RPS001-D002", "main", "id", "RPS001-D002");
+       client.insertRecord(tableRPSDetail, "RPS001-D002", "main", "week", "2");
+       client.insertRecord(tableRPSDetail, "RPS001-D002", "rps", "idRps", "RPS001");
+       client.insertRecord(tableRPSDetail, "RPS001-D002", "rps", "nameRps", "RPS 1");
+       client.insertRecord(tableRPSDetail, "RPS001-D002", "main", "sub_cp_mk", "Dummy Sub CP MK");
+    //    client.insertRecord(tableRPSDetail, "RPS001-D002", "learning_materials", "lm_1", "Dummy Learning Material");
+       client.insertRecord(tableRPSDetail, "RPS001-D002", "form_learning", "id", "BP001");
+       client.insertRecord(tableRPSDetail, "RPS001-D002", "form_learning", "name", "Daring");
+    //    client.insertRecord(tableRPSDetail, "RPS001-D002", "assignments", "lm_1",  "Dummy Penugasan");
+    //    client.insertRecord(tableRPSDetail, "RPS001-D002", "estimated_times", "et_1", "Dummy Estimasi Waktu");
+    //    client.insertRecord(tableRPSDetail, "RPS001-D002", "student_learning_experiences", "sle_1", "Dummy Pengalaman Mahasiswa");
+    //    client.insertRecord(tableRPSDetail, "RPS001-D002", "assessment_indicators", "ai_1", "Dummy Assessment Indikator");
+       client.insertRecord(tableRPSDetail, "RPS001-D002", "main", "weight", "3");
+       client.insertRecord(tableRPSDetail, "RPS001-D002", "detail", "created_by", "Doyatama");
+       client.insertRecord(tableRPSDetail, "RPS001-D002", "detail", "created_at", instant.toString());
+
+       client.insertRecord(tableRPSDetail, "RPS002-D001", "main", "id", "RPS002-D001");
+       client.insertRecord(tableRPSDetail, "RPS002-D001", "main", "week", "1");
+       client.insertRecord(tableRPSDetail, "RPS002-D001", "rps", "idRps", "RPS002");
+       client.insertRecord(tableRPSDetail, "RPS002-D001", "rps", "nameRps", "RPS 2");
+       client.insertRecord(tableRPSDetail, "RPS002-D001", "main", "sub_cp_mk", "Dummy Sub CP MK");
+    //    client.insertRecord(tableRPSDetail, "RPS002-D001", "learning_materials", "lm_1", "Dummy Learning Material");
+       client.insertRecord(tableRPSDetail, "RPS002-D001", "form_learning", "id", "BP001");
+       client.insertRecord(tableRPSDetail, "RPS002-D001", "form_learning", "name", "Daring");
+    //    client.insertRecord(tableRPSDetail, "RPS002-D001", "assignments", "lm_1",  "Dummy Penugasan");
+    //    client.insertRecord(tableRPSDetail, "RPS002-D001", "estimated_times", "et_1", "Dummy Estimasi Waktu");
+    //    client.insertRecord(tableRPSDetail, "RPS002-D001", "student_learning_experiences", "sle_1", "Dummy Pengalaman Mahasiswa");
+    //    client.insertRecord(tableRPSDetail, "RPS002-D001", "assessment_indicators", "ai_1", "Dummy Assessment Indikator");
+       client.insertRecord(tableRPSDetail, "RPS002-D001", "main", "weight", "3");
+       client.insertRecord(tableRPSDetail, "RPS002-D001", "detail", "created_by", "Doyatama");
+       client.insertRecord(tableRPSDetail, "RPS002-D001", "detail", "created_at", instant.toString());
+
+       client.insertRecord(tableRPSDetail, "RPS002-D002", "main", "id", "RPS002-D002");
+       client.insertRecord(tableRPSDetail, "RPS002-D002", "main", "week", "2");
+       client.insertRecord(tableRPSDetail, "RPS002-D002", "rps", "idRps", "RPS002");
+       client.insertRecord(tableRPSDetail, "RPS002-D002", "rps", "nameRps", "RPS 2");
+       client.insertRecord(tableRPSDetail, "RPS002-D002", "main", "sub_cp_mk", "Dummy Sub CP MK");
+    //    client.insertRecord(tableRPSDetail, "RPS002-D002", "learning_materials", "lm_1", "Dummy Learning Material");
+       client.insertRecord(tableRPSDetail, "RPS002-D002", "form_learning", "id", "BP001");
+       client.insertRecord(tableRPSDetail, "RPS002-D002", "form_learning", "name", "Daring");
+    //    client.insertRecord(tableRPSDetail, "RPS002-D002", "assignments", "lm_1",  "Dummy Penugasan");
+    //    client.insertRecord(tableRPSDetail, "RPS002-D002", "estimated_times", "et_1", "Dummy Estimasi Waktu");
+    //    client.insertRecord(tableRPSDetail, "RPS002-D002", "student_learning_experiences", "sle_1", "Dummy Pengalaman Mahasiswa");
+    //    client.insertRecord(tableRPSDetail, "RPS002-D002", "assessment_indicators", "ai_1", "Dummy Assessment Indikator");
+       client.insertRecord(tableRPSDetail, "RPS002-D002", "main", "weight", "3");
+       client.insertRecord(tableRPSDetail, "RPS002-D002", "detail", "created_by", "Doyatama");
+       client.insertRecord(tableRPSDetail, "RPS002-D002", "detail", "created_at", instant.toString());
 //
        // RPS
-//        String id = "RPS-PBO-001";
-//        client.insertRecord(tableRPS, id, "main", "id", id);
-//        client.insertRecord(tableRPS, id, "main", "name", "PEMROGRAMAN BERBASIS OBJEK");
-//        client.insertRecord(tableRPS, id, "main", "sks", "2");
-//        client.insertRecord(tableRPS, id, "main", "semester", "3");
-//        client.insertRecord(tableRPS, id, "main", "cpl_prodi", "S8 Menginternalisasi nilai, norma, dan etika akademik.");
-//        client.insertRecord(tableRPS, id, "main", "cpl_mk", "Menguasai Konsep OOP, Class dan Object, Enkapsulasi, Inheritance, Abstraksi, Polimorfisme, GUI, database (JDBC), dan Java API; Mampu memahami perbedaan OOP dan struktural; Mampu membuat desain aplikasi menggunakan konsep dan prinsip OOP dengan penuh tanggung jawab serta memperhatikan nilai, norma, dan etika akademik.");
-//        client.insertRecord(tableRPS, id, "study_program", "id", "SP001");
-//        client.insertRecord(tableRPS, id, "study_program", "name", "D4 Teknik Informatika");
-//        client.insertRecord(tableRPS, id, "subject", "id", "SB001");
-//        client.insertRecord(tableRPS, id, "subject", "name", "Pemrograman Berbasis Object");
+    //    String id = "RPS-PBO-001";
+    //    client.insertRecord(tableRPS, id, "main", "id", id);
+    //    client.insertRecord(tableRPS, id, "main", "name", "PEMROGRAMAN BERBASIS OBJEK");
+    //    client.insertRecord(tableRPS, id, "main", "sks", "2");
+    //    client.insertRecord(tableRPS, id, "main", "semester", "3");
+    //    client.insertRecord(tableRPS, id, "main", "cplProdi", "S8 Menginternalisasi nilai, norma, dan etika akademik.");
+    //    client.insertRecord(tableRPS, id, "main", "cplMk", "Menguasai Konsep OOP, Class dan Object, Enkapsulasi, Inheritance, Abstraksi, Polimorfisme, GUI, database (JDBC), dan Java API; Mampu memahami perbedaan OOP dan struktural; Mampu membuat desain aplikasi menggunakan konsep dan prinsip OOP dengan penuh tanggung jawab serta memperhatikan nilai, norma, dan etika akademik.");
+    //    client.insertRecord(tableRPS, id, "studyProgram", "id", "SP001");
+    //    client.insertRecord(tableRPS, id, "studyProgram", "name", "D4 Teknik Informatika");
+    //    client.insertRecord(tableRPS, id, "subject", "id", "SB001");
+    //    client.insertRecord(tableRPS, id, "subject", "name", "Pemrograman Berbasis Object");
 
             // Create an ObjectMapper instance
 //        ObjectMapper objectMapper = new ObjectMapper();
@@ -1133,8 +1473,8 @@ public class HBaseClientStructure {
         //     String RPSDetailid = rpsDetail.get("main_id");
         //     client.insertRecord(tableRPSDetail, RPSDetailid, "main", "id", rpsDetail.get("main_id"));
         //     client.insertRecord(tableRPSDetail, RPSDetailid, "main", "week", rpsDetail.get("main_week"));
-        //     client.insertRecord(tableRPSDetail, RPSDetailid, "rps", "id", rpsDetail.get("rps_id"));
-        //     client.insertRecord(tableRPSDetail, RPSDetailid, "rps", "name", rpsDetail.get("rps_name"));
+        //     client.insertRecord(tableRPSDetail, RPSDetailid, "rps", "idRps", rpsDetail.get("rps_id"));
+        //     client.insertRecord(tableRPSDetail, RPSDetailid, "rps", "nameRps", rpsDetail.get("rps_name"));
         //     client.insertRecord(tableRPSDetail, RPSDetailid, "main", "sub_cp_mk", rpsDetail.get("main_sub_cp_mk"));
         //     client.insertRecord(tableRPSDetail, RPSDetailid, "learning_materials", "lm_1", rpsDetail.get("learning_materials_lm_1"));
         //     client.insertRecord(tableRPSDetail, RPSDetailid, "form_learning", "id", rpsDetail.get("form_learning_id"));
@@ -1148,54 +1488,54 @@ public class HBaseClientStructure {
         // }
 
 //         //insert question
-        for (int i = 0; i <100; i++) {
-            Faker faker = new Faker();
-            String[] typeQuestion = {"VIDEO", "AUDIO", "IMAGE", "NORMAL"};
-            String[] typeAnswer = {"MULTIPLE_CHOICE", "BOOLEAN", "COMPLETION", "MATCHING", "ESSAY"};
-            String[] examTypesQ = {"EXERCISE","QUIZ", "EXAM"};
-            String typeQ = typeQuestion[faker.random().nextInt(typeQuestion.length)];
-//              // Create an ObjectMapper instance
-            ObjectMapper objectMapperQ = new ObjectMapper();
+//         for (int i = 0; i <100; i++) {
+//             Faker faker = new Faker();
+//             String[] typeQuestion = {"VIDEO", "AUDIO", "IMAGE", "NORMAL"};
+//             String[] typeAnswer = {"MULTIPLE_CHOICE", "BOOLEAN", "COMPLETION", "MATCHING", "ESSAY"};
+//             String[] examTypesQ = {"EXERCISE","QUIZ", "EXAM"};
+//             String typeQ = typeQuestion[faker.random().nextInt(typeQuestion.length)];
+// //              // Create an ObjectMapper instance
+//             ObjectMapper objectMapperQ = new ObjectMapper();
 
-            List<String> examTypeIds = Arrays.asList("EX001", "EX002", "EX003");
-            Collections.shuffle(examTypeIds);
+//             List<String> examTypeIds = Arrays.asList("EX001", "EX002", "EX003");
+//             Collections.shuffle(examTypeIds);
 
-//             // Randomly select the number of exam types to select
-            int n = faker.random().nextInt(examTypeIds.size() + 1);
+// //             // Randomly select the number of exam types to select
+//             int n = faker.random().nextInt(examTypeIds.size() + 1);
 
-//             // Select the first n exam types
-            List<String> selectedExamTypes = examTypeIds.subList(0, n);
+// //             // Select the first n exam types
+//             List<String> selectedExamTypes = examTypeIds.subList(0, n);
 
-//             // Convert the selected exam types to a JSON string
-            String selectedExamTypesJson = objectMapperQ.writeValueAsString(selectedExamTypes);
+// //             // Convert the selected exam types to a JSON string
+//             String selectedExamTypesJson = objectMapperQ.writeValueAsString(selectedExamTypes);
 
-// //            // Insert into tableQuestion
-           client.insertRecord(tableQuestion, "QST"+i, "exam_types", selectedExamTypesJson, selectedExamTypesJson);
-            String path = "";
-            client.insertRecord(tableQuestion, "QST"+i, "main", "id", "QST"+i);
-            client.insertRecord(tableQuestion, "QST"+i, "main", "title", faker.lorem().sentence());
-            client.insertRecord(tableQuestion, "QST"+i, "main", "description", faker.lorem().sentence());
-            client.insertRecord(tableQuestion, "QST"+i, "main", "question_type", typeQ);
-            client.insertRecord(tableQuestion, "QST"+i, "main", "answer_type", typeAnswer[faker.random().nextInt(typeAnswer.length)]);
-            switch (typeQ) {
-                case "VIDEO":
-                    path = "webhdfs/v1/questions/video_dummy.mp4?op=OPEN";
-                    break;
-                case "AUDIO":
-                    path = "webhdfs/v1/questions/audio_dummy.mp3?op=OPEN";
-                    break;
-                case "IMAGE":
-                    path = "webhdfs/v1/questions/image_dummy.png?op=OPEN";
-                    break;
-                case "NORMAL":
-                    path = "none";
-                    break;
-            }
-            client.insertRecord(tableQuestion, "QST"+i, "main", "file_path", path);
-            client.insertRecord(tableQuestion, "QST"+i, "rps_detail", "id", "RPSD001");
-            client.insertRecord(tableQuestion, "QST"+i, "rps_detail", "sub_cp_mk", "Dummy Sub CP MK");
-            client.insertRecord(tableQuestion, "QST"+i, "detail", "rps_id", "RPS001");
-            client.insertRecord(tableQuestion, "QST"+i, "detail", "created_by", "Doyatama");
-        }
+// // //            // Insert into tableQuestion
+//            client.insertRecord(tableQuestion, "QST"+i, "exam_types", selectedExamTypesJson, selectedExamTypesJson);
+//             String path = "";
+//             client.insertRecord(tableQuestion, "QST"+i, "main", "idQuestion", "QST"+i);
+//             client.insertRecord(tableQuestion, "QST"+i, "main", "title", faker.lorem().sentence());
+//             client.insertRecord(tableQuestion, "QST"+i, "main", "description", faker.lorem().sentence());
+//             client.insertRecord(tableQuestion, "QST"+i, "main", "question_type", typeQ);
+//             client.insertRecord(tableQuestion, "QST"+i, "main", "answer_type", typeAnswer[faker.random().nextInt(typeAnswer.length)]);
+//             switch (typeQ) {
+//                 case "VIDEO":
+//                     path = "webhdfs/v1/questions/video_dummy.mp4?op=OPEN";
+//                     break;
+//                 case "AUDIO":
+//                     path = "webhdfs/v1/questions/audio_dummy.mp3?op=OPEN";
+//                     break;
+//                 case "IMAGE":
+//                     path = "webhdfs/v1/questions/image_dummy.png?op=OPEN";
+//                     break;
+//                 case "NORMAL":
+//                     path = "none";
+//                     break;
+//             }
+//             client.insertRecord(tableQuestion, "QST"+i, "main", "file_path", path);
+//             client.insertRecord(tableQuestion, "QST"+i, "rps_detail", "id", "RPSD001");
+//             client.insertRecord(tableQuestion, "QST"+i, "rps_detail", "sub_cp_mk", "Dummy Sub CP MK");
+//             client.insertRecord(tableQuestion, "QST"+i, "detail", "rps_id", "RPS001");
+//             client.insertRecord(tableQuestion, "QST"+i, "detail", "created_by", "Doyatama");
+//         }
     }
 }

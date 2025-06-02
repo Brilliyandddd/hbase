@@ -140,7 +140,7 @@ public class ExerciseAttemptRepository {
             client.insertRecord(tableExerciseAttempt, rowKey, "student_answers", "sa_" + i, studentAnswerJson);
         }
 
-        client.insertRecord(tableExerciseAttempt, rowKey, "exercise", "id", exerciseAttempt.getExercise().getId());
+        client.insertRecord(tableExerciseAttempt, rowKey, "exercise", "idExercise", exerciseAttempt.getExercise().getIdExercise());
         client.insertRecord(tableExerciseAttempt, rowKey, "exercise", "name", exerciseAttempt.getExercise().getName());
         client.insertRecord(tableExerciseAttempt, rowKey, "exercise", "min_grade", exerciseAttempt.getExercise().getMin_grade().toString());
         client.insertRecord(tableExerciseAttempt, rowKey, "exercise", "duration", exerciseAttempt.getExercise().getDuration().toString());
@@ -230,7 +230,7 @@ public class ExerciseAttemptRepository {
             client.insertRecord(tableExerciseAttempt, exerciseAttemptId, "student_answers", "sa_" + i, new Gson().toJson(studentAnswer));
         }
 
-        client.insertRecord(tableExerciseAttempt, exerciseAttemptId, "exercise", "id", exerciseAttempt.getExercise().getId());
+        client.insertRecord(tableExerciseAttempt, exerciseAttemptId, "exercise", "idExercise", exerciseAttempt.getExercise().getIdExercise());
         client.insertRecord(tableExerciseAttempt, exerciseAttemptId, "exercise", "name", exerciseAttempt.getExercise().getName());
         client.insertRecord(tableExerciseAttempt, exerciseAttemptId, "exercise", "min_grade", exerciseAttempt.getExercise().getMin_grade().toString());
         client.insertRecord(tableExerciseAttempt, exerciseAttemptId, "exercise", "duration", exerciseAttempt.getExercise().getDuration().toString());

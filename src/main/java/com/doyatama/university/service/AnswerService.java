@@ -26,16 +26,16 @@ public class AnswerService {
     private static final Logger logger = LoggerFactory.getLogger(AnswerService.class);
 
 
-    public PagedResponse<Answer> getAllAnswer(int page, int size, String questionId) throws IOException {
+    public PagedResponse<Answer> getAllAnswer(int page, int size, String questionID) throws IOException {
         validatePageNumberAndSize(page, size);
 
         // Retrieve Polls
         List<Answer> answerResponse = new ArrayList<>();
 
-        if(questionId.equalsIgnoreCase("*")){
+        if(questionID.equalsIgnoreCase("*")){
             answerResponse = answerRepository.findAll(size);
         }else{
-            answerResponse = answerRepository.findAnswerByQuestion(questionId, size);
+            answerResponse = answerRepository.findAnswerByQuestion(questionID, size);
         }
 
         return new PagedResponse<>(answerResponse, answerResponse.size(), "Successfully get data", 200);
@@ -43,7 +43,7 @@ public class AnswerService {
 
     public Answer createAnswer(AnswerRequest answerRequest, String savePath) throws IOException {
         Answer answer = new Answer();
-        Question questionResponse = questionRepository.findById(answerRequest.getQuestion_id().toString());
+        Question questionResponse = questionRepository.findById(answerRequest.getIdQuestion().toString());
         if (questionResponse.getTitle() != null) {
             answer.setTitle(answerRequest.getTitle());
             answer.setDescription(answerRequest.getDescription());
@@ -66,7 +66,7 @@ public class AnswerService {
 
     public Answer updateAnswer(String answerId, AnswerRequest answerRequest, String savePath) throws IOException {
         Answer answer = new Answer();
-        Question questionResponse = questionRepository.findById(answerRequest.getQuestion_id().toString());
+        Question questionResponse = questionRepository.findById(answerRequest.getIdQuestion().toString());
         if (questionResponse.getTitle() != null) {
             answer.setTitle(answerRequest.getTitle());
             answer.setDescription(answerRequest.getDescription());
@@ -85,7 +85,7 @@ public class AnswerService {
         if(answerResponse.isValid()){
             answerRepository.deleteById(answerId);
         }else{
-            throw new ResourceNotFoundException("Answer", "id", answerId);
+            throw new ResourceNotFoundException("Answer", "idAnswer", answerId);
         }
     }
 

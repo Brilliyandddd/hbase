@@ -75,6 +75,7 @@ public class QuizService {
         Instant instant = zonedDateTime.toInstant();
 
         if ( rpsResponse.getNameRps() != null) {
+            quiz.setId(quizRequest.getId());
             quiz.setName(quizRequest.getName());
             quiz.setDescription(quizRequest.getDescription());
             quiz.setMin_grade(quizRequest.getMin_grade());
@@ -120,6 +121,7 @@ public class QuizService {
         RPS rpsResponse = rpsRepository.findById(quizRequest.getRps_id());
 
         if (questionList.size() != 0 && rpsResponse.getNameRps() != null) {
+            quiz.setId(quizRequest.getId());
             quiz.setName(quizRequest.getName());
             quiz.setDescription(quizRequest.getDescription());
             quiz.setMin_grade(quizRequest.getMin_grade());
@@ -146,7 +148,7 @@ public class QuizService {
         // Inside your for loop where you're iterating over the questions
         for (Question question : questions) {
             // Get the RPSDetail of the current Question
-            RPSDetail questionRpsDetail = question.getRps_detail();
+            RPSDetail questionRpsDetail = question.getRps_detail_id();
 
             // Check if questionRpsDetail is not null
             if (questionRpsDetail != null) {
@@ -183,7 +185,7 @@ public class QuizService {
         // Inside your for loop where you're iterating over the questions
         for (Question question : questions) {
             // Get the RPSDetail of the current Question
-            RPSDetail questionRpsDetail = question.getRps_detail();
+            RPSDetail questionRpsDetail = question.getRps_detail_id();
 
             // Check if questionRpsDetail is not null
             if (questionRpsDetail != null) {
@@ -212,7 +214,7 @@ public class QuizService {
         if(quizResponse.isValid()){
             quizRepository.deleteById(quizId);
         }else{
-            throw new ResourceNotFoundException("Quiz", "id", quizId);
+            throw new ResourceNotFoundException("Quiz", "idQuiz", quizId);
         }
     }
 

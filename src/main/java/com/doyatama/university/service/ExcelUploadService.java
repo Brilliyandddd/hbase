@@ -142,17 +142,17 @@ public class ExcelUploadService {
                                 rpsDetail.setWeight(Float.parseFloat(cell.getStringCellValue()));
                             }
                             break;
-                        case 5: // Assuming learning materials are in the 7th column
-                            List<String> learningMaterials = rpsDetail.getLearning_materials();
-                            if (learningMaterials == null) {
-                                learningMaterials = new ArrayList<>();
-                            }
-                            String[] materials = cell.getStringCellValue().split(";"); // Assuming materials are semicolon-separated
-                            for (String material : materials) {
-                                learningMaterials.add(material.trim());
-                            }
-                            rpsDetail.setLearning_materials(learningMaterials);
-                            break;
+                        // case 5: // Assuming learning materials are in the 7th column
+                        //     // List<String> learningMaterials = rpsDetail.getLearning_materials();
+                        //     if (learningMaterials == null) {
+                        //         learningMaterials = new ArrayList<>();
+                        //     }
+                        //     String[] materials = cell.getStringCellValue().split(";"); // Assuming materials are semicolon-separated
+                        //     for (String material : materials) {
+                        //         learningMaterials.add(material.trim());
+                        //     }
+                            // rpsDetail.setLearning_materials(learningMaterials);
+                            // break;
                         default:
                             break;
                     }

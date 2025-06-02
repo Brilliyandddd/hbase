@@ -133,7 +133,7 @@ public class ExerciseAttemptService {
 public List<String> getQuestionExplanations(ExerciseAttempt exerciseAttempt)throws IOException {
     List<String> explanations = new ArrayList<>();
     for (StudentAnswer studentAnswer : exerciseAttempt.getStudentAnswers()) {
-        String questionId = studentAnswer.getQuestion().getId();
+        String questionId = studentAnswer.getQuestion().getIdQuestion();
         Question question = questionRepository.findById(questionId);
         if (question != null) {
             String explanation = question.getExplanation();

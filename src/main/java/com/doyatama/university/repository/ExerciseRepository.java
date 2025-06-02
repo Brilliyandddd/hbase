@@ -28,7 +28,7 @@ public class ExerciseRepository {
         Map<String, String> columnMapping = new HashMap<>();
 
         // Add the mappings to the HashMap
-        columnMapping.put("id", "id");
+        columnMapping.put("idExercise", "idExercise");
         columnMapping.put("name", "name");
         columnMapping.put("description", "description");
         columnMapping.put("questions", "questions");
@@ -50,7 +50,7 @@ public class ExerciseRepository {
         String rowKey = UUID.randomUUID().toString();
 
         TableName tableExercise = TableName.valueOf(tableName);
-        client.insertRecord(tableExercise, rowKey, "main", "id", rowKey);
+        client.insertRecord(tableExercise, rowKey, "main", "idExercise", rowKey);
         client.insertRecord(tableExercise, rowKey, "main", "name", exercise.getName());
         client.insertRecord(tableExercise, rowKey, "main", "description", exercise.getDescription().toString());
         client.insertRecord(tableExercise, rowKey, "main", "min_grade", exercise.getMin_grade().toString());
@@ -67,8 +67,8 @@ public class ExerciseRepository {
             }
         }
 
-        client.insertRecord(tableExercise, rowKey, "rps", "id", exercise.getRps().getIdRps());
-        client.insertRecord(tableExercise, rowKey, "rps", "name", exercise.getRps().getNameRps());
+        client.insertRecord(tableExercise, rowKey, "rps", "idRps", exercise.getRps().getIdRps());
+        client.insertRecord(tableExercise, rowKey, "rps", "nameRps", exercise.getRps().getNameRps());
 
         // Get time now
         ZoneId zoneId = ZoneId.of("Asia/Jakarta");
@@ -87,7 +87,7 @@ public class ExerciseRepository {
         Map<String, String> columnMapping = new HashMap<>();
 
         // Add the mappings to the HashMap
-        columnMapping.put("id", "id");
+        columnMapping.put("idExercise", "idExercise");
         columnMapping.put("name", "name");
         columnMapping.put("description", "description");
         columnMapping.put("questions", "questions");
@@ -110,7 +110,7 @@ public class ExerciseRepository {
         Map<String, String> columnMapping = new HashMap<>();
 
         // Add the mappings to the HashMap
-        columnMapping.put("id", "id");
+        columnMapping.put("idExercise", "idExercise");
         columnMapping.put("name", "name");
         columnMapping.put("description", "description");
         columnMapping.put("questions", "questions");
@@ -149,8 +149,8 @@ public class ExerciseRepository {
             }
         }
 
-        client.insertRecord(tableExercise, exerciseId, "rps", "id", exercise.getRps().getIdRps());
-        client.insertRecord(tableExercise, exerciseId, "rps", "name", exercise.getRps().getNameRps());
+        client.insertRecord(tableExercise, exerciseId, "rps", "idRps", exercise.getRps().getIdRps());
+        client.insertRecord(tableExercise, exerciseId, "rps", "nameRps", exercise.getRps().getNameRps());
 
         // Get time now
         ZoneId zoneId = ZoneId.of("Asia/Jakarta");

@@ -89,7 +89,7 @@ public class CriteriaValueRepository {
     }
 
     public CriteriaValue save(CriteriaValue criteriaValue, String questionId) throws IOException {
-        if (!criteriaValue.getQuestion().getId().equals(questionId)) {
+        if (!criteriaValue.getQuestion().getIdQuestion().equals(questionId)) {
             throw new IllegalArgumentException("The provided questionId does not match the questionId of the CriteriaValue");
         }
         
@@ -103,7 +103,7 @@ public class CriteriaValueRepository {
 
         client.insertRecord(tableCriteriaValue, rowKey, "main", "user_id", criteriaValue.getUser());
 
-        client.insertRecord(tableCriteriaValue, rowKey,  "question", "id", criteriaValue.getQuestion().getId());
+        client.insertRecord(tableCriteriaValue, rowKey,  "question", "id", criteriaValue.getQuestion().getIdQuestion());
         client.insertRecord(tableCriteriaValue, rowKey, "question", "title", criteriaValue.getQuestion().getTitle());
 
         // Save each LinguisticValue with its average

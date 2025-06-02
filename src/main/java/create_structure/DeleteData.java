@@ -12,8 +12,7 @@ public class DeleteData {
         Configuration conf = HBaseConfiguration.create();
         HBaseCustomClient client = new HBaseCustomClient(conf);
 
-        // Hanya menghapus data kelahiran
-        TableName tableRPS = TableName.valueOf("rps");
-        client.truncateTable(tableRPS, conf);
+        TableName tableQuestion = TableName.valueOf("questions");
+        client.truncateTable(tableQuestion, conf);
     }
 }

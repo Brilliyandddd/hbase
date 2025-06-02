@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class ExerciseRequest {
+    private String idExercise;
     private String name;
     private String description;
     private List<String> questions;
@@ -18,7 +19,8 @@ public class ExerciseRequest {
     public ExerciseRequest() {
     }
 
-    public ExerciseRequest(String name, String description, List<String> questions, String rps_id, Integer min_grade, Integer duration, Instant date_start, Instant date_end, String type_exercise) {
+    public ExerciseRequest(String idExercise,String name, String description, List<String> questions, String rps_id, Integer min_grade, Integer duration, Instant date_start, Instant date_end, String type_exercise) {
+        this.idExercise = idExercise;
         this.name = name;
         this.description = description;
         this.questions = questions;
@@ -28,6 +30,14 @@ public class ExerciseRequest {
         this.date_start = date_start;
         this.date_end = date_end;
         this.type_exercise = type_exercise;
+    }
+
+    public String getIdExercise(){
+        return idExercise;
+    }
+
+    public void setIdExercise(String idExercise){
+        this.idExercise = idExercise;
     }
 
     public String getName() {

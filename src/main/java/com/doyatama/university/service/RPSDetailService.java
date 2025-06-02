@@ -81,15 +81,15 @@ public class RPSDetailService {
             rpsDetail.setWeek(rpsDetailRequest.getWeek());
             rpsDetail.setRps(rpsResponse);
             rpsDetail.setSub_cp_mk(rpsDetailRequest.getSub_cp_mk());
-            rpsDetail.setLearning_materials(rpsDetailRequest.getLearning_materials());
+            // rpsDetail.setLearning_materials(rpsDetailRequest.getLearning_materials());
             rpsDetail.setForm_learning(formLearningResponse);
             rpsDetail.setLearning_methods(learningMethodList);
-            rpsDetail.setAssignments(rpsDetailRequest.getAssignments());
-            rpsDetail.setEstimated_times(rpsDetailRequest.getEstimated_times());
-            rpsDetail.setStudent_learning_experiences(rpsDetailRequest.getStudent_learning_experiences());
-            rpsDetail.setAssessment_criterias(assessmentCriteriaList);
-            rpsDetail.setAppraisal_forms(appraisalFormList);
-            rpsDetail.setAssessment_indicators(rpsDetailRequest.getAssessment_indicators());
+            // rpsDetail.setAssignments(rpsDetailRequest.getAssignments());
+            // rpsDetail.setEstimated_times(rpsDetailRequest.getEstimated_times());
+            // rpsDetail.setStudent_learning_experiences(rpsDetailRequest.getStudent_learning_experiences());
+            // rpsDetail.setAssessment_criterias(assessmentCriteriaList);
+            // rpsDetail.setAppraisal_forms(appraisalFormList);
+            // rpsDetail.setAssessment_indicators(rpsDetailRequest.getAssessment_indicators());
             rpsDetail.setWeight(rpsDetailRequest.getWeight());
             rpsDetail.setCreatedAt(instant);
 
@@ -125,15 +125,15 @@ public class RPSDetailService {
             rpsDetail.setWeek(rpsDetailRequest.getWeek());
             rpsDetail.setRps(rpsResponse);
             rpsDetail.setSub_cp_mk(rpsDetailRequest.getSub_cp_mk());
-            rpsDetail.setLearning_materials(rpsDetailRequest.getLearning_materials());
+            // rpsDetail.setLearning_materials(rpsDetailRequest.getLearning_materials());
             rpsDetail.setForm_learning(formLearningResponse);
-            rpsDetail.setLearning_methods(learningMethodList);
-            rpsDetail.setAssignments(rpsDetailRequest.getAssignments());
-            rpsDetail.setEstimated_times(rpsDetailRequest.getEstimated_times());
-            rpsDetail.setStudent_learning_experiences(rpsDetailRequest.getStudent_learning_experiences());
-            rpsDetail.setAssessment_criterias(assessmentCriteriaList);
-            rpsDetail.setAppraisal_forms(appraisalFormList);
-            rpsDetail.setAssessment_indicators(rpsDetailRequest.getAssessment_indicators());
+            // rpsDetail.setLearning_methods(learningMethodList);
+            // rpsDetail.setAssignments(rpsDetailRequest.getAssignments());
+            // rpsDetail.setEstimated_times(rpsDetailRequest.getEstimated_times());
+            // rpsDetail.setStudent_learning_experiences(rpsDetailRequest.getStudent_learning_experiences());
+            // rpsDetail.setAssessment_criterias(assessmentCriteriaList);
+            // rpsDetail.setAppraisal_forms(appraisalFormList);
+            // rpsDetail.setAssessment_indicators(rpsDetailRequest.getAssessment_indicators());
             rpsDetail.setWeight(rpsDetailRequest.getWeight());
             rpsDetail.setCreatedAt(instant);
 

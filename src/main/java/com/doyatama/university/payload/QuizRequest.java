@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class QuizRequest {
+    private String idQuiz;
     private String name;
     private String description;
     private List<String> questions;
@@ -18,7 +19,8 @@ public class QuizRequest {
     public QuizRequest() {
     }
 
-    public QuizRequest(String name, String description, List<String> questions, String rps_id, Integer min_grade, Integer duration,String message ,String type_quiz,Instant date_start, Instant date_end) {
+    public QuizRequest(String idQuiz,String name, String description, List<String> questions, String rps_id, Integer min_grade, Integer duration,String message ,String type_quiz,Instant date_start, Instant date_end) {
+        this.idQuiz = idQuiz;
         this.name = name;
         this.description = description;
         this.questions = questions;
@@ -29,6 +31,13 @@ public class QuizRequest {
         this.type_quiz = type_quiz;
         this.date_start = date_start;
         this.date_end = date_end;
+    }
+
+    public String getId() {
+        return idQuiz;
+    }
+    public void setId(String idQuiz) {
+        this.idQuiz = idQuiz;
     }
 
     public String getName() {
@@ -113,6 +122,9 @@ public class QuizRequest {
 
     public void set(String fieldName, String value) {
         switch (fieldName) {
+            case "idQuiz":
+                this.idQuiz = value;
+                break;
             case "name":
                 this.name = value;
                 break;

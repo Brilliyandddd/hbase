@@ -1,7 +1,7 @@
 package com.doyatama.university.payload;
 public class AnswerRequest {
-    private String id;
-    private String question_id;
+    private String idAnswer;
+    private String idQuestion;
     private String title;
     private String description;
     private String type;
@@ -10,9 +10,9 @@ public class AnswerRequest {
     public AnswerRequest() {
     }
 
-    public AnswerRequest(String id, String question_id, String title, String description, String type, Boolean is_right) {
-        this.id = id;
-        this.question_id = question_id;
+    public AnswerRequest(String idAnswer, String idQuestion, String title, String description, String type, Boolean is_right) {
+        this.idAnswer = idAnswer;
+        this.idQuestion = idQuestion;
         this.title = title;
         this.description = description;
         this.type = type;
@@ -20,20 +20,20 @@ public class AnswerRequest {
 
     }
 
-    public String getId() {
-        return id;
+    public String getIdAnswer() {
+        return idAnswer;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdAnswer(String idAnswer) {
+        this.idAnswer = idAnswer;
     }
 
-    public String getQuestion_id() {
-        return question_id;
+    public String getIdQuestion() {
+        return idQuestion;
     }
 
-    public void setQuestion_id(String question_id) {
-        this.question_id = question_id;
+    public void setIdQuestion(String idQuestion) {
+        this.idQuestion = idQuestion;
     }
 
     public String getTitle() {
@@ -70,11 +70,11 @@ public class AnswerRequest {
 
     public void set(String fieldName, String value) {
         switch (fieldName) {
-            case "id":
-                this.id = value;
+            case "idAnswer":
+                this.idAnswer = value;
                 break;
-            case "question_id":
-                this.question_id = value;
+            case "idQuestion":
+                this.idQuestion = value;
                 break;
             case "title":
                 this.title = value;

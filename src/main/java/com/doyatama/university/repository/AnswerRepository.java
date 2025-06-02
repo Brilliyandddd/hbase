@@ -24,7 +24,7 @@ public class AnswerRepository {
         Map<String, String> columnMapping = new HashMap<>();
 
         // Add the mappings to the HashMap
-        columnMapping.put("id", "id");
+        columnMapping.put("idAnswer", "idAnswer");
         columnMapping.put("title", "title");
         columnMapping.put("description", "description");
         columnMapping.put("type", "type");
@@ -39,13 +39,13 @@ public class AnswerRepository {
 
         String rowKey = UUID.randomUUID().toString();
         TableName tableAnswer = TableName.valueOf(tableName);
-        client.insertRecord(tableAnswer, rowKey, "main", "id", rowKey);
+        client.insertRecord(tableAnswer, rowKey, "main", "idAnswer", rowKey);
         client.insertRecord(tableAnswer, rowKey, "main", "title", answer.getTitle());
         client.insertRecord(tableAnswer, rowKey, "main", "description", answer.getDescription());
         client.insertRecord(tableAnswer, rowKey, "main", "type", answer.getType().toString());
         client.insertRecord(tableAnswer, rowKey, "main", "is_right", answer.getIs_right().toString());
         client.insertRecord(tableAnswer, rowKey, "main", "file_path", answer.getFile_path());
-        client.insertRecord(tableAnswer, rowKey, "question", "id", answer.getQuestion().getId());
+        client.insertRecord(tableAnswer, rowKey, "question", "idQuestion", answer.getQuestion().getIdQuestion());
         client.insertRecord(tableAnswer, rowKey, "question", "title", answer.getQuestion().getTitle());
         client.insertRecord(tableAnswer, rowKey, "detail", "created_by", "Doyatama");
         return answer;
@@ -58,7 +58,7 @@ public class AnswerRepository {
         Map<String, String> columnMapping = new HashMap<>();
 
         // Add the mappings to the HashMap
-        columnMapping.put("id", "id");
+        columnMapping.put("idAnswer", "idAnswer");
         columnMapping.put("title", "title");
         columnMapping.put("description", "description");
         columnMapping.put("type", "type");
@@ -69,14 +69,14 @@ public class AnswerRepository {
         return client.showDataTable(tableUsers.toString(), columnMapping, answerId, Answer.class);
     }
 
-    public List<Answer> findAnswerByQuestion(String questionId, int size) throws IOException {
+    public List<Answer> findAnswerByQuestion(String questionID, int size) throws IOException {
         HBaseCustomClient client = new HBaseCustomClient(conf);
 
         TableName tableUsers = TableName.valueOf(tableName);
         Map<String, String> columnMapping = new HashMap<>();
 
         // Add the mappings to the HashMap
-        columnMapping.put("id", "id");
+        columnMapping.put("idAnswer", "idAnswer");
         columnMapping.put("title", "title");
         columnMapping.put("description", "description");
         columnMapping.put("type", "type");
@@ -84,7 +84,7 @@ public class AnswerRepository {
         columnMapping.put("file_path", "file_path");
         columnMapping.put("question", "question");
 
-        List<Answer> answer = client.getDataListByColumn(tableUsers.toString(), columnMapping, "question", "id", questionId, Answer.class, size);
+        List<Answer> answer = client.getDataListByColumn(tableUsers.toString(), columnMapping, "question", "idQuestion", questionID, Answer.class, size);
 
         return answer;
     }
@@ -95,7 +95,7 @@ public class AnswerRepository {
         TableName table = TableName.valueOf(tableName);
         Map<String, String> columnMapping = new HashMap<>();
         // Add the mappings to the HashMap
-        columnMapping.put("id", "id");
+        columnMapping.put("idAnswer", "idAnswer");
         columnMapping.put("title", "title");
         columnMapping.put("description", "description");
         columnMapping.put("type", "type");
@@ -123,7 +123,7 @@ public class AnswerRepository {
         client.insertRecord(tableAnswer, answerId, "main", "type", answer.getType().toString());
         client.insertRecord(tableAnswer, answerId, "main", "is_right", answer.getIs_right().toString());
         client.insertRecord(tableAnswer, answerId, "main", "file_path", answer.getFile_path());
-        client.insertRecord(tableAnswer, answerId, "question", "id", answer.getQuestion().getId());
+        client.insertRecord(tableAnswer, answerId, "question", "idQuestion", answer.getQuestion().getIdQuestion());
         client.insertRecord(tableAnswer, answerId, "question", "title", answer.getQuestion().getTitle());
         client.insertRecord(tableAnswer, answerId, "detail", "created_by", "Doyatama");
         return answer;

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 
 public class Answer {
-    private String id;
+    private String idAnswer;
     private Question question;
     private String title;
     private String description;
@@ -22,8 +22,8 @@ public class Answer {
     public Answer() {
     }
 
-    public Answer(String id, Question question, String title, String description, AnswerType type, Boolean is_right, String file_path) {
-        this.id = id;
+    public Answer(String idAnswer, Question question, String title, String description, AnswerType type, Boolean is_right, String file_path) {
+        this.idAnswer = idAnswer;
         this.question = question;
         this.title = title;
         this.description = description;
@@ -32,12 +32,12 @@ public class Answer {
         this.file_path = file_path;
     }
 
-    public String getId() {
-        return id;
+    public String getIdAnswer() {
+        return idAnswer;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdAnswer(String idAnswer) {
+        this.idAnswer = idAnswer;
     }
 
     public Question getQuestion() {
@@ -89,13 +89,13 @@ public class Answer {
     }
 
     public boolean isValid() {
-        return this.id != null && this.title != null && this.description != null && this.type != null && this.is_right != null && this.file_path != null;
+        return this.idAnswer != null && this.title != null && this.description != null && this.type != null && this.is_right != null && this.file_path != null;
     }
 
     public void set(String fieldName, String value) {
         switch (fieldName) {
-            case "id":
-                this.id = value;
+            case "idAnswer":
+                this.idAnswer = value;
                 break;
             case "title":
                 this.title = value;
