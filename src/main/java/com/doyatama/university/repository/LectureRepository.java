@@ -10,10 +10,12 @@ import com.doyatama.university.model.User;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.TableName;
+import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
 import java.util.*;
 
+@Repository
 public class LectureRepository {
     Configuration conf = HBaseConfiguration.create();
     String tableName = "lectures";

@@ -11,12 +11,14 @@ import org.apache.hadoop.conf.Configuration;
 import com.google.gson.Gson;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.TableName;
+import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@Repository
 public class TeamTeachingRepository {
 
     Configuration conf = HBaseConfiguration.create();

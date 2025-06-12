@@ -64,9 +64,11 @@ public class RPSRepository {
         columnMapping.put("created_at", "created_at");
         columnMapping.put("studyProgram", "studyProgram");
         columnMapping.put("subject", "subject");
-        columnMapping.put("learningMedia", "learningMedia");
-        columnMapping.put("lecture", "lecture");
-        // columnMapping.put("ka_study_program", "ka_study_program");
+        columnMapping.put("learningMediaSoftware", "learningMediaSoftware");
+        columnMapping.put("learningMediaHardware", "learningMediaHardware");
+        columnMapping.put("developerLecturer", "developerLecturer");
+        columnMapping.put("coordinatorLecturer", "coordinatorLecturer");
+        columnMapping.put("instructorLecturer", "instructorLecturer");
 
         return client.showDataTable(tableUsers.toString(), columnMapping, rpsId, RPS.class);
     }

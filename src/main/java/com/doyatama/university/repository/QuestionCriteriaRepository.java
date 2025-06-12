@@ -7,6 +7,7 @@ import com.doyatama.university.model.QuestionCriteria;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.TableName;
+import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -17,6 +18,8 @@ import java.util.UUID;
 /**
  * @author alfa
  */
+
+ @Repository
 public class QuestionCriteriaRepository {
     Configuration conf = HBaseConfiguration.create();
 
@@ -33,6 +36,7 @@ public class QuestionCriteriaRepository {
         columnMapping.put("name", "name");
         columnMapping.put("description", "description");
         columnMapping.put("category", "category");
+        columnMapping.put("type", "type");
 
         return client.showListTable(tableUsers.toString(), columnMapping, QuestionCriteria.class, size);
     }
@@ -57,6 +61,9 @@ public class QuestionCriteriaRepository {
         if (questionCriteria.getCategory() != null) {
             client.insertRecord(tableQuestionCriteria, rowKey, "main", "category", questionCriteria.getCategory());
         }
+        if (questionCriteria.getType() != null) {
+            client.insertRecord(tableQuestionCriteria, rowKey, "main", "type", questionCriteria.getType());
+        }
 
         client.insertRecord(tableQuestionCriteria, rowKey, "detail", "created_by", "alfa");
 
@@ -74,6 +81,7 @@ public class QuestionCriteriaRepository {
         columnMapping.put("name", "name");
         columnMapping.put("description", "description");
         columnMapping.put("category", "category");
+        columnMapping.put("type", "type");
 
         return client.showDataTable(tableUsers.toString(), columnMapping, questionCriteriaId, QuestionCriteria.class);
     }
@@ -94,6 +102,9 @@ public class QuestionCriteriaRepository {
     }
     if (questionCriteria.getCategory() != null) {
         client.insertRecord(tableQuestionCriteria, questionCriteriaId, "main", "category", questionCriteria.getCategory());
+    }
+    if (questionCriteria.getType() != null) {
+        client.insertRecord(tableQuestionCriteria, questionCriteriaId, "main", "type", questionCriteria.getType());
     }
 
     return questionCriteria;

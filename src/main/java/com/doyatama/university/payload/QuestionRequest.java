@@ -26,10 +26,12 @@ public class QuestionRequest {
     private String examType3;
     private String explanation;
 
+    private Boolean is_rated;
+
     public QuestionRequest() {
     }
 
-    public QuestionRequest(String idQuestion, String title, String description, String question_type, String answer_type, String idRps, String rps_detail_id, String examType, String examType2, String examType3, String explanation) {
+    public QuestionRequest(String idQuestion, String title, String description, String question_type, String answer_type, String idRps, String rps_detail_id, String examType, String examType2, String examType3, String explanation, Boolean is_rated) {
         this.idQuestion = idQuestion;
         this.title = title;
         this.description = description;
@@ -41,6 +43,7 @@ public class QuestionRequest {
         this.examType2 = examType2;
         this.examType3 = examType3;
         this.explanation = explanation;
+        this.is_rated = is_rated;
     }
 
     // Getters and Setters
@@ -144,6 +147,13 @@ public class QuestionRequest {
         this.explanation = explanation;
     }
 
+    public Boolean getIs_rated() {
+        return is_rated;
+    }
+    public void setIs_rated(Boolean is_rated) {
+        this.is_rated = is_rated;
+    }
+
     public void set(String fieldName, String value) {
         switch (fieldName) {
             case "idQuestion":
@@ -180,6 +190,9 @@ public class QuestionRequest {
             case "explanation":
                 this.explanation = value;
                 break;
+            case "is_rated":
+                this.is_rated = Boolean.parseBoolean(value);
+                break;
             default:
                 throw new IllegalArgumentException("Invalid field name: " + fieldName);
         }
@@ -200,6 +213,7 @@ public class QuestionRequest {
                 ", examType2='" + examType2 + '\'' +
                 ", examType3='" + examType3 + '\'' +
                 ", explanation='" + explanation + '\'' +
+                ", is_rated=" + is_rated +
                 '}';
     }
 }

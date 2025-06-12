@@ -8,18 +8,22 @@ public class QuizRequest {
     private String idQuiz;
     private String name;
     private String description;
-    private List<String> questions;
+    private List<String> questions; // This is correct for receiving IDs
     private String rps_id;
     private Integer min_grade;
     private Integer duration;
     private String message;
+    private String developerId;
+    private String coordinatorId;
+    private String instructorId;
     private Instant date_start;
     private Instant date_end;
     private String type_quiz;
+
     public QuizRequest() {
     }
 
-    public QuizRequest(String idQuiz,String name, String description, List<String> questions, String rps_id, Integer min_grade, Integer duration,String message ,String type_quiz,Instant date_start, Instant date_end) {
+    public QuizRequest(String idQuiz,String name, String description, List<String> questions, String rps_id,String developerId,String coordinatorId,String instructorId, Integer min_grade, Integer duration,String message ,String type_quiz,Instant date_start, Instant date_end) {
         this.idQuiz = idQuiz;
         this.name = name;
         this.description = description;
@@ -28,15 +32,18 @@ public class QuizRequest {
         this.min_grade = min_grade;
         this.duration = duration;
         this.message = message;
+        this.developerId = developerId;
+        this.coordinatorId = coordinatorId;
+        this.instructorId = instructorId;
         this.type_quiz = type_quiz;
         this.date_start = date_start;
         this.date_end = date_end;
     }
 
-    public String getId() {
+    public String getIdQuiz() {
         return idQuiz;
     }
-    public void setId(String idQuiz) {
+    public void setIdQuiz(String idQuiz) {
         this.idQuiz = idQuiz;
     }
 
@@ -78,6 +85,27 @@ public class QuizRequest {
 
     public void setMin_grade(Integer min_grade) {
         this.min_grade = min_grade;
+    }
+
+    public String getDeveloperId(){
+        return developerId;
+    }
+
+    public void setDeveloperId(String developerId){
+        this.developerId = developerId;
+    }
+
+    public String getCoordinatorId() {
+        return coordinatorId;
+    }
+    public void setCoordinatorId(String coordinatorId) {
+        this.coordinatorId = coordinatorId;
+    }
+    public String getInstructorId() {
+        return instructorId;
+    }
+    public void setInstructorId(String instructorId) {
+        this.instructorId = instructorId;
     }
 
     public Integer getDuration() {
@@ -132,6 +160,10 @@ public class QuizRequest {
                 this.description = value;
                 break;
             case "questions":
+                // This converts a single string into a list, which might not be intended for a comma-separated list of IDs.
+                // If "questions" in a set method is ever meant to take a comma-separated string,
+                // you'd need to split it: `Arrays.asList(value.split(","))`.
+                // However, for typical request body, `setQuestions(List<String> questions)` is called directly.
                 this.questions = Collections.singletonList(value);
                 break;
             case "rps_id":
@@ -139,6 +171,15 @@ public class QuizRequest {
                 break;
             case "min_grade":
                 this.min_grade = Integer.parseInt(value);
+                break;
+            case "developerId":
+                this.developerId = value;
+                break;
+            case "coordinatorId":
+                this.coordinatorId = value;
+                break;
+            case "instructorId":
+                this.instructorId = value;
                 break;
             case "duration":
                 this.duration = Integer.parseInt(value);

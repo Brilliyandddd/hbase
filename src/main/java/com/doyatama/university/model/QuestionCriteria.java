@@ -8,6 +8,8 @@ public class QuestionCriteria {
     private String name;
     private String description;
     private String category;
+    private String type;
+    private Double weight;
 
     private static final int MAX_ID_LENGTH = 6; // replace 16 with your desired maximum length
 
@@ -16,11 +18,13 @@ public class QuestionCriteria {
     }
 
     // Constructor
-    public QuestionCriteria(String id, String name, String description, String category) {
+    public QuestionCriteria(String id, String name, String description, String category,String type, Double weight) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.category = category;
+        this.type = type;
+        this.weight = weight;
     }
     // Getters and setters for all fields
 
@@ -54,6 +58,21 @@ public class QuestionCriteria {
     public void setCategory(String category) {
         this.category = category;
     }
+
+    public String getType() {
+        return type;
+    }
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Double getWeight() {
+        return weight;
+    }
+    public void setWeight(Double weight) {
+        this.weight = weight;
+    }
+    
     public boolean isValid(){
         return this.id != null && this.name != null && this.description != null && this.category !=null;
     }
@@ -74,6 +93,9 @@ public class QuestionCriteria {
                 break;
             case "category":
                 this.category = String.valueOf(value);
+                break;
+            case "type":
+                this.type = String.valueOf(value);
                 break;
             default:
                 throw new IllegalArgumentException("Field " + fieldName + " not found");

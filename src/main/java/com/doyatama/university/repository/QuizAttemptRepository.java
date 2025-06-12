@@ -74,7 +74,7 @@ public class QuizAttemptRepository {
         columnMapping.put("student", "student");
         columnMapping.put("duration", "duration");
         columnMapping.put("created_at", "created_at");
-        return client.getDataListByColumn(tableUsers.toString(), columnMapping, "quiz", "id", quizID, QuizAttempt.class, size);
+        return client.getDataListByColumn(tableUsers.toString(), columnMapping, "quiz", "idQuiz", quizID, QuizAttempt.class, size);
     }
 
     public QuizAttempt save(QuizAttempt quizAttempt) throws IOException {
@@ -95,7 +95,7 @@ public class QuizAttemptRepository {
             client.insertRecord(tableQuizAttempt, rowKey, "student_answers", "sa_" + i, new Gson().toJson(studentAnswer));
         }
 
-        client.insertRecord(tableQuizAttempt, rowKey, "quiz", "id", quizAttempt.getQuiz().getId());
+        client.insertRecord(tableQuizAttempt, rowKey, "quiz", "idQuiz", quizAttempt.getQuiz().getIdQuiz());
         client.insertRecord(tableQuizAttempt, rowKey, "quiz", "name", quizAttempt.getQuiz().getName());
         client.insertRecord(tableQuizAttempt, rowKey, "quiz", "min_grade", quizAttempt.getQuiz().getMin_grade().toString());
         client.insertRecord(tableQuizAttempt, rowKey, "quiz", "duration", quizAttempt.getQuiz().getDuration().toString());
@@ -168,7 +168,7 @@ public class QuizAttemptRepository {
             client.insertRecord(tableQuizAttempt, quizAttemptId, "student_answers", "sa_" + i, new Gson().toJson(studentAnswer));
         }
 
-        client.insertRecord(tableQuizAttempt, quizAttemptId, "quiz", "id", quizAttempt.getQuiz().getId());
+        client.insertRecord(tableQuizAttempt, quizAttemptId, "quiz", "idQuiz", quizAttempt.getQuiz().getIdQuiz());
         client.insertRecord(tableQuizAttempt, quizAttemptId, "quiz", "name", quizAttempt.getQuiz().getName());
         client.insertRecord(tableQuizAttempt, quizAttemptId, "quiz", "min_grade", quizAttempt.getQuiz().getMin_grade().toString());
         client.insertRecord(tableQuizAttempt, quizAttemptId, "quiz", "duration", quizAttempt.getQuiz().getDuration().toString());

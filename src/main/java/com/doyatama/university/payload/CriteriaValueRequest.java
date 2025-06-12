@@ -19,12 +19,14 @@ public class CriteriaValueRequest {
     private String value7;
     private String value8;
     private String value9;
+    private String value10; // Tambahkan value10
 
-    private String avgOfAvgValue9;
+    // avgOfAvgValue9 dihapus karena akan dihitung di backend
+    // private String avgOfAvgValue9;
 
-    private String question_id;
+    private String idQuestion;
     private String team_teaching_id;
-    private String linguistic_value_id;
+    private String linguistic_value_id; // Jika ini diperlukan sebagai LinguisticValue umum
     private String user_id;
 
     private String lecture;
@@ -33,7 +35,11 @@ public class CriteriaValueRequest {
     public CriteriaValueRequest() {
     }
 
-    public CriteriaValueRequest(String id,String value1, String value2, String value3, String value4, String value5, String value6, String value7, String value8, String value9,String avgOfAvgValue9, String question_id, String team_teaching_id, String linguistic_value_id,String user_id) {
+    // Perbarui constructor untuk menyertakan value10
+    public CriteriaValueRequest(String id, String value1, String value2, String value3, String value4,
+                                String value5, String value6, String value7, String value8, String value9,
+                                String value10, String idQuestion, String team_teaching_id,
+                                String linguistic_value_id, String user_id) {
         this.id = id;
         this.value1 = value1;
         this.value2 = value2;
@@ -44,22 +50,21 @@ public class CriteriaValueRequest {
         this.value7 = value7;
         this.value8 = value8;
         this.value9 = value9;
-        this.avgOfAvgValue9 = avgOfAvgValue9;
-        this.question_id = question_id;
+        this.value10 = value10; // Inisialisasi value10
+        // this.avgOfAvgValue9 = avgOfAvgValue9; // Dihapus
+        this.idQuestion = idQuestion;
         this.team_teaching_id = team_teaching_id;
         this.linguistic_value_id = linguistic_value_id;
         this.user_id = user_id;
-
     }
 
-    public String getId(){
+    public String getId() {
         return id;
     }
 
-    public void setId(String id){
+    public void setId(String id) {
         this.id = id;
     }
-
 
     public String getValue1() {
         return this.value1;
@@ -93,7 +98,7 @@ public class CriteriaValueRequest {
         this.value4 = value4;
     }
 
-     public String getValue5() {
+    public String getValue5() {
         return this.value5;
     }
 
@@ -133,28 +138,34 @@ public class CriteriaValueRequest {
         this.value9 = value9;
     }
 
+    public String getValue10() { // Getter untuk value10
+        return this.value10;
+    }
+
+    public void setValue10(String value10) { // Setter untuk value10
+        this.value10 = value10;
+    }
+
     public String getLinguisticValue() {
         return this.linguistic_value_id;
     }
 
-    public String getQuestionId(){
-        return question_id;
+    public String getIdQuestion() {
+        return idQuestion;
     }
 
-    public void setQuestionId(String question_id){
-        this.question_id = question_id;
+    public void setIdQuestion(String idQuestion) {
+        this.idQuestion = idQuestion;
     }
 
-    public String getTeamTeachingId(){
+    public String getTeamTeachingId() {
         return team_teaching_id;
     }
 
-    public void setTeamTeachingId(String team_teaching_id){
+    public void setTeamTeachingId(String team_teaching_id) {
         this.team_teaching_id = team_teaching_id;
     }
 
-
-    
     public String getLecture() {
         return lecture;
     }
@@ -171,13 +182,15 @@ public class CriteriaValueRequest {
         this.user_id = user_id;
     }
 
+    // Perbaiki switch-case: tambahkan 'break;' dan tangani value10
     public void set(String fieldName, String value) {
         switch (fieldName) {
             case "id":
                 this.id = value;
                 break;
-            case"question_id":
-                this.question_id = value;
+            case "idQuestion":
+                this.idQuestion = value;
+                break; // <-- Tambahkan break di sini!
             case "value1":
                 this.value1 = value;
                 break;
@@ -205,11 +218,23 @@ public class CriteriaValueRequest {
             case "value9":
                 this.value9 = value;
                 break;
-            case "avgOfAvgValue9":
-                this.avgOfAvgValue9 = value;
+            case "value10": // Tambahkan case untuk value10
+                this.value10 = value;
                 break;
+            // case "avgOfAvgValue9": // Dihapus
+            //     this.avgOfAvgValue9 = value;
+            //     break;
             case "user_id":
                 this.user_id = value;
+                break;
+            case "team_teaching_id": // Tambahkan jika diperlukan
+                this.team_teaching_id = value;
+                break;
+            case "linguistic_value_id": // Tambahkan jika diperlukan
+                this.linguistic_value_id = value;
+                break;
+            case "lecture": // Tambahkan jika diperlukan
+                this.lecture = value;
                 break;
             default:
                 throw new IllegalArgumentException("Invalid field name: " + fieldName);

@@ -5,6 +5,7 @@ import com.doyatama.university.model.LinguisticValue;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.TableName;
+import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -16,7 +17,7 @@ import java.util.UUID;
  * @author alfa
  */
 
-
+@Repository
 public class LinguisticValueRepository {
 
     Configuration conf = HBaseConfiguration.create();
@@ -57,25 +58,14 @@ public class LinguisticValueRepository {
             client.insertRecord(tableLinguisticValue, rowKey, "main", "name", linguisticValue.getName());
         }
 
-        if (linguisticValue.getValue1() != 0) {
-            client.insertRecord(tableLinguisticValue, rowKey, "main", "value1", String.valueOf(linguisticValue.getValue1()));
-        }
+        client.insertRecord(tableLinguisticValue, rowKey, "main", "value1", String.valueOf(linguisticValue.getValue1()));
+        client.insertRecord(tableLinguisticValue, rowKey, "main", "value2", String.valueOf(linguisticValue.getValue2()));
+        client.insertRecord(tableLinguisticValue, rowKey, "main", "value3", String.valueOf(linguisticValue.getValue3()));
+        client.insertRecord(tableLinguisticValue, rowKey, "main", "value4", String.valueOf(linguisticValue.getValue4()));
 
-        if (linguisticValue.getValue2() != 0) {
-            client.insertRecord(tableLinguisticValue, rowKey, "main", "value2", String.valueOf(linguisticValue.getValue2()));
-        }
-
-        if (linguisticValue.getValue3() != 0) {
-            client.insertRecord(tableLinguisticValue, rowKey, "main", "value3", String.valueOf(linguisticValue.getValue3()));
-        }
-
-        if (linguisticValue.getValue4() != 0) {
-            client.insertRecord(tableLinguisticValue, rowKey, "main", "value4", String.valueOf(linguisticValue.getValue4()));
-        }
-
-        if (linguisticValue.getAvg() != 0) {
-            client.insertRecord(tableLinguisticValue, rowKey, "main", "avg", String.valueOf(linguisticValue.getAvg()));
-        }
+        // if (linguisticValue.getAvg() != 0) {
+        //     client.insertRecord(tableLinguisticValue, rowKey, "main", "avg", String.valueOf(linguisticValue.getAvg()));
+        // }
         if (linguisticValue.getFile_path() != null) {
             client.insertRecord(tableLinguisticValue, rowKey, "main", "file_path", linguisticValue.getFile_path());
         }
@@ -129,9 +119,9 @@ public class LinguisticValueRepository {
         if (String.valueOf(linguisticValue.getValue4()) != null) {
             client.insertRecord(tableLinguisticValue, linguisticValueId, "main", "value4", String.valueOf(linguisticValue.getValue4()));
         }
-        if (String.valueOf(linguisticValue.getAvg()) != null) {
-            client.insertRecord(tableLinguisticValue, linguisticValueId, "main", "avg", String.valueOf(linguisticValue.getAvg()));
-        }
+        // if (String.valueOf(linguisticValue.getAvg()) != null) {
+        //     client.insertRecord(tableLinguisticValue, linguisticValueId, "main", "avg", String.valueOf(linguisticValue.getAvg()));
+        // }
         
         return linguisticValue;
     }

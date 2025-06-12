@@ -11,8 +11,8 @@ public class LinguisticValue {
     private float value2;
     private float value3;
     private float value4;
-    private float avg;
-    private String average;
+    // private float avg;
+    // private String average;
     private String file_path;
 
 
@@ -30,7 +30,7 @@ public class LinguisticValue {
         this.value3 = value3;
         this.value4 = value4;
         this.file_path = file_path;
-        updateAvg();
+        // updateAvg();
     }
 
     // Getters and setters for all fields
@@ -54,7 +54,6 @@ public class LinguisticValue {
 
     public void setValue1(float value1) {
         this.value1 = value1;
-        updateAvg();
     }
 
     public float getValue2() {
@@ -63,7 +62,6 @@ public class LinguisticValue {
 
     public void setValue2(float value2) {
         this.value2 = value2;
-        updateAvg();
     }
 
     public float getValue3() {
@@ -72,7 +70,6 @@ public class LinguisticValue {
 
     public void setValue3(float value3) {
         this.value3 = value3;
-        updateAvg();
     }
 
     public float getValue4() {
@@ -81,35 +78,37 @@ public class LinguisticValue {
 
     public void setValue4(float value4) {
         this.value4 = value4;
-        updateAvg();
     }
 
-      public float getAvg() {
-        return avg;
+    public Float getAverageValue() { // <-- Metode ini dikembalikan
+        return (this.value1 + this.value2 + this.value3 + this.value4) / 4.0f;
     }
 
-    private void updateAvg() {
-        float sum = this.value1 + this.value2 + this.value3 + this.value4;
-        this.avg = sum != 0 ? sum / 4.0f : 0;
-    }
+    //   public float getAvg() {
+    //     return avg;
+    // }
 
-    public void setAverage(String average) {
-        this.avg = Float.parseFloat(average);
-    }
+    // private void updateAvg() {
+    //     float sum = this.value1 + this.value2 + this.value3 + this.value4;
+    //     this.avg = sum != 0 ? sum / 4.0f : 0;
+    // }
+
+    // public void setAverage(String average) {
+    //     this.avg = Float.parseFloat(average);
+    // }
 
 
-    public String getAverage() {
-         this.avg = (this.value1 + this.value2 + this.value3 + this.value4) / 4.0f;
-        this.average = Float.toString(this.avg);
-        return this.average;
-    }
+    // public String getAverage() {
+    //      this.avg = (this.value1 + this.value2 + this.value3 + this.value4) / 4.0f;
+    //     this.average = Float.toString(this.avg);
+    //     return this.average;
+    // }
 
-    public void setAvarage(String average) {
-        this.avg = Float.parseFloat(average);
-        this.average = average;
+    // public void setAvarage(String average) {
+    //     this.avg = Float.parseFloat(average);
+    //     this.average = average;
 
-    }
-
+    // }
 
     public String getFile_path() {
         return file_path;

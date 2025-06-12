@@ -22,6 +22,8 @@ import org.springframework.stereotype.Repository;
 /**
  * @author alfa
  */
+
+ @Repository
 public class QuizAnnouncementRepository {
     Configuration conf = HBaseConfiguration.create();
     String tableName = "quizzes_announcement";

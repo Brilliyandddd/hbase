@@ -12,7 +12,7 @@ public class DeleteData {
         Configuration conf = HBaseConfiguration.create();
         HBaseCustomClient client = new HBaseCustomClient(conf);
 
-        TableName tableQuestion = TableName.valueOf("questions");
-        client.truncateTable(tableQuestion, conf);
+        TableName tableQuizzes = TableName.valueOf("quizzes");
+        client.truncateTable(tableQuizzes, conf);
     }
 }

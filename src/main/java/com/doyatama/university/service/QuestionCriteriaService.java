@@ -34,6 +34,7 @@ public class QuestionCriteriaService {
         questionCriteria.setName(questionCriteriaRequest.getName());
         questionCriteria.setDescription(questionCriteriaRequest.getDescription());
         questionCriteria.setCategory(questionCriteriaRequest.getCategory());
+        questionCriteria.setType(questionCriteriaRequest.getType());
         return questionCriteriaRepository.save(questionCriteria);
     }
 
@@ -61,6 +62,7 @@ public class QuestionCriteriaService {
         questionCriteria.setName(questionCriteriaRequest.getName());
         questionCriteria.setDescription(questionCriteriaRequest.getDescription());
         questionCriteria.setCategory(questionCriteriaRequest.getCategory());
+        questionCriteria.setType(questionCriteriaRequest.getType());
         // Now you can use the questionCriteria object in your update method
         return questionCriteriaRepository.update(questionCriteria);
     }
