@@ -21,11 +21,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Hello world!
  * Created By: Doyatama
  */
 public class HBaseCustomClient {
+
+    private static final Logger logger = LoggerFactory.getLogger(HBaseCustomClient.class);
 
     private HBaseAdmin admin;
     private Connection connection = null;
@@ -118,6 +123,29 @@ public class HBaseCustomClient {
             e.printStackTrace();
         }
 
+    }
+
+    /**
+     * Deletes a specific column (qualifier) within a column family for a given row.
+     * @param tableNameString The name of the HBase table.
+     * @param rowKey The row key.
+     * @param columnFamily The column family (e.g., "main").
+     * @param qualifier The column qualifier to delete (e.g., "questionRating").
+     * @throws IOException If an HBase error occurs.
+     */
+    public void deleteColumn(String tableNameString, String rowKey, String columnFamily, String qualifier) throws IOException {
+        TableName tableName = TableName.valueOf(tableNameString);
+        try (Table table = connection.getTable(tableName)) {
+            Delete delete = new Delete(Bytes.toBytes(rowKey));
+            delete.addColumn(Bytes.toBytes(columnFamily), Bytes.toBytes(qualifier)); // Deletes a specific version
+            table.delete(delete);
+            logger.info("Successfully deleted column '{}':'{}' for row '{}' in table '{}'",
+                        columnFamily, qualifier, rowKey, tableNameString);
+        } catch (Exception e) {
+            logger.error("Failed to delete column '{}':'{}' for row '{}' in table '{}': {}",
+                        columnFamily, qualifier, rowKey, tableNameString, e.getMessage(), e);
+            throw e; // Re-throw to propagate the error
+        }
     }
 
     public Table getTable(String tableName) throws IOException {
@@ -226,6 +254,15 @@ public class HBaseCustomClient {
         }
 
         return null;
+    }
+
+    // Method to get a single row's result object directly
+    public Result getRow(String tableNameString, String rowKey) throws IOException {
+        TableName tableName = TableName.valueOf(tableNameString);
+        try (Table table = connection.getTable(tableName)) {
+            Get get = new Get(Bytes.toBytes(rowKey));
+            return table.get(get);
+        }
     }
 
     public <T> T showDataTable(String tablename, Map<String, String> columnMapping, String uuid, Class<T> modelClass) {
@@ -423,6 +460,14 @@ public class HBaseCustomClient {
                     String variableName = columnMapping.get(columnName2);
 
                     String value = Bytes.toString(CellUtil.cloneValue(cell));
+
+                     // --- ADD THIS DEBUG LOG HERE ---
+    if ("questionRating".equals(columnName) && "main".equals(familyName) && variableName != null) {
+        System.out.println("DEBUG HBaseClient: Found cell 'main:questionRating'. Raw value: " + value);
+        // After this, your code calls setField(field, object, value);
+        // Let's add a log AFTER setField too if possible, but the one above is enough for now.
+    }
+    // --- END DEBUG LOG ---
                     // Get the value of the cell as a string
                     // Check if the variableName contains "department"
                     if (columnMapping.containsKey(familyName2)) {
@@ -493,68 +538,74 @@ public class HBaseCustomClient {
     }
 
     private void setField(Field field, Object object, String value) throws IllegalAccessException {
-        // Ubah hak akses field agar dapat diakses
-        field.setAccessible(true);
+    // Ubah hak akses field agar dapat diakses
+    field.setAccessible(true);
 
-        // Dapatkan tipe data dari field
-        Class<?> fieldType = field.getType();
+    // Dapatkan tipe data dari field
+    Class<?> fieldType = field.getType();
 
-        // Parsing nilai string menjadi nilai sesuai tipe data
-        if (fieldType == Integer.class) {
-            Integer intValue = Integer.parseInt(value);
-            field.set(object, intValue);
-        } else if (fieldType == long.class) {
-            long longValue = Long.parseLong(value);
-            field.setLong(object, longValue);
-        } else if (fieldType == float.class) {
-            float floatValue = Float.parseFloat(value);
-            field.setFloat(object, floatValue);
-        } else if (fieldType == Float.class) {
-            Float floatValue = Float.parseFloat(value);
-            field.set(object, floatValue);
-        } else if (fieldType == double.class) {
-            double doubleValue = Double.parseDouble(value);
-            field.setDouble(object, doubleValue);
-        } else if (fieldType == Double.class) {
-            Double doubleValue = Double.valueOf(value);
-            field.setDouble(object, doubleValue);
-        } else if (fieldType == boolean.class) {
-            boolean booleanValue = Boolean.parseBoolean(value);
-            field.setBoolean(object, booleanValue);
-        } else if (fieldType == Boolean.class) {
-            Boolean booleanValue;
-            if(value.equalsIgnoreCase("true")){
-                booleanValue = Boolean.TRUE;
-            }else{
-                booleanValue = Boolean.FALSE;
-            }
-            field.set(object, booleanValue);
-        } else if (fieldType == String.class) {
-            field.set(object, value);
-        } else if (fieldType == Instant.class) {
-            Instant instantValue = Instant.parse(value);
-            field.set(object, instantValue);
-        } else if (fieldType == Question.QuestionType.class) {
-            Question.QuestionType instantValue = Question.QuestionType.valueOf(value);
-            field.set(object, instantValue);
-        } else if (fieldType == Question.AnswerType.class) {
-            Question.AnswerType instantValue = Question.AnswerType.valueOf(value);
-            field.set(object, instantValue);
-        }else if (fieldType == Answer.AnswerType.class) {
-            Answer.AnswerType instantValue = Answer.AnswerType.valueOf(value);
-            field.set(object, instantValue);
-        } else if (fieldType == Question.ExamType.class) {
-            Question.ExamType examTypeValue = Question.ExamType.valueOf(value);
-            field.set(object, examTypeValue);
-        } else if (fieldType == Question.ExamType2.class) {
-            Question.ExamType2 examType2Value = Question.ExamType2.valueOf(value);
-            field.set(object, examType2Value);
-        } else if (fieldType == Question.ExamType3.class) {
-            Question.ExamType3 examType3Value = Question.ExamType3.valueOf(value);
-            field.set(object, examType3Value);
-        } else {
-            // Tipe data yang tidak dikenal, lewati saja
-            System.out.println("Tipe data " + fieldType + " tidak dikenali.");
+    // Parsing nilai string menjadi nilai sesuai tipe data
+    if (fieldType == Integer.class) {
+        Integer intValue = Integer.parseInt(value);
+        field.set(object, intValue);
+    } else if (fieldType == int.class) {
+        int intValue = Integer.parseInt(value);
+        field.setInt(object, intValue);
+    } else if (fieldType == Long.class) {
+        Long longValue = Long.parseLong(value);
+        field.set(object, longValue);
+    } else if (fieldType == long.class) {
+        long longValue = Long.parseLong(value);
+        field.setLong(object, longValue);
+    } else if (fieldType == float.class) {
+        float floatValue = Float.parseFloat(value);
+        field.setFloat(object, floatValue);
+    } else if (fieldType == Float.class) {
+        Float floatValue = Float.parseFloat(value);
+        field.set(object, floatValue);
+    } else if (fieldType == double.class) {
+        double doubleValue = Double.parseDouble(value);
+        field.setDouble(object, doubleValue);
+    } else if (fieldType == Double.class) {
+        Double doubleValue = Double.valueOf(value);
+        field.set(object, doubleValue); // Changed from setDouble to set
+    } else if (fieldType == boolean.class) {
+        boolean booleanValue = Boolean.parseBoolean(value);
+        field.setBoolean(object, booleanValue);
+    } else if (fieldType == Boolean.class) {
+        Boolean booleanValue;
+        if(value.equalsIgnoreCase("true")){
+            booleanValue = Boolean.TRUE;
+        }else{
+            booleanValue = Boolean.FALSE;
         }
+        field.set(object, booleanValue);
+    } else if (fieldType == String.class) {
+        field.set(object, value);
+    } else if (fieldType == Instant.class) {
+        Instant instantValue = Instant.parse(value);
+        field.set(object, instantValue);
+    } else if (fieldType == Question.QuestionType.class) {
+        Question.QuestionType instantValue = Question.QuestionType.valueOf(value);
+        field.set(object, instantValue);
+    } else if (fieldType == Question.AnswerType.class) {
+        Question.AnswerType instantValue = Question.AnswerType.valueOf(value);
+        field.set(object, instantValue);
+    }else if (fieldType == Answer.AnswerType.class) {
+        Answer.AnswerType instantValue = Answer.AnswerType.valueOf(value);
+        field.set(object, instantValue);
+    } else if (fieldType == Question.ExamType.class) {
+        Question.ExamType examTypeValue = Question.ExamType.valueOf(value);
+        field.set(object, examTypeValue);
+    } else if (fieldType == Question.ExamType2.class) {
+        Question.ExamType2 examType2Value = Question.ExamType2.valueOf(value);
+        field.set(object, examType2Value);
+    } else if (fieldType == Question.ExamType3.class) {
+        Question.ExamType3 examType3Value = Question.ExamType3.valueOf(value);
+        field.set(object, examType3Value);
+    } else {
+        // Tipe data yang tidak dikenal, lewati saja
+        System.out.println("Tipe data " + fieldType + " tidak dikenali.");
     }
+}
 }

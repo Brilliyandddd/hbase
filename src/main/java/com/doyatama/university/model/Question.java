@@ -1,21 +1,20 @@
 package com.doyatama.university.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties; // Import ini
-
-import com.fasterxml.jackson.core.JsonProcessingException; // Import ini
-import com.fasterxml.jackson.databind.ObjectMapper; // Import ini
-import com.fasterxml.jackson.core.type.TypeReference; // Import ini untuk List<CriteriaValue>
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty; // Import ini
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Arrays; // Jika diperlukan oleh helper lain
-import java.util.stream.Collectors; // Jika diperlukan oleh helper lain
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule; // Untuk Instant/LocalDateTime jika ada di CriteriaValue
+import java.util.Map;
+import java.util.HashMap;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties(ignoreUnknown = true) // Penting untuk mengabaikan field yang tidak dikenal saat deserialisasi
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Question {
     private String idQuestion;
     private String title;
@@ -25,37 +24,28 @@ public class Question {
     private String file_path;
     private RPS rps;
     private RPSDetail rps_detail_id;
-    private boolean is_rated; // NEW: Field is_rated
+    private boolean is_rated;
     private ExamType examType;
     private ExamType2 examType2;
     private ExamType3 examType3;
     private String explanation;
     private ExerciseAttempt exerciseAttempt;
 
-    // Untuk hitung ivihf topsis tahap matrix
-    // @Transient // Opsional: Jika Anda menggunakan JPA, ini mencegah field ini dipetakan langsung ke DB
-    private List<CriteriaValue> criteria_values;
+    // Field untuk menyimpan List<CriteriaValue> sebagai JSON String di HBase
+    private String criteriaValuesJson;
+    // Transient field for criteria_values object
+    private transient List<CriteriaValue> criteria_values;
 
-    // Field-field averageValue1-10 (Asumsi ini dihitung dari criteria_values)
-    private Double averageValue1;
-    private Double averageValue2;
-    private Double averageValue3;
-    private Double averageValue4;
-    private Double averageValue5;
-    private Double averageValue6;
-    private Double averageValue7;
-    private Double averageValue8;
-    private Double averageValue9;
-    private Double averageValue10;
+    // Field untuk menyimpan struktur rating oleh reviewer sebagai JSON String di HBase
+    private String questionRatingJson;
+    // Transient field for QuestionRating object
+    private transient QuestionRating questionRating; // Tetap transient
 
-    // NEW: Field untuk menyimpan List<CriteriaValue> sebagai JSON String di HBase
-    private String criteriaValuesJson; 
-
-    // NEW: ObjectMapper untuk konversi JSON (harus statis dan singleton)
+    // ObjectMapper untuk konversi JSON (harus statis dan singleton)
     private static final ObjectMapper objectMapper = new ObjectMapper();
     static {
-        objectMapper.registerModule(new JavaTimeModule()); // Penting jika ada Instant/LocalDateTime di CriteriaValue
-        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL); // Hanya serialize field non-null
+        objectMapper.registerModule(new JavaTimeModule());
+        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
     }
 
     public enum QuestionType {
@@ -66,29 +56,127 @@ public class Question {
         MULTIPLE_CHOICE, BOOLEAN, COMPLETION, ESSAY, MATCHING,
     }
 
-    public enum ExamType{
+    public enum ExamType {
         EXERCISE, NOTHING,
     }
 
-    public enum ExamType2{
+    public enum ExamType2 {
         QUIZ, NOTHING,
     }
-    
-    public enum ExamType3{
+
+    public enum ExamType3 {
         EXAM, NOTHING,
+    }
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class QuestionRating {
+        private String idQuestion;
+        @JsonProperty("reviewerRatings")
+        @JsonInclude(JsonInclude.Include.NON_EMPTY)
+        private Map<String, ReviewerRating> reviewerRatings;
+
+        public QuestionRating() {
+            this.reviewerRatings = new HashMap<>();
+        }
+
+        public QuestionRating(String idQuestion) {
+            this.idQuestion = idQuestion;
+            this.reviewerRatings = new HashMap<>();
+        }
+
+        public String getIdQuestion() { return idQuestion; }
+        public void setIdQuestion(String idQuestion) { this.idQuestion = idQuestion; }
+
+        @JsonProperty("reviewerRatings")
+        @JsonInclude(JsonInclude.Include.NON_EMPTY)
+        public Map<String, ReviewerRating> getReviewerRatings() {
+            if (reviewerRatings == null) {
+                reviewerRatings = new HashMap<>();
+            }
+            return reviewerRatings;
+        }
+        public void setReviewerRatings(Map<String, ReviewerRating> reviewerRatings) { this.reviewerRatings = reviewerRatings; }
+
+        public void addReviewerRating(String reviewerName, ReviewerRating rating) {
+            if (this.reviewerRatings == null) {
+                this.reviewerRatings = new HashMap<>();
+            }
+            this.reviewerRatings.put(reviewerName, rating);
+        }
+    }
+
+    // Inner class untuk rating dari satu reviewer
+    public static class ReviewerRating {
+        private Double averageValue1;
+        private Double averageValue2;
+        private Double averageValue3;
+        private Double averageValue4;
+        private Double averageValue5;
+        private Double averageValue6;
+        private Double averageValue7;
+        private Double averageValue8;
+        private Double averageValue9;
+        private Double averageValue10;
+
+        public ReviewerRating() {}
+
+        public ReviewerRating(Double averageValue1, Double averageValue2, Double averageValue3,
+                              Double averageValue4, Double averageValue5, Double averageValue6,
+                              Double averageValue7, Double averageValue8, Double averageValue9,
+                              Double averageValue10) {
+            this.averageValue1 = averageValue1;
+            this.averageValue2 = averageValue2;
+            this.averageValue3 = averageValue3;
+            this.averageValue4 = averageValue4;
+            this.averageValue5 = averageValue5;
+            this.averageValue6 = averageValue6;
+            this.averageValue7 = averageValue7;
+            this.averageValue8 = averageValue8;
+            this.averageValue9 = averageValue9;
+            this.averageValue10 = averageValue10;
+        }
+
+        // Getters and Setters untuk semua average values
+        public Double getAverageValue1() { return averageValue1; }
+        public void setAverageValue1(Double averageValue1) { this.averageValue1 = averageValue1; }
+
+        public Double getAverageValue2() { return averageValue2; }
+        public void setAverageValue2(Double averageValue2) { this.averageValue2 = averageValue2; }
+
+        public Double getAverageValue3() { return averageValue3; }
+        public void setAverageValue3(Double averageValue3) { this.averageValue3 = averageValue3; }
+
+        public Double getAverageValue4() { return averageValue4; }
+        public void setAverageValue4(Double averageValue4) { this.averageValue4 = averageValue4; }
+
+        public Double getAverageValue5() { return averageValue5; }
+        public void setAverageValue5(Double averageValue5) { this.averageValue5 = averageValue5; }
+
+        public Double getAverageValue6() { return averageValue6; }
+        public void setAverageValue6(Double averageValue6) { this.averageValue6 = averageValue6; }
+
+        public Double getAverageValue7() { return averageValue7; }
+        public void setAverageValue7(Double averageValue7) { this.averageValue7 = averageValue7; }
+
+        public Double getAverageValue8() { return averageValue8; }
+        public void setAverageValue8(Double averageValue8) { this.averageValue8 = averageValue8; }
+
+        public Double getAverageValue9() { return averageValue9; }
+        public void setAverageValue9(Double averageValue9) { this.averageValue9 = averageValue9; }
+
+        public Double getAverageValue10() { return averageValue10; }
+        public void setAverageValue10(Double averageValue10) { this.averageValue10 = averageValue10; }
     }
 
     public Question() {
         // Default constructor
     }
 
-    // Konstruktor dengan semua field, termasuk is_rated dan criteria_values
-    public Question(String idQuestion, String title, String description, QuestionType questionType, AnswerType answerType, 
-                    String file_path, RPS rps, RPSDetail rps_detail_id, boolean is_rated, // NEW: is_rated di konstruktor
-                    ExamType examType, ExamType2 examType2, ExamType3 examType3, String explanation, 
-                    List<CriteriaValue> criteria_values, Double averageValue1, Double averageValue2, 
-                    Double averageValue3, Double averageValue4, Double averageValue5, Double averageValue6, 
-                    Double averageValue7, Double averageValue8, Double averageValue9, Double averageValue10) {
+    // Constructor with essential fields (adjust as needed)
+    public Question(String idQuestion, String title, String description, QuestionType questionType, AnswerType answerType,
+                            String file_path, RPS rps, RPSDetail rps_detail_id, boolean is_rated,
+                            ExamType examType, ExamType2 examType2, ExamType3 examType3, String explanation,
+                            List<CriteriaValue> criteria_values) {
         this.idQuestion = idQuestion;
         this.title = title;
         this.description = description;
@@ -97,38 +185,17 @@ public class Question {
         this.file_path = file_path;
         this.rps = rps;
         this.rps_detail_id = rps_detail_id;
-        this.is_rated = is_rated; // NEW: Set is_rated
+        this.is_rated = is_rated;
         this.examType = examType;
         this.examType2 = examType2;
         this.examType3 = examType3;
         this.explanation = explanation;
 
-        this.criteria_values = criteria_values;
-        // NEW: Konversi List<CriteriaValue> ke JSON String saat constructor dipanggil
-        if (criteria_values != null) {
-            try {
-                this.criteriaValuesJson = objectMapper.writeValueAsString(criteria_values);
-            } catch (JsonProcessingException e) {
-                System.err.println("Error serializing criteria_values in constructor: " + e.getMessage());
-                this.criteriaValuesJson = "[]"; // Fallback to empty JSON array
-            }
-        } else {
-            this.criteriaValuesJson = "[]";
-        }
-
-        this.averageValue1 = averageValue1;
-        this.averageValue2 = averageValue2;
-        this.averageValue3 = averageValue3;
-        this.averageValue4 = averageValue4;
-        this.averageValue5 = averageValue5;
-        this.averageValue6 = averageValue6;
-        this.averageValue7 = averageValue7;
-        this.averageValue8 = averageValue8;
-        this.averageValue9 = averageValue9;
-        this.averageValue10 = averageValue10;
+        // Handle criteria_values JSON serialization
+        setCriteriaValues(criteria_values); // Gunakan setter untuk menangani konversi JSON
     }
 
-    // --- Getters and Setters ---
+    // --- Getters and Setters Utama ---
     public String getIdQuestion() { return idQuestion; }
     public void setIdQuestion(String idQuestion) { this.idQuestion = idQuestion; }
 
@@ -165,95 +232,114 @@ public class Question {
     public String getExplanation() { return explanation; }
     public void setExplanation(String explanation) { this.explanation = explanation; }
 
-    // NEW: Getter untuk is_rated
     public boolean isIs_rated() { return is_rated; }
     public void setIs_rated(boolean is_rated) { this.is_rated = is_rated; }
 
-    // --- Getters and Setters untuk ivihf topsis tahap matrix ---
-    @JsonInclude(JsonInclude.Include.NON_NULL) // Pastikan ini hanya diserialkan jika tidak null saat JSON out
+    // --- Getters and Setters untuk criteria_values (dari/ke JSON String) ---
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public List<CriteriaValue> getCriteriaValues() {
-        // NEW: Jika criteria_values (objek) null, coba deserialisasi dari criteriaValuesJson (string)
         if (this.criteria_values == null && this.criteriaValuesJson != null && !this.criteriaValuesJson.isEmpty()) {
             try {
                 this.criteria_values = objectMapper.readValue(this.criteriaValuesJson, new TypeReference<List<CriteriaValue>>() {});
             } catch (JsonProcessingException e) {
                 System.err.println("Error deserializing criteriaValuesJson: " + e.getMessage());
-                this.criteria_values = new ArrayList<>(); // Fallback
+                this.criteria_values = new ArrayList<>();
             }
         } else if (this.criteria_values == null) {
-            this.criteria_values = new ArrayList<>(); // Pastikan tidak pernah return null
+            this.criteria_values = new ArrayList<>();
         }
         return criteria_values;
     }
 
     public void setCriteriaValues(List<CriteriaValue> criteria_values) {
         this.criteria_values = criteria_values;
-        // NEW: Serialisasi List<CriteriaValue> ke JSON String saat diset
-        try {
-            this.criteriaValuesJson = objectMapper.writeValueAsString(criteria_values);
-        } catch (JsonProcessingException e) {
-            System.err.println("Error serializing criteria_values in setter: " + e.getMessage());
-            this.criteriaValuesJson = "[]"; // Fallback to empty JSON array
+        if (criteria_values != null) {
+            try {
+                this.criteriaValuesJson = objectMapper.writeValueAsString(criteria_values);
+            } catch (JsonProcessingException e) {
+                System.err.println("Error serializing criteria_values in setter: " + e.getMessage());
+                this.criteriaValuesJson = "[]";
+            }
+        } else {
+            this.criteriaValuesJson = "[]";
         }
     }
 
-    // NEW: Getter dan Setter untuk field String JSON (criteriaValuesJson)
-    public String getCriteriaValuesJson() {
-        return criteriaValuesJson;
+    public void serializeRatingIfNeeded() throws JsonProcessingException {
+    if (this.questionRating != null && (this.questionRatingJson == null || this.questionRatingJson.isEmpty())) {
+        this.questionRatingJson = objectMapper.writeValueAsString(this.questionRating);
     }
+}
 
+    public String getCriteriaValuesJson() { return criteriaValuesJson; }
     public void setCriteriaValuesJson(String criteriaValuesJson) {
         this.criteriaValuesJson = criteriaValuesJson;
-        // Saat set string ini, pastikan objek List<CriteriaValue> direset
-        this.criteria_values = null; // Agar getter memicu deserialisasi ulang
+        this.criteria_values = null; // Kosongkan objek untuk memaksa re-deserialisasi
     }
 
-    public Double getAverageValue1() { return averageValue1; }
-    public void setAverageValue1(Double averageValue1) { this.averageValue1 = averageValue1; }
+    @JsonProperty("questionRating") // Keep this annotation for JSON output
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public QuestionRating getQuestionRating() {
+        // System.out.println("DEBUG Question Model: getQuestionRating() called.");
+        // System.out.println("DEBUG Question Model: Current questionRatingJson: " + (this.questionRatingJson != null && this.questionRatingJson.length() > 200 ? this.questionRatingJson.substring(0, 200) + "..." : this.questionRatingJson));
 
-    public Double getAverageValue2() { return averageValue2; }
-    public void setAverageValue2(Double averageValue2) { this.averageValue2 = averageValue2; }
+        if (this.questionRating == null && this.idQuestion != null && this.questionRatingJson != null && !this.questionRatingJson.isEmpty()) {
+            try {
+                this.questionRating = objectMapper.readValue(this.questionRatingJson, QuestionRating.class);
+                // System.out.println("DEBUG Question Model: Successfully deserialized questionRating from JSON.");
+            } catch (JsonProcessingException e) {
+                System.err.println("ERROR Question Model: Failed to deserialize questionRatingJson: " + e.getMessage());
+                e.printStackTrace();
+                this.questionRating = new QuestionRating(this.idQuestion); // Fallback
+            }
+        } else if (this.questionRating == null) {
+            this.questionRating = new QuestionRating(this.idQuestion);
+        }
 
-    public Double getAverageValue3() { return averageValue3; }
-    public void setAverageValue3(Double averageValue3) { this.averageValue3 = averageValue3; }
+        // --- FINAL DEBUG CHECKS HERE ---
+        // You can remove these debug logs in production
+        // if (this.questionRating != null && this.questionRating.getReviewerRatings() != null) {
+        //     System.out.println("DEBUG Question Model: Reviewer Ratings before return: " + this.questionRating.getReviewerRatings().size() + " entries.");
+        //     if (this.questionRating.getReviewerRatings().containsKey("dosen6")) {
+        //             System.out.println("DEBUG Question Model: 'dosen6' found in map: " + this.questionRating.getReviewerRatings().get("dosen6"));
+        //     } else {
+        //         System.out.println("DEBUG Question Model: 'dosen6' not found in map.");
+        //     }
+        // } else {
+        //     System.out.println("DEBUG Question Model: Reviewer Ratings map is null or questionRating is null before return.");
+        // }
+        // --- END FINAL DEBUG CHECKS ---
 
-    public Double getAverageValue4() { return averageValue4; }
-    public void setAverageValue4(Double averageValue4) { this.averageValue4 = averageValue4; }
+        return questionRating;
+    }
 
-    public Double getAverageValue5() { return averageValue5; }
-    public void setAverageValue5(Double averageValue5) { this.averageValue5 = averageValue5; }
+    public static ObjectMapper getObjectMapper() {
+    return objectMapper;
+}
+public void setQuestionRating(QuestionRating questionRating) {
+        this.questionRating = questionRating;
+        if (questionRating != null) {
+            try {
+                this.questionRatingJson = objectMapper.writeValueAsString(questionRating);
+            } catch (JsonProcessingException e) {
+                System.err.println("Error serializing questionRating in setter: " + e.getMessage());
+                this.questionRatingJson = "{}";
+            }
+        } else {
+            this.questionRatingJson = "{}";
+        }
+    }
 
-    public Double getAverageValue6() { return averageValue6; }
-    public void setAverageValue6(Double averageValue6) { this.averageValue6 = averageValue6; }
+    public String getQuestionRatingJson() { return questionRatingJson; }
+    public void setQuestionRatingJson(String questionRatingJson) {
+        this.questionRatingJson = questionRatingJson;
+        this.questionRating = null; // Clear the object to force re-deserialization
+        // System.out.println("Serialized QuestionRating JSON:");
+        // System.out.println(this.questionRatingJson);
+    }
 
-    public Double getAverageValue7() { return averageValue7; }
-    public void setAverageValue7(Double averageValue7) { this.averageValue7 = averageValue7; }
-
-    public Double getAverageValue8() { return averageValue8; }
-    public void setAverageValue8(Double averageValue8) { this.averageValue8 = averageValue8; }
-
-    public Double getAverageValue9() { return averageValue9; }
-    public void setAverageValue9(Double averageValue9) { this.averageValue9 = averageValue9; }
-
-    public Double getAverageValue10() { return averageValue10; }
-    public void setAverageValue10(Double averageValue10) { this.averageValue10 = averageValue10; }
 
     public boolean isValid() {
-        return this.idQuestion != null && this.title != null && this.description != null && this.question_type != null && this.answer_type != null ;
-    }
-
-    public void set(String fieldName, String value) {
-        switch (fieldName) {
-            case "idQuestion": this.idQuestion = value; break;
-            case "title": this.title = value; break;
-            case "description": this.description = value; break;
-            case "question_type": this.question_type = QuestionType.valueOf(value); break;
-            case "answer_type": this.answer_type = AnswerType.valueOf(value); break;
-            case "file_path": this.file_path = value; break;
-            // Handle RPS dan RPSDetail jika disimpan sebagai String ID dalam set()
-            // case "rps": this.rps = new RPS(); this.rps.setIdRps(value); break; // Contoh jika RPS disimpan sebagai ID String
-            // case "rps_detail_id": this.rps_detail_id = new RPSDetail(); this.rps_detail_id.setId(value); break;
-            default: throw new IllegalArgumentException("Invalid field name: " + fieldName);
-        }
+        return this.idQuestion != null && this.title != null && this.description != null && this.question_type != null && this.answer_type != null;
     }
 }

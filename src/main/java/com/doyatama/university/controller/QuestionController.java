@@ -6,6 +6,7 @@ import com.doyatama.university.payload.ApiResponse;
 import com.doyatama.university.payload.DefaultResponse;
 import com.doyatama.university.payload.PagedResponse;
 import com.doyatama.university.payload.QuestionRequest;
+import com.doyatama.university.payload.QuestionResponse; 
 import com.doyatama.university.service.QuestionService;
 import com.doyatama.university.util.AppConstants;
 import org.apache.hadoop.conf.Configuration;
@@ -14,7 +15,7 @@ import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.commons.io.IOUtils;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType; // Import MediaType
+import org.springframework.http.MediaType; 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,22 +26,83 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
+import java.util.List; 
+import java.util.stream.Collectors; 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
-@CrossOrigin(origins = "http://localhost:5173") // Sesuaikan jika frontend berjalan di port berbeda
+@CrossOrigin(origins = "http://localhost:5173") 
 @RestController
 @RequestMapping("/api/question")
 public class QuestionController {
 
+    private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(QuestionController.class);
+
     private QuestionService questionService = new QuestionService();
+
+    @RestController
+public class DebugController {
+
+    @GetMapping("/api/test-serialization-question")
+    public Question debugTestQuestionSerialization() {
+        Question question = new Question();
+        question.setIdQuestion("DEBUG-Q001");
+        question.setTitle("Test Title from Backend");
+        question.setDescription("This is a description for testing.");
+        question.setIs_rated(true); // Penting agar Jackson mencoba menserialisasi QuestionRating
+
+        Question.QuestionRating questionRating = new Question.QuestionRating(question.getIdQuestion());
+        Map<String, Question.ReviewerRating> reviewerRatings = new HashMap<>();
+        reviewerRatings.put("dosenTest", new Question.ReviewerRating(1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0));
+        questionRating.setReviewerRatings(reviewerRatings);
+
+        question.setQuestionRating(questionRating); // Set objek QuestionRating yang sudah terisi
+
+        // Anda bisa juga secara manual mengisi questionRatingJson untuk debugging internal,
+        // tapi Jackson seharusnya menggunakan getter yang dianotasi untuk serialisasi.
+        try {
+            question.setQuestionRatingJson(new ObjectMapper().writeValueAsString(questionRating));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+        return question; // Kembalikan objek Question ini. Spring akan menserialisasinya.
+    }
+}
 
     @CrossOrigin
     @GetMapping
-    public PagedResponse<Question> getQuestion(
+    public PagedResponse<Question> getQuestion( 
             @RequestParam(value = "page", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) int page,
             @RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size) throws IOException {
         return questionService.getAllQuestion(page, size);
+    }
+
+    @CrossOrigin
+    @GetMapping("/questionsByRPSQuiz1") 
+    public PagedResponse<QuestionResponse> getQuestionsByRPSQuiz1( 
+            @RequestParam(value = "page", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) int page,
+            @RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size,
+            @RequestParam(value = "rpsID") String rpsID) throws IOException { 
+        logger.info("Controller: Received request for /questionsByRPSQuiz1 with rpsID: {}", rpsID);
+
+        PagedResponse<Question> pagedQuestions = questionService.getAllQuestionsByRPS(page, size, rpsID);
+
+        List<QuestionResponse> questionResponseDtos = pagedQuestions.getContent().stream()
+                                                                      .map(QuestionResponse::new) 
+                                                                      .collect(Collectors.toList());
+
+        logger.info("Controller: Returning {} questions for rpsID: {}", questionResponseDtos.size(), rpsID);
+        return new PagedResponse<>(
+            questionResponseDtos,
+            pagedQuestions.getTotalElements(), 
+            pagedQuestions.getMessage(),
+            pagedQuestions.getStatusCode()
+        );
     }
 
     @CrossOrigin
@@ -109,7 +171,7 @@ public class QuestionController {
                 }
                 
                 String timestamp = String.valueOf(System.currentTimeMillis());
-                String uuid = java.util.UUID.randomUUID().toString();
+                String uuid = UUID.randomUUID().toString();
                 String newFileName = "file_" + timestamp + "_" + uuid;
                 
                 String filePath = PathConfig.storagePath + "/" + newFileName + fileExtension;
@@ -135,7 +197,7 @@ public class QuestionController {
                     System.out.println("File copied to HDFS successfully.");
                 }
 
-                String savePath = "file/" + newFileName + fileExtension;
+                String savePath = "/images/questions/" + newFileName + fileExtension;
 
                 newFile.delete();
                 System.out.println("Local file deleted: " + !newFile.exists());
@@ -186,8 +248,31 @@ public class QuestionController {
             }
         }
     }
+    
 
-    // ---------- MODIFIKASI PENTING DI SINI ----------
+    @PutMapping("/rating/{questionId}")
+public ResponseEntity<?> ratingQuestion(@PathVariable(value = "questionId") String questionId,
+                                        @Valid @RequestBody QuestionRequest questionRequest) {
+
+    logger.info("RECEIVED: PUT /api/question/rating/{} from frontend", questionId);
+    logger.info("Request Body for rating: {}", questionRequest.toString());
+
+    try {
+        Question.QuestionRating questionRating = questionService.ratingQuestion(questionId, questionRequest);
+        if (questionRating == null) {
+            return ResponseEntity.badRequest()
+                    .body(new ApiResponse(false, "Please check relational ID"));
+        } else {
+            return ResponseEntity.ok(questionRating); // <--- Kirim data rating-nya
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+        return ResponseEntity.badRequest()
+                .body(new ApiResponse(false, "Error Rating Question"));
+    }
+}
+
+
     @CrossOrigin
     @GetMapping("/image/{imageName}")
     public ResponseEntity<byte[]> getImage(@PathVariable String imageName) throws IOException {
@@ -206,8 +291,7 @@ public class QuestionController {
             try (FSDataInputStream inputStream = fs.open(hdfspath)) {
                 byte[] imageBytes = IOUtils.toByteArray(inputStream);
 
-                // Menentukan Content-Type berdasarkan ekstensi file
-                MediaType contentType = MediaType.APPLICATION_OCTET_STREAM; // Default jika tidak dikenal
+                MediaType contentType = MediaType.APPLICATION_OCTET_STREAM; 
                 String fileExtension = "";
                 int dotIndex = imageName.lastIndexOf('.');
                 if (dotIndex > 0 && dotIndex < imageName.length() - 1) {
@@ -225,15 +309,13 @@ public class QuestionController {
                     case "gif":
                         contentType = MediaType.IMAGE_GIF;
                         break;
-                    case "webp": // Tambahkan jika mendukung webp
+                    case "webp": 
                         contentType = MediaType.parseMediaType("image/webp");
                         break;
-                    // Tambahkan case lain jika ada format gambar yang didukung
                 }
 
                 System.out.println("Image " + imageName + " retrieved from HDFS successfully. Size: " + imageBytes.length + " bytes, Content-Type: " + contentType);
                 
-                // Mengembalikan byte array dengan Content-Type yang benar
                 return ResponseEntity.ok()
                         .contentType(contentType)
                         .body(imageBytes);

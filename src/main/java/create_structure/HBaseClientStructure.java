@@ -137,7 +137,7 @@ public class HBaseClientStructure {
 
          //Create Tabel Pertanyaan
          TableName tableQuestion = TableName.valueOf("questions");
-         String[] questions = { "main", "rps_detail", "detail", "rps" };
+         String[] questions = { "main", "rps_detail", "detail", "rps"};
          client.deleteTable(tableQuestion);
          client.createTable(tableQuestion, questions);
 

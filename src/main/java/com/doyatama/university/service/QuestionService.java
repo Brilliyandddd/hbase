@@ -4,8 +4,7 @@ import com.doyatama.university.exception.BadRequestException;
 import com.doyatama.university.exception.ResourceNotFoundException;
 import com.doyatama.university.model.*;
 import com.doyatama.university.payload.DefaultResponse;
-import com.doyatama.university.payload.QuestionRequest; // Pastikan import ini ada
-import com.doyatama.university.payload.QuizRequest; // Pastikan import ini ada karena Anda menggunakannya
+import com.doyatama.university.payload.QuestionRequest;
 import com.doyatama.university.payload.PagedResponse;
 import com.doyatama.university.repository.ExamTypeRepository;
 import com.doyatama.university.repository.ExerciseAttemptRepository;
@@ -28,7 +27,7 @@ import java.util.stream.Collectors;
 public class QuestionService {
     private QuestionRepository questionRepository = new QuestionRepository();
     private RPSDetailRepository rpsDetailRepository = new RPSDetailRepository();
-    private RPSRepository rpsRepository = new RPSRepository(); // Typo: Should be new RPSRepository() if it's not a subclass
+    private RPSRepository rpsRepository = new RPSRepository(); 
 
     private ExamTypeRepository examTypeRepository = new ExamTypeRepository();
 
@@ -39,6 +38,12 @@ public class QuestionService {
         validatePageNumberAndSize(page, size);
 
         List<Question> questionsList = questionRepository.findAll(size);
+        // This loop calls the getters, which now trigger deserialization in the repository
+        questionsList.forEach(q -> {
+            q.getQuestionRating(); 
+            q.getCriteriaValues(); 
+            q.setIs_rated(q.getQuestionRating() != null && !q.getQuestionRating().getReviewerRatings().isEmpty());
+        });
 
         return new PagedResponse<>(questionsList, questionsList.size(),"Successfully retrieved data", 200);
     } 
@@ -50,49 +55,50 @@ public class QuestionService {
 
         if(rpsID.equalsIgnoreCase("*")) {
             questionResponse = questionRepository.findAll(size);
-        }
-
-        if(!rpsID.equalsIgnoreCase("*")) {
+        } else {
             questionResponse = questionRepository.findAllByRPS(rpsID, size);
         }
 
+        // This loop calls the getters, which now trigger deserialization in the repository
+        questionResponse.forEach(q -> {
+            q.getQuestionRating(); 
+            q.getCriteriaValues(); 
+            q.setIs_rated(q.getQuestionRating() != null && !q.getQuestionRating().getReviewerRatings().isEmpty());
+        });
+        
         return new PagedResponse<>(questionResponse, questionResponse.size(), "Successfully get data", 200);
     }
 
     public Question createQuestion(QuestionRequest questionRequest, String savePath) throws IOException {
-
-        if (questionRequest.getRps_detail_id() == null || questionRequest.getRps_detail_id().trim().isEmpty()) {
-            throw new IllegalArgumentException("rps_detail_id wajib diisi.");
-        }
         RPSDetail rpsDetailResponse = rpsDetailRepository.findById(questionRequest.getRps_detail_id());
         if (rpsDetailResponse == null) {
             throw new IllegalArgumentException("RPS Detail dengan ID " + questionRequest.getRps_detail_id() + " tidak ditemukan.");
         }
+
+        if (questionRequest.getRps_detail_id() == null || questionRequest.getRps_detail_id().trim().isEmpty()) {
+            throw new IllegalArgumentException("rps_detail_id wajib diisi.");
+        }
+        
         RPS rpsResponse = rpsRepository.findById(questionRequest.getIdRps());
         if (rpsResponse == null) {
             throw new IllegalArgumentException("RPS dengan ID " + rpsDetailResponse.getRps().getIdRps() + " tidak ditemukan.");
         }
 
-        System.out.println("DATA " + questionRequest); // Debugging: print request payload
+        System.out.println("DATA " + questionRequest); 
 
         Question question = new Question();
 
-        question.setIdQuestion(questionRequest.getId());
+        question.setIdQuestion(questionRequest.getIdQuestion());
         question.setTitle(questionRequest.getTitle());
         question.setDescription(questionRequest.getDescription());
         question.setQuestionType(Question.QuestionType.valueOf(questionRequest.getQuestion_type()));
         question.setAnswerType(Question.AnswerType.valueOf(questionRequest.getAnswer_type()));
 
-        // --- NEW: LOGIKA is_rated UNTUK CREATE ---
-        // Default untuk pertanyaan baru adalah belum dinilai
         question.setIs_rated(false); 
-        // Jika is_rated datang dari request dan tidak null, gunakan nilai dari request
         if (questionRequest.getIs_rated() != null) { 
             question.setIs_rated(questionRequest.getIs_rated());
         }
-        // --- AKHIR LOGIKA is_rated ---
 
-        // --- Perbaikan field enum (sudah ada sebelumnya, pastikan benar) ---
         if (questionRequest.getExamType() != null && !questionRequest.getExamType().trim().isEmpty()) {
             question.setExamType(Question.ExamType.valueOf(questionRequest.getExamType()));
         } else {
@@ -110,7 +116,6 @@ public class QuestionService {
         } else {
             question.setExamType3(null);
         }
-        // --- Akhir perbaikan field enum ---
 
         question.setExplanation(questionRequest.getExplanation());
         question.setFile_path(savePath);
@@ -120,32 +125,65 @@ public class QuestionService {
         return questionRepository.save(question);
     }
 
+    public Question.QuestionRating ratingQuestion(String questionId, QuestionRequest questionRequest) throws IOException {
+        Question question = questionRepository.findById(questionId);
+        if (question == null) {
+            throw new ResourceNotFoundException("Question", "idQuestion", questionId);
+        }
+
+        if (questionRequest.getReviewer() == null || questionRequest.getReviewer().trim().isEmpty()) {
+            throw new IllegalArgumentException("Reviewer cannot be null or empty");
+        }
+
+        String normalizedReviewerId = questionRequest.getReviewer().toLowerCase();
+
+        // Ensure currentRating is fully deserialized from the JSON string if present
+        Question.QuestionRating currentRating = question.getQuestionRating(); 
+        if (currentRating == null) {
+            currentRating = new Question.QuestionRating();
+            currentRating.setIdQuestion(questionId);
+        }
+
+        Question.ReviewerRating reviewerRating = new Question.ReviewerRating(
+            questionRequest.getAverageValue1(), questionRequest.getAverageValue2(),
+            questionRequest.getAverageValue3(), questionRequest.getAverageValue4(),
+            questionRequest.getAverageValue5(), questionRequest.getAverageValue6(),
+            questionRequest.getAverageValue7(), questionRequest.getAverageValue8(),
+            questionRequest.getAverageValue9(), questionRequest.getAverageValue10()
+        );
+
+        currentRating.addReviewerRating(normalizedReviewerId, reviewerRating);
+        question.setQuestionRating(currentRating); // This setter will serialize currentRating back to questionRatingJson
+        question.setIs_rated(!currentRating.getReviewerRatings().isEmpty());
+
+        System.out.println("DEBUG: Saving rating for question " + questionId);
+        System.out.println("DEBUG: Reviewer: " + normalizedReviewerId);
+        System.out.println("DEBUG: is_rated: " + question.isIs_rated());
+        System.out.println("DEBUG: QuestionRating JSON to save: " + question.getQuestionRatingJson()); // Check the JSON here
+
+        return questionRepository.saveQuestionRating(question);
+    }
+
     public DefaultResponse<Question> getQuestionById(String questionId) throws IOException {
         Question questionResponse = questionRepository.findById(questionId);
-        // NEW: Tentukan is_rated berdasarkan criteria_values
         if (questionResponse != null) {
-            questionResponse.setIs_rated(questionResponse.getCriteriaValues() != null && !questionResponse.getCriteriaValues().isEmpty());
+            questionResponse.getQuestionRating(); 
+            questionResponse.getCriteriaValues(); 
+            questionResponse.setIs_rated(questionResponse.getQuestionRating() != null && !questionResponse.getQuestionRating().getReviewerRatings().isEmpty());
         }
         return new DefaultResponse<>(questionResponse != null && questionResponse.isValid() ? questionResponse : null, questionResponse != null && questionResponse.isValid() ? 1 : 0, "Successfully get data");
     }
 
     public DefaultResponse<Question> getQuestionByIdPaged(String questionId) throws IOException {
         Question questionResponse = questionRepository.findById(questionId);
-        // NEW: Tentukan is_rated berdasarkan criteria_values
         if (questionResponse != null) {
-            questionResponse.setIs_rated(questionResponse.getCriteriaValues() != null && !questionResponse.getCriteriaValues().isEmpty());
+            questionResponse.getQuestionRating(); 
+            questionResponse.getCriteriaValues(); 
+            questionResponse.setIs_rated(questionResponse.getQuestionRating() != null && !questionResponse.getQuestionRating().getReviewerRatings().isEmpty());
         }
         return new DefaultResponse<>(questionResponse != null && questionResponse.isValid() ? questionResponse : null, questionResponse != null && questionResponse.isValid() ? 1 : 0, "Succesfully Get Data");
     }
 
-    /**
-     * Mencari daftar objek Question lengkap berdasarkan daftar ID pertanyaan.
-     * Digunakan oleh endpoint /questions/by-ids.
-     *
-     * @param questionIds List ID pertanyaan yang akan dicari.
-     * @return List objek Question yang ditemukan dan valid.
-     * @throws IOException Jika terjadi kesalahan I/O saat berinteraksi dengan repository.
-     */
     public List<Question> findQuestionsByIds(List<String> questionIds) throws IOException {
         logger.info("QuestionService: Mencari pertanyaan berdasarkan daftar ID: {}", questionIds);
         if (questionIds == null || questionIds.isEmpty()) {
@@ -157,11 +195,10 @@ public class QuestionService {
         for (String questionId : questionIds) {
             Question question = questionRepository.findById(questionId);
             if (question != null && question.isValid()) {
-                // --- NEW: LOGIKA is_rated UNTUK FIND ---
-                // Tentukan is_rated berdasarkan criteria_values (yang akan diisi oleh repository jika ada)
-                question.setIs_rated(question.getCriteriaValues() != null && !question.getCriteriaValues().isEmpty());
-                // --- AKHIR LOGIKA is_rated ---
-
+                question.getQuestionRating(); 
+                question.getCriteriaValues(); 
+                question.setIs_rated(question.getQuestionRating() != null && !question.getQuestionRating().getReviewerRatings().isEmpty());
+                
                 fetchedQuestions.add(question);
                 logger.info("QuestionService: Ditemukan pertanyaan ID {} dari repository.", questionId);
             } else {
@@ -186,13 +223,11 @@ public class QuestionService {
                 question.setExamType(Question.ExamType.valueOf(questionRequest.getExamType()));
                 question.setRps_detail_id(rpsDetailResponse);
                 
-                // --- NEW: LOGIKA is_rated UNTUK UPDATE ---
-                // Jika is_rated datang dari request dan tidak null, gunakan nilai dari request
                 if (questionRequest.getIs_rated() != null) { 
                     question.setIs_rated(questionRequest.getIs_rated());
+                } else {
+                    question.setIs_rated(question.getQuestionRating() != null && !question.getQuestionRating().getReviewerRatings().isEmpty());
                 }
-                // is_rated juga akan dihitung dinamis saat pertanyaan ini nanti dibaca ulang dari DB.
-                // --- AKHIR LOGIKA is_rated ---
 
                 return questionRepository.update(questionId,question);
             } else {
