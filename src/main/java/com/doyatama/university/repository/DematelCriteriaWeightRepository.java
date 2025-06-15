@@ -82,12 +82,15 @@ public class DematelCriteriaWeightRepository {
 
         // Map ini harus mencerminkan kolom-kolom yang ada di HBase
         // dan bagaimana Anda ingin memetakan ke field di model DematelCriteriaWeight.
-        Map<String, String> columnMapping = new HashMap<>();
-        columnMapping.put("id", "id"); 
-        columnMapping.put("causalityId", "causality_id");
-        columnMapping.put("subjectId", "subject_id");
-        columnMapping.put("criterionId", "criterion_id");
-        columnMapping.put("normalizedWeight", "normalized_weight");
+        // Di DematelCriteriaWeightRepository.java
+// Dalam save, findByCausalityId, findBySubjectId, findById
+Map<String, String> columnMapping = new HashMap<>();
+columnMapping.put("id", "id");
+columnMapping.put("causality_id", "causalityId"); // Qualifier HBase -> Field POJO
+columnMapping.put("subject_id", "subjectId");     // Qualifier HBase -> Field POJO
+columnMapping.put("criterion_id", "criterionId"); // Qualifier HBase -> Field POJO
+columnMapping.put("normalized_weight", "normalizedWeight"); // Qualifier HBase -> Field POJO
+columnMapping.put("calculated_at", "calculatedAt"); // Tambahkan ini
         // Jika ada createdAt/updatedAt di model
         // columnMapping.put("createdAt", "created_at");
         // columnMapping.put("updatedAt", "updated_at");
@@ -118,12 +121,15 @@ public class DematelCriteriaWeightRepository {
         
         // Map ini harus mencerminkan kolom-kolom yang ada di HBase
         // dan bagaimana Anda ingin memetakan ke field di model DematelCriteriaWeight.
-        Map<String, String> columnMapping = new HashMap<>();
-        columnMapping.put("id", "id"); 
-        columnMapping.put("causalityId", "causality_id");
-        columnMapping.put("subjectId", "subject_id");
-        columnMapping.put("criterionId", "criterion_id");
-        columnMapping.put("normalizedWeight", "normalized_weight");
+        // Di DematelCriteriaWeightRepository.java
+// Dalam save, findByCausalityId, findBySubjectId, findById
+Map<String, String> columnMapping = new HashMap<>();
+columnMapping.put("id", "id");
+columnMapping.put("causality_id", "causalityId"); // Qualifier HBase -> Field POJO
+columnMapping.put("subject_id", "subjectId");     // Qualifier HBase -> Field POJO
+columnMapping.put("criterion_id", "criterionId"); // Qualifier HBase -> Field POJO
+columnMapping.put("normalized_weight", "normalizedWeight"); // Qualifier HBase -> Field POJO
+columnMapping.put("calculated_at", "calculatedAt"); // Tambahkan ini
         // Jika ada createdAt/updatedAt di model
         // columnMapping.put("createdAt", "created_at");
         // columnMapping.put("updatedAt", "updated_at");

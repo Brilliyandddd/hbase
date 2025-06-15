@@ -2,11 +2,13 @@ package com.doyatama.university.controller;
 
 import com.doyatama.university.model.Causality;
 import com.doyatama.university.model.CausalityRating;
+import com.doyatama.university.model.DematelCriteriaWeight;
 import com.doyatama.university.payload.CausalityRatingRequest;
 import com.doyatama.university.payload.CausalityRequest;
 import com.doyatama.university.payload.DefaultResponse; // Your DefaultResponse
 import com.doyatama.university.payload.PagedResponse;   // Your PagedResponse
 import com.doyatama.university.service.CausalityService;
+import com.doyatama.university.service.DematelWeightService; // Import DematelWeightService
 import com.doyatama.university.service.DematelCalculationService;
 import com.doyatama.university.exception.ResourceNotFoundException;
 import com.doyatama.university.exception.BadRequestException;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @RestController

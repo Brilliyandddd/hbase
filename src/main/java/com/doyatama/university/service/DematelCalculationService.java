@@ -14,10 +14,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.time.Instant;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Collections;
+import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -31,6 +35,9 @@ public class DematelCalculationService {
 
     @Autowired
     private QuestionCriteriaRepository questionCriteriaRepository;
+
+    @Autowired
+    private DematelWeightService dematelWeightService; // Injeksi DematelWeightService Anda
 
     private static final Logger logger = LoggerFactory.getLogger(DematelCalculationService.class);
 
@@ -58,16 +65,34 @@ public class DematelCalculationService {
 
         Map<String, Map<String, Double>> directRelationMatrixMap = buildDirectRelationMatrix(criteriaIds, ratings);
 
-        // --- Contoh Placeholder untuk Prominence Scores tanpa perhitungan DEMATEL sesungguhnya ---
+        // --- Perhitungan Prominence Scores (ini harusnya hasil dari DEMATEL) ---
         Map<String, Double> prominenceScores = new HashMap<>();
         for (String id : criteriaIds) {
-            prominenceScores.put(id, Math.random() * 100);
+            prominenceScores.put(id, Math.random() * 100); // Placeholder Anda
         }
         logger.info("Generated dummy prominence scores: {}", prominenceScores);
         // --- END Placeholder ---
 
         Map<String, Double> calculatedWeights = calculateWeightsFromProminence(prominenceScores);
         logger.info("Calculated weights for criteria: {}", calculatedWeights);
+
+        // --- BARU: Panggil DematelWeightService untuk menyimpan bobot ---
+        String subjectId = causalityTask.getSubject(); // Asumsi causalityTask.getSubject() objek Subject dengan getId()
+
+        // Konversi calculatedWeights (Map<String, Double>) ke List<Map<String, Object>>
+        // sesuai dengan signature saveOrUpdateDematelWeights
+        List<Map<String, Object>> weightEntriesForSave = calculatedWeights.entrySet().stream()
+            .map(entry -> {
+                Map<String, Object> map = new HashMap<>();
+                map.put("criterionId", entry.getKey());
+                map.put("normalizedWeight", entry.getValue());
+                return map;
+            })
+            .collect(Collectors.toList());
+
+        dematelWeightService.saveOrUpdateDematelWeights(causalityTaskId, weightEntriesForSave);
+        logger.info("Dematel weights saved via DematelWeightService for Causality Task ID: {}", causalityTaskId);
+        // --- END BARU ---
 
         applyWeightsToQuestionCriteria(calculatedWeights);
 
@@ -93,7 +118,7 @@ public class DematelCalculationService {
         for (CausalityRating rating : ratings) {
             String influencing = rating.getInfluencingCriteriaId();
             String influenced = rating.getInfluencedCriteriaId();
-            Double value = rating.getNumericRatingValue(); // <-- PERBAIKAN: Mengambil numericRatingValue
+            Double value = rating.getNumericRatingValue();
 
             if (value != null && influencing != null && influenced != null &&
                 directMatrixSum.containsKey(influencing) && directMatrixSum.get(influencing).containsKey(influenced)) {
@@ -111,7 +136,7 @@ public class DematelCalculationService {
                     int count = directMatrixCount.get(rowId).get(colId);
                     averagedMatrix.get(rowId).put(colId, count > 0 ? sum / count : 0.0);
                 } else {
-                    averagedMatrix.get(rowId).put(colId, 0.0); // Kriteria terhadap dirinya sendiri selalu 0
+                    averagedMatrix.get(rowId).put(colId, 0.0);
                 }
             }
         }
@@ -151,4 +176,8 @@ public class DematelCalculationService {
             }
         }
     }
+
+    // Metode getDematelWeightsBySubject ini harus DIHAPUS dari DematelCalculationService
+    // karena sudah ada di DematelWeightService
+    // public List<Map<String, Double>> getDematelWeightsBySubject(String subjectId) throws IOException { ... }
 }

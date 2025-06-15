@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map; // Import Map untuk menerima payload generik
 import java.util.stream.Collectors; // Untuk Stream API
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @RestController
 @RequestMapping("/api/causality")
@@ -38,25 +40,20 @@ public class DematelWeightController {
     @PutMapping("/dematel-weights")
     public ResponseEntity<Map<String, String>> saveDematelWeights(@RequestBody Map<String, Object> requestBody) {
         try {
-            // Ekstrak data dari Map requestBody
             String causalityId = (String) requestBody.get("causalityId");
-            String subjectIdFromFrontend = (String) requestBody.get("subjectId"); // SubjectId dari frontend, akan diverifikasi di service
+            String subjectIdFromFrontend = (String) requestBody.get("subjectId");
             
-            // Asumsi "weights" adalah List dari Map<String, Object>
-            @SuppressWarnings("unchecked") // Supress warning karena type casting generik
+            @SuppressWarnings("unchecked")
             List<Map<String, Object>> weightsMapList = (List<Map<String, Object>>) requestBody.get("weights");
 
-            // Validasi dasar
             if (causalityId == null || causalityId.isEmpty() || subjectIdFromFrontend == null || subjectIdFromFrontend.isEmpty() || weightsMapList == null || weightsMapList.isEmpty()) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("message", "Payload tidak valid. causalityId, subjectId, dan weights tidak boleh kosong."));
             }
 
-            // Panggil service untuk menyimpan/memperbarui bobot
-            // Service akan memverifikasi subjectId dari causalityDetails
             dematelWeightService.saveOrUpdateDematelWeights(causalityId, weightsMapList); 
             
             return ResponseEntity.ok(Map.of("message", "Bobot DEMATEL berhasil disimpan."));
-        } catch (ClassCastException e) { // Tangani jika ada casting yang tidak sesuai
+        } catch (ClassCastException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("message", "Format payload tidak sesuai dengan yang diharapkan. Detail: " + e.getMessage()));
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("message", e.getMessage()));
