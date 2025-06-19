@@ -21,12 +21,6 @@ public class HBaseClientStructure {
         Configuration conf = HBaseConfiguration.create();
         HBaseCustomClient client = new HBaseCustomClient(conf);
 
-        // ==============================================================================================
-        // CREATE COLLECTION
-        // ==============================================================================================
-
-
-
         // Create Tabel Mata Kuliah
         TableName tableSubject = TableName.valueOf("subjects");
         String[] subjects = { "main", "study_program", "subject_group", "detail" };
