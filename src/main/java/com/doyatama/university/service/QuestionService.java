@@ -137,19 +137,25 @@ public class QuestionService {
 
         String normalizedReviewerId = questionRequest.getReviewer().toLowerCase();
 
-        // Ensure currentRating is fully deserialized from the JSON string if present
-        Question.QuestionRating currentRating = question.getQuestionRating(); 
+        Question.QuestionRating currentRating = question.getQuestionRating();
         if (currentRating == null) {
             currentRating = new Question.QuestionRating();
             currentRating.setIdQuestion(questionId);
         }
 
+        // CRITICAL CHANGE: Instantiate ReviewerRating directly with all fields
         Question.ReviewerRating reviewerRating = new Question.ReviewerRating(
             questionRequest.getAverageValue1(), questionRequest.getAverageValue2(),
             questionRequest.getAverageValue3(), questionRequest.getAverageValue4(),
             questionRequest.getAverageValue5(), questionRequest.getAverageValue6(),
             questionRequest.getAverageValue7(), questionRequest.getAverageValue8(),
-            questionRequest.getAverageValue9(), questionRequest.getAverageValue10()
+            questionRequest.getAverageValue9(), questionRequest.getAverageValue10(),
+            // Pass the linguistic IDs from the request
+            questionRequest.getLinguisticValue1Id(), questionRequest.getLinguisticValue2Id(),
+            questionRequest.getLinguisticValue3Id(), questionRequest.getLinguisticValue4Id(),
+            questionRequest.getLinguisticValue5Id(), questionRequest.getLinguisticValue6Id(),
+            questionRequest.getLinguisticValue7Id(), questionRequest.getLinguisticValue8Id(),
+            questionRequest.getLinguisticValue9Id(), questionRequest.getLinguisticValue10Id()
         );
 
         currentRating.addReviewerRating(normalizedReviewerId, reviewerRating);

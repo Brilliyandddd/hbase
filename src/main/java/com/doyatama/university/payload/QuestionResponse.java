@@ -1,4 +1,3 @@
-//response
 package com.doyatama.university.payload;
 
 import com.doyatama.university.model.Question;
@@ -6,7 +5,7 @@ import com.doyatama.university.model.CriteriaValue;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
-import java.util.Map; // Add this import
+import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class QuestionResponse {
@@ -22,10 +21,10 @@ public class QuestionResponse {
     private String examType3;
     private String explanation;
 
-    // Change this to directly map the reviewerRatings map
-    @JsonProperty("questionRating") // Keep the name "questionRating" for the frontend
-    @JsonInclude(JsonInclude.Include.NON_EMPTY) // Only include if the map is not empty
-    private Map<String, Question.ReviewerRating> reviewerRatings; // Direct map to reviewerRatings
+    // Type is now just Question.ReviewerRating, which includes linguistic IDs
+    @JsonProperty("questionRating")
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    private Map<String, Question.ReviewerRating> reviewerRatings;
 
     @JsonProperty("criteriaValues")
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
@@ -36,31 +35,28 @@ public class QuestionResponse {
         this.idQuestion = question.getIdQuestion();
         this.title = question.getTitle();
         this.description = question.getDescription();
-        
+
         this.questionType = question.getQuestionType() != null ? question.getQuestionType().name() : null;
         this.answerType = question.getAnswerType() != null ? question.getAnswerType().name() : null;
-        
+
         this.filePath = question.getFile_path();
         this.isRated = question.isIs_rated();
-        
+
         this.examType = question.getExamType() != null ? question.getExamType().name() : null;
         this.examType2 = question.getExamType2() != null ? question.getExamType2().name() : null;
         this.examType3 = question.getExamType3() != null ? question.getExamType3().name() : null;
         this.explanation = question.getExplanation();
-        
-        // CRITICAL CHANGE: Get the reviewerRatings map directly from the Question's QuestionRating object
-        // Ensure that question.getQuestionRating() is called first to trigger deserialization
-        // and then retrieve its internal map.
+
         if (question.getQuestionRating() != null && question.getQuestionRating().getReviewerRatings() != null) {
+            // No type cast needed, as the map already holds ReviewerRating which now includes linguistic IDs
             this.reviewerRatings = question.getQuestionRating().getReviewerRatings();
         } else {
-            this.reviewerRatings = new java.util.HashMap<>(); // Initialize to empty map if null
+            this.reviewerRatings = new java.util.HashMap<>();
         }
 
-        this.criteriaValues = question.getCriteriaValues(); 
+        this.criteriaValues = question.getCriteriaValues();
     }
 
-    // --- Getters for all field in DTO ---
     public String getIdQuestion() { return idQuestion; }
     public String getTitle() { return title; }
     public String getDescription() { return description; }
@@ -72,11 +68,9 @@ public class QuestionResponse {
     public String getExamType2() { return examType2; }
     public String getExamType3() { return examType3; }
     public String getExplanation() { return explanation; }
-    
-    // Updated getter for reviewerRatings
-    public Map<String, Question.ReviewerRating> getReviewerRatings() { return reviewerRatings; }
-    
-    public List<CriteriaValue> getCriteriaValues() { return criteriaValues; }
 
-    // No setters needed if this is purely a response DTO
+    // Updated getter for reviewerRatings to return the new type
+    public Map<String, Question.ReviewerRating> getReviewerRatings() { return reviewerRatings; }
+
+    public List<CriteriaValue> getCriteriaValues() { return criteriaValues; }
 }

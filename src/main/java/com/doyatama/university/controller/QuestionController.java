@@ -44,36 +44,6 @@ public class QuestionController {
 
     private QuestionService questionService = new QuestionService();
 
-    @RestController
-public class DebugController {
-
-    @GetMapping("/api/test-serialization-question")
-    public Question debugTestQuestionSerialization() {
-        Question question = new Question();
-        question.setIdQuestion("DEBUG-Q001");
-        question.setTitle("Test Title from Backend");
-        question.setDescription("This is a description for testing.");
-        question.setIs_rated(true); // Penting agar Jackson mencoba menserialisasi QuestionRating
-
-        Question.QuestionRating questionRating = new Question.QuestionRating(question.getIdQuestion());
-        Map<String, Question.ReviewerRating> reviewerRatings = new HashMap<>();
-        reviewerRatings.put("dosenTest", new Question.ReviewerRating(1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0));
-        questionRating.setReviewerRatings(reviewerRatings);
-
-        question.setQuestionRating(questionRating); // Set objek QuestionRating yang sudah terisi
-
-        // Anda bisa juga secara manual mengisi questionRatingJson untuk debugging internal,
-        // tapi Jackson seharusnya menggunakan getter yang dianotasi untuk serialisasi.
-        try {
-            question.setQuestionRatingJson(new ObjectMapper().writeValueAsString(questionRating));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-
-        return question; // Kembalikan objek Question ini. Spring akan menserialisasinya.
-    }
-}
-
     @CrossOrigin
     @GetMapping
     public PagedResponse<Question> getQuestion( 
