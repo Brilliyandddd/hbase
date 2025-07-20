@@ -60,7 +60,7 @@ public class QuizAnnouncementService {
             // Inside your for loop where you're iterating over the questions
             for (Question question : questions) {
                 // Get the RPSDetail of the current Question
-                RPSDetail questionRpsDetail = question.getRps_detail_id();
+                RPSDetail questionRpsDetail = question.getRps_detail();
 
                 // Check if questionRpsDetail is not null
                 if (questionRpsDetail != null) {
@@ -93,7 +93,7 @@ public class QuizAnnouncementService {
             // Inside your for loop where you're iterating over the questions
             for (Question question : questions) {
                 // Get the RPSDetail of the current Question
-                RPSDetail questionRpsDetail = question.getRps_detail_id();
+                RPSDetail questionRpsDetail = question.getRps_detail();
 
                 // Check if questionRpsDetail is not null
                 if (questionRpsDetail != null) {

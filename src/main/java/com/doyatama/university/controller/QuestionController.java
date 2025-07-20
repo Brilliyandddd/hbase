@@ -48,8 +48,19 @@ public class QuestionController {
     @GetMapping
     public PagedResponse<Question> getQuestion( 
             @RequestParam(value = "page", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) int page,
-            @RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size) throws IOException {
-        return questionService.getAllQuestion(page, size);
+            @RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size,
+            // Perubahan Utama: Menambahkan parameter rpsDetailId secara opsional
+            @RequestParam(value = "rpsDetailId", required = false) String rpsDetailId) throws IOException {
+        
+        if (rpsDetailId != null && !rpsDetailId.isEmpty()) {
+            // Jika rpsDetailId ada, panggil service untuk filter berdasarkan itu
+            logger.info("Controller: Received request for /question with rpsDetailId: {}", rpsDetailId);
+            return questionService.getAllQuestionsByRpsDetailId(page, size, rpsDetailId);
+        } else {
+            // Jika rpsDetailId tidak ada, panggil service untuk semua pertanyaan
+            logger.info("Controller: Received request for /question (all questions)");
+            return questionService.getAllQuestion(page, size);
+        }
     }
 
     @CrossOrigin
@@ -82,9 +93,9 @@ public class QuestionController {
         System.out.println("Content-Type: application/json");
         System.out.println("QuestionRequest received: " + questionRequest.toString());
 
-        if (questionRequest.getRps_detail_id() == null || questionRequest.getRps_detail_id().trim().isEmpty()) {
+        if (questionRequest.getRps_detail() == null || questionRequest.getRps_detail().trim().isEmpty()) {
             return ResponseEntity.badRequest()
-                    .body(new ApiResponse(false, "rps_detail_id is required"));
+                    .body(new ApiResponse(false, "rps_detail is required"));
         }
 
         try {
@@ -119,9 +130,9 @@ public class QuestionController {
         System.out.println("File: " + (file != null ? file.getOriginalFilename() : "null"));
         System.out.println("QuestionRequest received: " + questionRequest.toString());
 
-        if (questionRequest.getRps_detail_id() == null || questionRequest.getRps_detail_id().trim().isEmpty()) {
+        if (questionRequest.getRps_detail() == null || questionRequest.getRps_detail().trim().isEmpty()) {
             return ResponseEntity.badRequest()
-                    .body(new ApiResponse(false, "rps_detail_id is required"));
+                    .body(new ApiResponse(false, "rps_detail is required"));
         }
 
         if (file != null && !file.isEmpty()) {

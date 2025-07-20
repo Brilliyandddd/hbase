@@ -36,8 +36,8 @@ public class QuestionResponse {
         this.title = question.getTitle();
         this.description = question.getDescription();
 
-        this.questionType = question.getQuestionType() != null ? question.getQuestionType().name() : null;
-        this.answerType = question.getAnswerType() != null ? question.getAnswerType().name() : null;
+        this.questionType = question.getQuestion_type() != null ? question.getQuestion_type().name() : null;
+        this.answerType = question.getAnswer_type() != null ? question.getAnswer_type().name() : null;
 
         this.filePath = question.getFile_path();
         this.isRated = question.isIs_rated();
@@ -60,8 +60,8 @@ public class QuestionResponse {
     public String getIdQuestion() { return idQuestion; }
     public String getTitle() { return title; }
     public String getDescription() { return description; }
-    public String getQuestionType() { return questionType; }
-    public String getAnswerType() { return answerType; }
+    public String getQuestion_type() { return questionType; }
+    public String getAnswer_type() { return answerType; }
     public String getFilePath() { return filePath; }
     public boolean getIsRated() { return isRated; }
     public String getExamType() { return examType; }

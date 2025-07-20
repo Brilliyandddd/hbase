@@ -23,12 +23,13 @@ public class Question {
     private AnswerType answer_type;
     private String file_path;
     private RPS rps;
-    private RPSDetail rps_detail_id;
+    private RPSDetail rps_detail;
     private boolean is_rated;
     private ExamType examType;
     private ExamType2 examType2;
     private ExamType3 examType3;
     private String explanation;
+    private String created_by;
     private ExerciseAttempt exerciseAttempt;
 
     private String criteriaValuesJson;
@@ -215,23 +216,24 @@ public class Question {
     public Question() {
     }
 
-    public Question(String idQuestion, String title, String description, QuestionType questionType, AnswerType answerType,
-                            String file_path, RPS rps, RPSDetail rps_detail_id, boolean is_rated,
-                            ExamType examType, ExamType2 examType2, ExamType3 examType3, String explanation,
+    public Question(String idQuestion, String title, String description, QuestionType question_type, AnswerType answer_type,
+                            String file_path, RPS rps, RPSDetail rps_detail, boolean is_rated,
+                            ExamType examType, ExamType2 examType2, ExamType3 examType3, String explanation, String created_by,
                             List<CriteriaValue> criteria_values) {
         this.idQuestion = idQuestion;
         this.title = title;
         this.description = description;
-        this.question_type = questionType;
-        this.answer_type = answerType;
+        this.question_type = question_type;
+        this.answer_type = answer_type;
         this.file_path = file_path;
         this.rps = rps;
-        this.rps_detail_id = rps_detail_id;
+        this.rps_detail = rps_detail;
         this.is_rated = is_rated;
         this.examType = examType;
         this.examType2 = examType2;
         this.examType3 = examType3;
         this.explanation = explanation;
+        this.created_by = created_by;
 
         setCriteriaValues(criteria_values);
     }
@@ -245,11 +247,11 @@ public class Question {
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
 
-    public QuestionType getQuestionType() { return question_type; }
-    public void setQuestionType(QuestionType question_type) { this.question_type = question_type; }
+    public QuestionType getQuestion_type() { return question_type; }
+    public void setQuestion_type(QuestionType question_type) { this.question_type = question_type; }
 
-    public AnswerType getAnswerType() { return answer_type; }
-    public void setAnswerType(AnswerType answer_type) { this.answer_type = answer_type; }
+    public AnswerType getAnswer_type() { return answer_type; }
+    public void setAnswer_type(AnswerType answer_type) { this.answer_type = answer_type; }
 
     public String getFile_path() { return file_path; }
     public void setFile_path(String file_path) { this.file_path = file_path; }
@@ -257,8 +259,8 @@ public class Question {
     public RPS getRps() { return rps; }
     public void setRps(RPS rps) { this.rps = rps; }
 
-    public RPSDetail getRps_detail_id() { return rps_detail_id; }
-    public void setRps_detail_id(RPSDetail rps_detail_id) { this.rps_detail_id = rps_detail_id; }
+    public RPSDetail getRps_detail() { return rps_detail; }
+    public void setRps_detail(RPSDetail rps_detail) { this.rps_detail = rps_detail; }
 
     public ExamType getExamType() { return this.examType != null ? this.examType : ExamType.NOTHING; }
     public void setExamType(ExamType examType) { this.examType = examType; }
@@ -271,6 +273,9 @@ public class Question {
 
     public String getExplanation() { return explanation; }
     public void setExplanation(String explanation) { this.explanation = explanation; }
+
+    public String getCreated_by() { return created_by; }
+    public void setCreated_by(String created_by) { this.created_by = created_by; }
 
     public boolean isIs_rated() { return is_rated; }
     public void setIs_rated(boolean is_rated) { this.is_rated = is_rated; }

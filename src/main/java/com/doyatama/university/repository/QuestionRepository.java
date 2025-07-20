@@ -64,7 +64,7 @@ public class QuestionRepository {
         columnMapping.put("answer_type", "answer_type");
         columnMapping.put("file_path", "file_path");
         columnMapping.put("rps", "rps");
-        columnMapping.put("rps_detail_id", "rps_detail_id");
+        columnMapping.put("rps_detail", "rps_detail");
         columnMapping.put("examType", "examType");
         columnMapping.put("examType2", "examType2");
         columnMapping.put("examType3", "examType3");
@@ -81,7 +81,7 @@ public class QuestionRepository {
         return questions;
     }
 
-    public List<Question> findAllByRPSDetail(String rpsDetailID, int size) throws IOException {
+    public List<Question> findAllByRpsDetailId(String rpsDetailID, int size) throws IOException {
         HBaseCustomClient client = new HBaseCustomClient(conf);
         TableName tableQuestions = TableName.valueOf(tableName);
         Map<String, String> columnMapping = new HashMap<>();
@@ -93,7 +93,7 @@ public class QuestionRepository {
         columnMapping.put("answer_type", "answer_type");
         columnMapping.put("file_path", "file_path");
         columnMapping.put("rps", "rps");
-        columnMapping.put("rps_detail_id", "rps_detail_id");
+        columnMapping.put("rps_detail", "rps_detail");
         columnMapping.put("exam_type", "exam_type"); 
         columnMapping.put("examType", "examType");
         columnMapping.put("examType2", "examType2");
@@ -103,7 +103,7 @@ public class QuestionRepository {
         columnMapping.put("criteria_values", "criteriaValuesJson");
         columnMapping.put("questionRating", "questionRatingJson");
 
-        List<Question> questions = client.getDataListByColumn(tableQuestions.toString(), columnMapping, "detail", "idQuestion", rpsDetailID, Question.class, size);
+        List<Question> questions = client.getDataListByColumn(tableQuestions.toString(), columnMapping, "rps_detail", "id", rpsDetailID, Question.class, size);
         
         // CRITICAL: Ensure deserialization for each Question object fetched
         questions.forEach(this::deserializeQuestionFields);
@@ -123,7 +123,7 @@ public class QuestionRepository {
         columnMapping.put("answer_type", "answer_type");
         columnMapping.put("file_path", "file_path");
         columnMapping.put("rps", "rps");
-        columnMapping.put("rps_detail_id", "rps_detail_id");
+        columnMapping.put("rps_detail", "rps_detail");
         columnMapping.put("examType", "examType");
         columnMapping.put("examType2", "examType2");
         columnMapping.put("examType3", "examType3");
@@ -132,7 +132,7 @@ public class QuestionRepository {
         columnMapping.put("criteria_values", "criteriaValuesJson");
         columnMapping.put("questionRating", "questionRatingJson");
 
-        List<Question> questions = client.getDataListByColumn(tableQuestions.toString(), columnMapping, "detail", "idRps", rpsID, Question.class, size);
+        List<Question> questions = client.getDataListByColumn(tableQuestions.toString(), columnMapping, "rps", "idRps", rpsID, Question.class, size);
         
         // CRITICAL: Ensure deserialization for each Question object fetched
         questions.forEach(this::deserializeQuestionFields);
@@ -152,7 +152,7 @@ public class QuestionRepository {
         columnMapping.put("answer_type", "answer_type");
         columnMapping.put("file_path", "file_path");
         columnMapping.put("rps", "rps");
-        columnMapping.put("rps_detail_id", "rps_detail_id");
+        columnMapping.put("rps_detail", "rps_detail");
         columnMapping.put("examType", "examType");
         columnMapping.put("examType2", "examType2");
         columnMapping.put("examType3", "examType3");
@@ -162,7 +162,7 @@ public class QuestionRepository {
         columnMapping.put("criteria_values", "criteriaValuesJson");
         columnMapping.put("questionRating", "questionRatingJson");
 
-        List<Question> questions = client.getDataListByColumn(tableQuestions.toString(), columnMapping, "detail", "idRps", rpsID, Question.class, size);
+        List<Question> questions = client.getDataListByColumn(tableQuestions.toString(), columnMapping, "rps", "idRps", rpsID, Question.class, size);
         
         // CRITICAL: Ensure deserialization for each Question object fetched
         questions.forEach(this::deserializeQuestionFields);
@@ -178,8 +178,8 @@ public class QuestionRepository {
         client.insertRecord(tableQuestion, rowKey, "main", "idQuestion", rowKey);
         client.insertRecord(tableQuestion, rowKey, "main", "title", question.getTitle());
         client.insertRecord(tableQuestion, rowKey, "main", "description", question.getDescription());
-        client.insertRecord(tableQuestion, rowKey, "main", "question_type", question.getQuestionType().toString());
-        client.insertRecord(tableQuestion, rowKey, "main", "answer_type", question.getAnswerType().toString());
+        client.insertRecord(tableQuestion, rowKey, "main", "question_type", question.getQuestion_type().toString());
+        client.insertRecord(tableQuestion, rowKey, "main", "answer_type", question.getAnswer_type().toString());
         client.insertRecord(tableQuestion, rowKey, "main", "examType", question.getExamType().toString());
         client.insertRecord(tableQuestion, rowKey, "main", "examType2", question.getExamType2().toString());
         client.insertRecord(tableQuestion, rowKey, "main", "examType3", question.getExamType3().toString());
@@ -205,10 +205,10 @@ public class QuestionRepository {
         }
         client.insertRecord(tableQuestion, rowKey, "rps", "idRps", question.getRps().getIdRps());
         client.insertRecord(tableQuestion, rowKey, "rps", "nameRps", question.getRps().getNameRps());
-        client.insertRecord(tableQuestion, rowKey, "detail", "id", question.getRps_detail_id().getId());
-        client.insertRecord(tableQuestion, rowKey, "detail", "sub_cp_mk", question.getRps_detail_id().getSub_cp_mk());
+        client.insertRecord(tableQuestion, rowKey, "rps_detail", "id", question.getRps_detail().getId());
+        client.insertRecord(tableQuestion, rowKey, "rps_detail", "sub_cp_mk", question.getRps_detail().getSub_cp_mk());
         
-        client.insertRecord(tableQuestion, rowKey, "detail", "created_by", "Doyatama");
+        client.insertRecord(tableQuestion, rowKey, "rps_detail", "created_by", "Doyatama");
         
         // After saving to HBase, set the generated ID and ensure the object is fully deserialized
         question.setIdQuestion(rowKey); 
@@ -280,7 +280,7 @@ public class QuestionRepository {
         columnMapping.put("answer_type", "answer_type");
         columnMapping.put("file_path", "file_path");
         columnMapping.put("rps", "rps");
-        columnMapping.put("rps_detail_id", "rps_detail_id");
+        columnMapping.put("rps_detail", "rps_detail");
         columnMapping.put("examType", "examType");
         columnMapping.put("examType2", "examType2");
         columnMapping.put("examType3", "examType3");
@@ -300,49 +300,108 @@ public class QuestionRepository {
         return questions;
     }
 
-    public Question update(String questionId ,Question question) throws IOException {
-        HBaseCustomClient client = new HBaseCustomClient(conf);
-        String rowKey = question.getIdQuestion();
-        TableName tableQuestion = TableName.valueOf(tableName);
+    // In com.doyatama.university.repository.QuestionRepository.java
 
-        client.insertRecord(tableQuestion, rowKey, "main", "idQuestion", rowKey);
+// ... (imports and class definition) ...
+
+public Question update(String questionId, Question question) throws IOException {
+    HBaseCustomClient client = new HBaseCustomClient(conf);
+    String rowKey = question.getIdQuestion();
+    TableName tableQuestion = TableName.valueOf(tableName);
+
+    // Always insert the idQuestion/rowKey, as it's fundamental and should never be null
+    // This call ensures there's always at least one column inserted.
+    client.insertRecord(tableQuestion, rowKey, "main", "idQuestion", rowKey);
+
+    // Conditionally insert other fields only if they are not null or empty
+    if (question.getTitle() != null && !question.getTitle().isEmpty()) {
         client.insertRecord(tableQuestion, rowKey, "main", "title", question.getTitle());
+    }
+    if (question.getDescription() != null && !question.getDescription().isEmpty()) {
         client.insertRecord(tableQuestion, rowKey, "main", "description", question.getDescription());
-        client.insertRecord(tableQuestion, rowKey, "main", "question_type", question.getQuestionType().toString());
-        client.insertRecord(tableQuestion, rowKey, "main", "answer_type", question.getAnswerType().toString());
-        client.insertRecord(tableQuestion, rowKey, "main", "examType", question.getExamType().toString());
-        client.insertRecord(tableQuestion, rowKey, "main", "examType2", question.getExamType2().toString());
-        client.insertRecord(tableQuestion, rowKey, "main", "examType3", question.getExamType3().toString());
+    }
+    if (question.getExplanation() != null && !question.getExplanation().isEmpty()) {
         client.insertRecord(tableQuestion, rowKey, "main", "explanation", question.getExplanation());
-        client.insertRecord(tableQuestion, rowKey, "main", "is_rated", String.valueOf(question.isIs_rated())); 
+    }
 
-        if (question.getCriteriaValuesJson() != null && !question.getCriteriaValuesJson().isEmpty()) {
-            client.insertRecord(tableQuestion, rowKey, "main", "criteria_values", question.getCriteriaValuesJson());
-        } else {
-            client.insertRecord(tableQuestion, rowKey, "main", "criteria_values", "[]"); 
+    // For Enums: Check if the enum object itself is not null before calling .toString()
+    if (question.getQuestion_type() != null) {
+        client.insertRecord(tableQuestion, rowKey, "main", "question_type", question.getQuestion_type().toString());
+    }
+    if (question.getAnswer_type() != null) {
+        client.insertRecord(tableQuestion, rowKey, "main", "answer_type", question.getAnswer_type().toString());
+    }
+
+    // Crucially for examType, examType2, examType3 which can be null from frontend/service
+    if (question.getExamType() != null) { // This will be null if EXERCISE checkbox is not selected
+        client.insertRecord(tableQuestion, rowKey, "main", "examType", question.getExamType().toString());
+    } else {
+        // Option to delete the column if it becomes null (HBase doesn't have true 'null' but can delete columns)
+        // If your client.deleteColumn method exists and is suitable:
+        // client.deleteColumn(tableQuestion, rowKey, "main", "examType");
+        // Otherwise, simply don't insert/update it, letting its previous value persist if it existed.
+        // For this problem, simply not calling insertRecord is enough.
+    }
+    if (question.getExamType2() != null) { // This will be null if QUIZ checkbox is not selected
+        client.insertRecord(tableQuestion, rowKey, "main", "examType2", question.getExamType2().toString());
+    } else {
+        // client.deleteColumn(tableQuestion, rowKey, "main", "examType2");
+    }
+    if (question.getExamType3() != null) { // This will be null if EXAM checkbox is not selected
+        client.insertRecord(tableQuestion, rowKey, "main", "examType3", question.getExamType3().toString());
+    } else {
+        // client.deleteColumn(tableQuestion, rowKey, "main", "examType3");
+    }
+
+    // Booleans will always convert to "true" or "false" strings, so no null check needed for isIs_rated()
+    client.insertRecord(tableQuestion, rowKey, "main", "is_rated", String.valueOf(question.isIs_rated()));
+
+    // JSON fields: already handled to insert empty JSON string if null/empty
+    if (question.getCriteriaValuesJson() != null && !question.getCriteriaValuesJson().isEmpty()) {
+        client.insertRecord(tableQuestion, rowKey, "main", "criteria_values", question.getCriteriaValuesJson());
+    } else {
+        client.insertRecord(tableQuestion, rowKey, "main", "criteria_values", "[]");
+    }
+
+    if (question.getQuestionRatingJson() != null && !question.getQuestionRatingJson().isEmpty()) {
+        client.insertRecord(tableQuestion, rowKey, "main", "questionRating", question.getQuestionRatingJson());
+    } else {
+        client.insertRecord(tableQuestion, rowKey, "main", "questionRating", "{}");
+    }
+
+    // File path
+    if (question.getFile_path() != null && !question.getFile_path().isEmpty()) {
+        client.insertRecord(tableQuestion, rowKey, "main", "file_path", question.getFile_path());
+    }
+
+    // Nested RPS object fields: Check if the object itself is not null
+    if (question.getRps() != null) {
+        if (question.getRps().getIdRps() != null && !question.getRps().getIdRps().isEmpty()) {
+            client.insertRecord(tableQuestion, rowKey, "rps", "idRps", question.getRps().getIdRps());
         }
-
-        // IMPORTANT: Ensure questionRatingJson is always stored, even if empty
-        if (question.getQuestionRatingJson() != null && !question.getQuestionRatingJson().isEmpty()) {
-            client.insertRecord(tableQuestion, rowKey, "main", "questionRating", question.getQuestionRatingJson());
-        } else {
-            client.insertRecord(tableQuestion, rowKey, "main", "questionRating", "{}"); 
+        if (question.getRps().getNameRps() != null && !question.getRps().getNameRps().isEmpty()) {
+            client.insertRecord(tableQuestion, rowKey, "rps", "nameRps", question.getRps().getNameRps());
         }
+    }
 
-        if (question.getFile_path() != null && !question.getFile_path().isEmpty()) {
-            client.insertRecord(tableQuestion, rowKey, "main", "file_path", question.getFile_path());
+    // Nested RPS Detail object fields: Check if the object itself is not null
+    if (question.getRps_detail() != null) {
+        if (question.getRps_detail().getId() != null && !question.getRps_detail().getId().isEmpty()) {
+            client.insertRecord(tableQuestion, rowKey, "rps_detail", "id", question.getRps_detail().getId());
         }
-        client.insertRecord(tableQuestion, rowKey, "rps", "idRps", question.getRps().getIdRps());
-        client.insertRecord(tableQuestion, rowKey, "rps", "nameRps", question.getRps().getNameRps());
-        client.insertRecord(tableQuestion, rowKey, "detail", "id", question.getRps_detail_id().getId());
-        client.insertRecord(tableQuestion, rowKey, "detail", "sub_cp_mk", question.getRps_detail_id().getSub_cp_mk());
-        
-        client.insertRecord(tableQuestion, rowKey, "detail", "created_by", "Doyatama");
-        
-        deserializeQuestionFields(question); // Apply deserialization helper
-        return question;
-    }  
+        if (question.getRps_detail().getSub_cp_mk() != null && !question.getRps_detail().getSub_cp_mk().isEmpty()) {
+            client.insertRecord(tableQuestion, rowKey, "rps_detail", "sub_cp_mk", question.getRps_detail().getSub_cp_mk());
+        }
+    }
 
+    // This fixed value will always be inserted, helping ensure at least one column is put
+    client.insertRecord(tableQuestion, rowKey, "rps_detail", "created_by", "Doyatama");
+
+    deserializeQuestionFields(question); // Apply deserialization helper
+    // Consider adding client.close() here if HBaseCustomClient manages its own connection per operation
+    // If client.insertRecord is closing connection, then don't add client.close() here.
+    return question;
+}
 
     public boolean deleteById(String questionId) throws IOException {
         HBaseCustomClient client = new HBaseCustomClient(conf);

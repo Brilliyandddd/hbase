@@ -32,7 +32,7 @@ public class RPSDetailRepository {
         columnMapping.put("rps", "rps");
         columnMapping.put("sub_cp_mk", "sub_cp_mk");
         columnMapping.put("weekLabel", "weekLabel");
-        // columnMapping.put("learning_materials", "learning_materials");
+        columnMapping.put("learning_materials", "learning_materials");
         columnMapping.put("form_learning", "form_learning");
         columnMapping.put("learning_methods", "learning_methods");
         // columnMapping.put("assignments", "assignments");
@@ -58,7 +58,7 @@ public class RPSDetailRepository {
         columnMapping.put("rps", "rps");
         columnMapping.put("sub_cp_mk", "sub_cp_mk");
         columnMapping.put("weekLabel", "weekLabel");
-        // columnMapping.put("learning_materials", "learning_materials");
+        columnMapping.put("learning_materials", "learning_materials");
         columnMapping.put("form_learning", "form_learning");
         columnMapping.put("learning_methods", "learning_methods");
         // columnMapping.put("assignments", "assignments");
@@ -96,7 +96,7 @@ public class RPSDetailRepository {
         client.insertRecord(tableRPSDetail, rowKey, "rps", "idRps", rpsDetail.getRps().getIdRps());
         client.insertRecord(tableRPSDetail, rowKey, "rps", "nameRps", rpsDetail.getRps().getNameRps());
         client.insertRecord(tableRPSDetail, rowKey, "main", "sub_cp_mk", rpsDetail.getSub_cp_mk().toString());
-         
+        client.insertRecord(tableRPSDetail, rowKey, "main", "learning_materials", rpsDetail.getLearning_materials());
         // learning_material
         // for (int i = 0; i < rpsDetail.getLearning_materials().size(); i++) {
         //     String learningMaterial = rpsDetail.getLearning_materials().get(i);
@@ -188,7 +188,7 @@ public class RPSDetailRepository {
         columnMapping.put("rps", "rps");
         columnMapping.put("sub_cp_mk", "sub_cp_mk");
         columnMapping.put("weekLabel", "weekLabel");
-        // columnMapping.put("learning_materials", "learning_materials");
+        columnMapping.put("learning_materials", "learning_materials");
         columnMapping.put("form_learning", "form_learning");
         columnMapping.put("learning_methods", "learning_methods");
         // columnMapping.put("assignments", "assignments");
@@ -224,56 +224,9 @@ public class RPSDetailRepository {
         client.insertRecord(tableRPSDetail, rpsDetailId, "rps", "idRps", rpsDetail.getRps().getIdRps());
         client.insertRecord(tableRPSDetail, rpsDetailId, "rps", "nameRps", rpsDetail.getRps().getNameRps());
         client.insertRecord(tableRPSDetail, rpsDetailId, "main", "sub_cp_mk", rpsDetail.getSub_cp_mk().toString());
-        // learning_material
-        // for (int i = 0; i < rpsDetail.getLearning_materials().size(); i++) {
-        //     String learningMaterial = rpsDetail.getLearning_materials().get(i);
-        //     client.insertRecord(tableRPSDetail, rpsDetailId, "learning_materials", "lm_" + i, learningMaterial);
-        // }
-
+        client.insertRecord(tableRPSDetail, rpsDetailId, "main", "learning_materials", rpsDetail.getLearning_materials());
         client.insertRecord(tableRPSDetail, rpsDetailId, "form_learning", "id", rpsDetail.getForm_learning().getId());
         client.insertRecord(tableRPSDetail, rpsDetailId, "form_learning", "name", rpsDetail.getForm_learning().getName());
-
-        // learning_method
-        // for (int i = 0; i < rpsDetail.getLearning_methods().size(); i++) {
-        //     LearningMethod learningMethod = rpsDetail.getLearning_methods().get(i);
-        //     client.insertRecord(tableRPSDetail, rpsDetailId, "learning_methods", "lm_" + i,  new Gson().toJson(learningMethod));
-        // }
-
-        // assignment
-        // for (int i = 0; i < rpsDetail.getAssignments().size(); i++) {
-        //     String assignment = rpsDetail.getAssignments().get(i);
-        //     client.insertRecord(tableRPSDetail, rpsDetailId, "assignments", "lm_" + i,  assignment);
-        // }
-
-        // // estimated_time
-        // for (int i = 0; i < rpsDetail.getEstimated_times().size(); i++) {
-        //     String estimatedTime = rpsDetail.getEstimated_times().get(i);
-        //     client.insertRecord(tableRPSDetail, rpsDetailId, "estimated_times", "et_" + i, estimatedTime);
-        // }
-
-        // // student_learning_experience
-        // for (int i = 0; i < rpsDetail.getStudent_learning_experiences().size(); i++) {
-        //     String studentLearningExperience = rpsDetail.getStudent_learning_experiences().get(i);
-        //     client.insertRecord(tableRPSDetail, rpsDetailId, "estimated_times", "et_" + i, studentLearningExperience);
-        // }
-
-        // assessment_criteria
-        // for (int i = 0; i < rpsDetail.getAssessment_criterias().size(); i++) {
-        //     AssessmentCriteria assessmentCriteria = rpsDetail.getAssessment_criterias().get(i);
-        //     client.insertRecord(tableRPSDetail, rpsDetailId, "assessment_criterias", "ac_" + i,  new Gson().toJson(assessmentCriteria));
-        // }
-
-        // // appraisal_form
-        // for (int i = 0; i < rpsDetail.getAppraisal_forms().size(); i++) {
-        //     AppraisalForm appraisalForm = rpsDetail.getAppraisal_forms().get(i);
-        //     client.insertRecord(tableRPSDetail, rpsDetailId, "appraisal_forms", "af_" + i,  new Gson().toJson(appraisalForm));
-        // }
-
-        // assessment_indicator
-        // for (int i = 0; i < rpsDetail.getAssessment_indicators().size(); i++) {
-        //     String assessmentIndicator = rpsDetail.getAssessment_indicators().get(i);
-        //     client.insertRecord(tableRPSDetail, rpsDetailId, "assessment_indicators", "ai_" + i, assessmentIndicator);
-        // }
 
         client.insertRecord(tableRPSDetail, rpsDetailId, "main", "weight", rpsDetail.getWeight().toString());
 

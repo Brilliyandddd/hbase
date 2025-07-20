@@ -11,7 +11,7 @@ public class RPSDetailRequest {
     private Integer week;
     private String sub_cp_mk;
     private String weekLabel;
-    private List<String> learning_materials;
+    private String learning_materials;
     private String form_learning_id;
     private List<String> learning_methods;
     private List<String> assignments;
@@ -24,7 +24,7 @@ public class RPSDetailRequest {
     public RPSDetailRequest() {
     }
 
-    public RPSDetailRequest(String rps_id, Integer week, String sub_cp_mk,String weekLabel, List<String> learning_materials, String form_learning_id, List<String> learning_methods, List<String> assignments, List<String> estimated_times, List<String> student_learning_experiences, List<String> assessment_criterias, List<String> appraisal_forms, List<String> assessment_indicators, Float weight) {
+    public RPSDetailRequest(String rps_id, Integer week, String sub_cp_mk,String weekLabel, String learning_materials, String form_learning_id, List<String> learning_methods, List<String> assignments, List<String> estimated_times, List<String> student_learning_experiences, List<String> assessment_criterias, List<String> appraisal_forms, List<String> assessment_indicators, Float weight) {
         this.rps_id = rps_id;
         this.week = week;
         this.sub_cp_mk = sub_cp_mk;
@@ -73,11 +73,11 @@ public class RPSDetailRequest {
         this.weekLabel = weekLabel;
     }
 
-    public List<String> getLearning_materials() {
+    public String getLearning_materials() {
         return learning_materials;
     }
 
-    public void setLearning_materials(List<String> learning_materials) {
+    public void setLearning_materials(String learning_materials) {
         this.learning_materials = learning_materials;
     }
 
@@ -165,7 +165,7 @@ public class RPSDetailRequest {
                 this.sub_cp_mk = value;
                 break;
             case "learning_materials":
-                this.learning_materials = Collections.singletonList(value);
+                this.learning_materials = value;
                 break;
             case "form_learning_id":
                 this.form_learning_id = value;

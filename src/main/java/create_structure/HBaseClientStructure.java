@@ -366,15 +366,22 @@ public class HBaseClientStructure {
            }},
            new HashMap<String, String>() {{
               put("id", "Dosen10");
-              put("name", "ranpo123");
-              put("username", "ranpo123");
-              put("email", "ranpo@gmail.com");
-              put("password","$2a$10$SDRWMUk.2fnli0GTmqodJexjRksTw0En98dU8fdKsw7nTbZzMrj.2"); // password
+              put("name", "Irsyad Arif Mashudi, S.Kom., M.Kom.");
+              put("username", "IrsyadArief");
+              put("email", "irsyadarief@gmail.com");
+              put("password","$2a$10$SDRWMUk.2fnli0GTmqodJexjRksTw0En98dU8fdKsw7nTbZzMrj.2");
+              put("roles", "2");
+              put("createdAt", null);
+          }},
+          new HashMap<String, String>() {{
+              put("id", "Dosen11");
+              put("name", "Inggrid Yanuar Risca Pratiwi, S.Kom., M.Kom.");
+              put("username", "InggridYanuar");
+              put("email", "inggridyanuar@gmail.com");
+              put("password","$2a$10$SDRWMUk.2fnli0GTmqodJexjRksTw0En98dU8fdKsw7nTbZzMrj.2");
               put("roles", "2");
               put("createdAt", null);
           }}
-
-
       );
 
 //       // Loop over the data and insert each user
@@ -558,215 +565,215 @@ public class HBaseClientStructure {
        client.insertRecord(tableLecture, "LEC002", "detail", "created_by", "Doyatama");
 
        // Insert Linguistic Value
-       client.insertRecord(tableLinguisticValue, "LV001", "main", "id", "LV001");
-       client.insertRecord(tableLinguisticValue, "LV001", "main", "name", "Nothing");
-       client.insertRecord(tableLinguisticValue, "LV001", "main", "value1", "0.00");
-       client.insertRecord(tableLinguisticValue, "LV001", "main", "value2", "0.00");
-       client.insertRecord(tableLinguisticValue, "LV001", "main", "value3", "0.03");
-       client.insertRecord(tableLinguisticValue, "LV001", "main", "value4", "0.07");
+client.insertRecord(tableLinguisticValue, "LV001", "main", "id", "LV001");
+client.insertRecord(tableLinguisticValue, "LV001", "main", "name", "Nothing");
+client.insertRecord(tableLinguisticValue, "LV001", "main", "value1", "0.0000");
+client.insertRecord(tableLinguisticValue, "LV001", "main", "value2", "0.0000");
+client.insertRecord(tableLinguisticValue, "LV001", "main", "value3", "0.0345");
+client.insertRecord(tableLinguisticValue, "LV001", "main", "value4", "0.0690");
 
-       client.insertRecord(tableLinguisticValue, "LV002", "main", "id", "LV002");
-       client.insertRecord(tableLinguisticValue, "LV002", "main", "name", "Between nothing and very bad");
-       client.insertRecord(tableLinguisticValue, "LV002", "main", "value1", "0.00");
-       client.insertRecord(tableLinguisticValue, "LV002", "main", "value2", "0.03");
-       client.insertRecord(tableLinguisticValue, "LV002", "main", "value3", "0.03");
-       client.insertRecord(tableLinguisticValue, "LV002", "main", "value4", "0.07");
+client.insertRecord(tableLinguisticValue, "LV002", "main", "id", "LV002");
+client.insertRecord(tableLinguisticValue, "LV002", "main", "name", "Between nothing and very bad");
+client.insertRecord(tableLinguisticValue, "LV002", "main", "value1", "0.0000");
+client.insertRecord(tableLinguisticValue, "LV002", "main", "value2", "0.0345");
+client.insertRecord(tableLinguisticValue, "LV002", "main", "value3", "0.0345");
+client.insertRecord(tableLinguisticValue, "LV002", "main", "value4", "0.0690");
 
-       client.insertRecord(tableLinguisticValue, "LV003", "main", "id", "LV003");
-       client.insertRecord(tableLinguisticValue, "LV003", "main", "name", "Very bad");
-       client.insertRecord(tableLinguisticValue, "LV003", "main", "value1", "0.03");
-       client.insertRecord(tableLinguisticValue, "LV003", "main", "value2", "0.07");
-       client.insertRecord(tableLinguisticValue, "LV003", "main", "value3", "0.10");
-       client.insertRecord(tableLinguisticValue, "LV003", "main", "value4", "0.14");
+client.insertRecord(tableLinguisticValue, "LV003", "main", "id", "LV003");
+client.insertRecord(tableLinguisticValue, "LV003", "main", "name", "Very bad");
+client.insertRecord(tableLinguisticValue, "LV003", "main", "value1", "0.0345");
+client.insertRecord(tableLinguisticValue, "LV003", "main", "value2", "0.0690");
+client.insertRecord(tableLinguisticValue, "LV003", "main", "value3", "0.1034");
+client.insertRecord(tableLinguisticValue, "LV003", "main", "value4", "0.1379");
 
-       client.insertRecord(tableLinguisticValue, "LV004", "main", "id", "LV004");
-       client.insertRecord(tableLinguisticValue, "LV004", "main", "name", "At least very bad");
-       client.insertRecord(tableLinguisticValue, "LV004", "main", "value1", "0.07");
-       client.insertRecord(tableLinguisticValue, "LV004", "main", "value2", "0.10");
-       client.insertRecord(tableLinguisticValue, "LV004", "main", "value3", "0.93");
-       client.insertRecord(tableLinguisticValue, "LV004", "main", "value4", "0.97");
+client.insertRecord(tableLinguisticValue, "LV004", "main", "id", "LV004");
+client.insertRecord(tableLinguisticValue, "LV004", "main", "name", "At least very bad");
+client.insertRecord(tableLinguisticValue, "LV004", "main", "value1", "0.0690");
+client.insertRecord(tableLinguisticValue, "LV004", "main", "value2", "0.1034");
+client.insertRecord(tableLinguisticValue, "LV004", "main", "value3", "0.9310");
+client.insertRecord(tableLinguisticValue, "LV004", "main", "value4", "0.9655");
 
-       client.insertRecord(tableLinguisticValue, "LV005", "main", "id", "LV005");
-       client.insertRecord(tableLinguisticValue, "LV005", "main", "name", "Between very bad and bad");
-       client.insertRecord(tableLinguisticValue, "LV005", "main", "value1", "0.07");
-       client.insertRecord(tableLinguisticValue, "LV005", "main", "value2", "0.10");
-       client.insertRecord(tableLinguisticValue, "LV005", "main", "value3", "0.21");
-       client.insertRecord(tableLinguisticValue, "LV005", "main", "value4", "0.24");
+client.insertRecord(tableLinguisticValue, "LV005", "main", "id", "LV005");
+client.insertRecord(tableLinguisticValue, "LV005", "main", "name", "Between very bad and bad");
+client.insertRecord(tableLinguisticValue, "LV005", "main", "value1", "0.0690");
+client.insertRecord(tableLinguisticValue, "LV005", "main", "value2", "0.1034");
+client.insertRecord(tableLinguisticValue, "LV005", "main", "value3", "0.2069");
+client.insertRecord(tableLinguisticValue, "LV005", "main", "value4", "0.2414");
 
-       client.insertRecord(tableLinguisticValue, "LV006", "main", "id", "LV006");
-       client.insertRecord(tableLinguisticValue, "LV006", "main", "name", "Between very bad and medium");
-       client.insertRecord(tableLinguisticValue, "LV006", "main", "value1", "0.07");
-       client.insertRecord(tableLinguisticValue, "LV006", "main", "value2", "0.10");
-       client.insertRecord(tableLinguisticValue, "LV006", "main", "value3", "0.41");
-       client.insertRecord(tableLinguisticValue, "LV006", "main", "value4", "0.45");
+client.insertRecord(tableLinguisticValue, "LV006", "main", "id", "LV006");
+client.insertRecord(tableLinguisticValue, "LV006", "main", "name", "Between very bad and medium");
+client.insertRecord(tableLinguisticValue, "LV006", "main", "value1", "0.0690");
+client.insertRecord(tableLinguisticValue, "LV006", "main", "value2", "0.1034");
+client.insertRecord(tableLinguisticValue, "LV006", "main", "value3", "0.4138");
+client.insertRecord(tableLinguisticValue, "LV006", "main", "value4", "0.4483");
 
-       client.insertRecord(tableLinguisticValue, "LV007", "main", "id", "LV007");
-       client.insertRecord(tableLinguisticValue, "LV007", "main", "name", "At most very bad");
-       client.insertRecord(tableLinguisticValue, "LV007", "main", "value1", "0.00");
-       client.insertRecord(tableLinguisticValue, "LV007", "main", "value2", "0.00");
-       client.insertRecord(tableLinguisticValue, "LV007", "main", "value3", "0.03");
-       client.insertRecord(tableLinguisticValue, "LV007", "main", "value4", "0.07");
+client.insertRecord(tableLinguisticValue, "LV007", "main", "id", "LV007");
+client.insertRecord(tableLinguisticValue, "LV007", "main", "name", "At most very bad");
+client.insertRecord(tableLinguisticValue, "LV007", "main", "value1", "0.0000");
+client.insertRecord(tableLinguisticValue, "LV007", "main", "value2", "0.0345");
+client.insertRecord(tableLinguisticValue, "LV007", "main", "value3", "0.0345");
+client.insertRecord(tableLinguisticValue, "LV007", "main", "value4", "0.0690");
 
-       client.insertRecord(tableLinguisticValue, "LV008", "main", "id", "LV008");
-       client.insertRecord(tableLinguisticValue, "LV008", "main", "name", "Bad");
-       client.insertRecord(tableLinguisticValue, "LV008", "main", "value1", "0.21");
-       client.insertRecord(tableLinguisticValue, "LV008", "main", "value2", "0.24");
-       client.insertRecord(tableLinguisticValue, "LV008", "main", "value3", "0.28");
-       client.insertRecord(tableLinguisticValue, "LV008", "main", "value4", "0.31");
+client.insertRecord(tableLinguisticValue, "LV008", "main", "id", "LV008");
+client.insertRecord(tableLinguisticValue, "LV008", "main", "name", "Bad");
+client.insertRecord(tableLinguisticValue, "LV008", "main", "value1", "0.2069");
+client.insertRecord(tableLinguisticValue, "LV008", "main", "value2", "0.2414");
+client.insertRecord(tableLinguisticValue, "LV008", "main", "value3", "0.2759");
+client.insertRecord(tableLinguisticValue, "LV008", "main", "value4", "0.3103");
 
-       client.insertRecord(tableLinguisticValue, "LV009", "main", "id", "LV009");
-       client.insertRecord(tableLinguisticValue, "LV009", "main", "name", "At least bad");
-       client.insertRecord(tableLinguisticValue, "LV009", "main", "value1", "0.24");
-       client.insertRecord(tableLinguisticValue, "LV009", "main", "value2", "0.28");
-       client.insertRecord(tableLinguisticValue, "LV009", "main", "value3", "0.93");
-       client.insertRecord(tableLinguisticValue, "LV009", "main", "value4", "0.97");
+client.insertRecord(tableLinguisticValue, "LV009", "main", "id", "LV009");
+client.insertRecord(tableLinguisticValue, "LV009", "main", "name", "At least bad");
+client.insertRecord(tableLinguisticValue, "LV009", "main", "value1", "0.2414");
+client.insertRecord(tableLinguisticValue, "LV009", "main", "value2", "0.2759");
+client.insertRecord(tableLinguisticValue, "LV009", "main", "value3", "0.9310");
+client.insertRecord(tableLinguisticValue, "LV009", "main", "value4", "0.9655");
 
-       client.insertRecord(tableLinguisticValue, "LV010", "main", "id", "LV010");
-       client.insertRecord(tableLinguisticValue, "LV010", "main", "name", "Between bad and medium");
-       client.insertRecord(tableLinguisticValue, "LV010", "main", "value1", "0.24");
-       client.insertRecord(tableLinguisticValue, "LV010", "main", "value2", "0.28");
-       client.insertRecord(tableLinguisticValue, "LV010", "main", "value3", "0.41");
-       client.insertRecord(tableLinguisticValue, "LV010", "main", "value4", "0.45");
+client.insertRecord(tableLinguisticValue, "LV010", "main", "id", "LV010");
+client.insertRecord(tableLinguisticValue, "LV010", "main", "name", "Between bad and medium");
+client.insertRecord(tableLinguisticValue, "LV010", "main", "value1", "0.2414");
+client.insertRecord(tableLinguisticValue, "LV010", "main", "value2", "0.2759");
+client.insertRecord(tableLinguisticValue, "LV010", "main", "value3", "0.4138");
+client.insertRecord(tableLinguisticValue, "LV010", "main", "value4", "0.4483");
 
-       client.insertRecord(tableLinguisticValue, "LV011", "main", "id", "LV011");
-       client.insertRecord(tableLinguisticValue, "LV011", "main", "name", "Between bad and good");
-       client.insertRecord(tableLinguisticValue, "LV011", "main", "value1", "0.24");
-       client.insertRecord(tableLinguisticValue, "LV011", "main", "value2", "0.28");
-       client.insertRecord(tableLinguisticValue, "LV011", "main", "value3", "0.59");
-       client.insertRecord(tableLinguisticValue, "LV011", "main", "value4", "0.62");
+client.insertRecord(tableLinguisticValue, "LV011", "main", "id", "LV011");
+client.insertRecord(tableLinguisticValue, "LV011", "main", "name", "Between bad and good");
+client.insertRecord(tableLinguisticValue, "LV011", "main", "value1", "0.2414");
+client.insertRecord(tableLinguisticValue, "LV011", "main", "value2", "0.2759");
+client.insertRecord(tableLinguisticValue, "LV011", "main", "value3", "0.5862");
+client.insertRecord(tableLinguisticValue, "LV011", "main", "value4", "0.6207");
 
-       client.insertRecord(tableLinguisticValue, "LV012", "main", "id", "LV012");
-       client.insertRecord(tableLinguisticValue, "LV012", "main", "name", "Between bad and very good");
-       client.insertRecord(tableLinguisticValue, "LV012", "main", "value1", "0.24");
-       client.insertRecord(tableLinguisticValue, "LV012", "main", "value2", "0.28");
-       client.insertRecord(tableLinguisticValue, "LV012", "main", "value3", "0.76");
-       client.insertRecord(tableLinguisticValue, "LV012", "main", "value4", "0.79");
+client.insertRecord(tableLinguisticValue, "LV012", "main", "id", "LV012");
+client.insertRecord(tableLinguisticValue, "LV012", "main", "name", "Between bad and very good");
+client.insertRecord(tableLinguisticValue, "LV012", "main", "value1", "0.2414");
+client.insertRecord(tableLinguisticValue, "LV012", "main", "value2", "0.2759");
+client.insertRecord(tableLinguisticValue, "LV012", "main", "value3", "0.7586");
+client.insertRecord(tableLinguisticValue, "LV012", "main", "value4", "0.7931");
 
-       client.insertRecord(tableLinguisticValue, "LV013", "main", "id", "LV013");
-       client.insertRecord(tableLinguisticValue, "LV013", "main", "name", "At most bad");
-       client.insertRecord(tableLinguisticValue, "LV013", "main", "value1", "0.00");
-       client.insertRecord(tableLinguisticValue, "LV013", "main", "value2", "0.00");
-       client.insertRecord(tableLinguisticValue, "LV013", "main", "value3", "0.21");
-       client.insertRecord(tableLinguisticValue, "LV013", "main", "value4", "0.24");
+client.insertRecord(tableLinguisticValue, "LV013", "main", "id", "LV013");
+client.insertRecord(tableLinguisticValue, "LV013", "main", "name", "At most bad");
+client.insertRecord(tableLinguisticValue, "LV013", "main", "value1", "0.0000");
+client.insertRecord(tableLinguisticValue, "LV013", "main", "value2", "0.0345");
+client.insertRecord(tableLinguisticValue, "LV013", "main", "value3", "0.2069");
+client.insertRecord(tableLinguisticValue, "LV013", "main", "value4", "0.2414");
 
-       client.insertRecord(tableLinguisticValue, "LV014", "main", "id", "LV014");
-       client.insertRecord(tableLinguisticValue, "LV014", "main", "name", "Medium");
-       client.insertRecord(tableLinguisticValue, "LV014", "main", "value1", "0.41");
-       client.insertRecord(tableLinguisticValue, "LV014", "main", "value2", "0.45");
-       client.insertRecord(tableLinguisticValue, "LV014", "main", "value3", "0.48");
-       client.insertRecord(tableLinguisticValue, "LV014", "main", "value4", "0.52");
+client.insertRecord(tableLinguisticValue, "LV014", "main", "id", "LV014");
+client.insertRecord(tableLinguisticValue, "LV014", "main", "name", "Medium");
+client.insertRecord(tableLinguisticValue, "LV014", "main", "value1", "0.4138");
+client.insertRecord(tableLinguisticValue, "LV014", "main", "value2", "0.4483");
+client.insertRecord(tableLinguisticValue, "LV014", "main", "value3", "0.4828");
+client.insertRecord(tableLinguisticValue, "LV014", "main", "value4", "0.5172");
 
-       client.insertRecord(tableLinguisticValue, "LV015", "main", "id", "LV015");
-       client.insertRecord(tableLinguisticValue, "LV015", "main", "name", "At least medium");
-       client.insertRecord(tableLinguisticValue, "LV015", "main", "value1", "0.45");
-       client.insertRecord(tableLinguisticValue, "LV015", "main", "value2", "0.48");
-       client.insertRecord(tableLinguisticValue, "LV015", "main", "value3", "0.93");
-       client.insertRecord(tableLinguisticValue, "LV015", "main", "value4", "0.97");
+client.insertRecord(tableLinguisticValue, "LV015", "main", "id", "LV015");
+client.insertRecord(tableLinguisticValue, "LV015", "main", "name", "At least medium");
+client.insertRecord(tableLinguisticValue, "LV015", "main", "value1", "0.4483");
+client.insertRecord(tableLinguisticValue, "LV015", "main", "value2", "0.4828");
+client.insertRecord(tableLinguisticValue, "LV015", "main", "value3", "0.9310");
+client.insertRecord(tableLinguisticValue, "LV015", "main", "value4", "0.9655");
 
-       client.insertRecord(tableLinguisticValue, "LV016", "main", "id", "LV016");
-       client.insertRecord(tableLinguisticValue, "LV016", "main", "name", "Between medium and good");
-       client.insertRecord(tableLinguisticValue, "LV016", "main", "value1", "0.45");
-       client.insertRecord(tableLinguisticValue, "LV016", "main", "value2", "0.48");
-       client.insertRecord(tableLinguisticValue, "LV016", "main", "value3", "0.59");
-       client.insertRecord(tableLinguisticValue, "LV016", "main", "value4", "0.62");
+client.insertRecord(tableLinguisticValue, "LV016", "main", "id", "LV016");
+client.insertRecord(tableLinguisticValue, "LV016", "main", "name", "Between medium and good");
+client.insertRecord(tableLinguisticValue, "LV016", "main", "value1", "0.4483");
+client.insertRecord(tableLinguisticValue, "LV016", "main", "value2", "0.4828");
+client.insertRecord(tableLinguisticValue, "LV016", "main", "value3", "0.5862");
+client.insertRecord(tableLinguisticValue, "LV016", "main", "value4", "0.6207");
 
-       client.insertRecord(tableLinguisticValue, "LV017", "main", "id", "LV017");
-       client.insertRecord(tableLinguisticValue, "LV017", "main", "name", "Between medium and very good");
-       client.insertRecord(tableLinguisticValue, "LV017", "main", "value1", "0.45");
-       client.insertRecord(tableLinguisticValue, "LV017", "main", "value2", "0.48");
-       client.insertRecord(tableLinguisticValue, "LV017", "main", "value3", "0.76");
-       client.insertRecord(tableLinguisticValue, "LV017", "main", "value4", "0.79");
+client.insertRecord(tableLinguisticValue, "LV017", "main", "id", "LV017");
+client.insertRecord(tableLinguisticValue, "LV017", "main", "name", "Between medium and very good");
+client.insertRecord(tableLinguisticValue, "LV017", "main", "value1", "0.4483");
+client.insertRecord(tableLinguisticValue, "LV017", "main", "value2", "0.4828");
+client.insertRecord(tableLinguisticValue, "LV017", "main", "value3", "0.7586");
+client.insertRecord(tableLinguisticValue, "LV017", "main", "value4", "0.7931");
 
-       client.insertRecord(tableLinguisticValue, "LV018", "main", "id", "LV018");
-       client.insertRecord(tableLinguisticValue, "LV018", "main", "name", "At most medium");
-       client.insertRecord(tableLinguisticValue, "LV018", "main", "value1", "0.00");
-       client.insertRecord(tableLinguisticValue, "LV018", "main", "value2", "0.03");
-       client.insertRecord(tableLinguisticValue, "LV018", "main", "value3", "0.41");
-       client.insertRecord(tableLinguisticValue, "LV018", "main", "value4", "0.45");
+client.insertRecord(tableLinguisticValue, "LV018", "main", "id", "LV018");
+client.insertRecord(tableLinguisticValue, "LV018", "main", "name", "At most medium");
+client.insertRecord(tableLinguisticValue, "LV018", "main", "value1", "0.0000");
+client.insertRecord(tableLinguisticValue, "LV018", "main", "value2", "0.0345");
+client.insertRecord(tableLinguisticValue, "LV018", "main", "value3", "0.4138");
+client.insertRecord(tableLinguisticValue, "LV018", "main", "value4", "0.4483");
 
-       client.insertRecord(tableLinguisticValue, "LV019", "main", "id", "LV019");
-       client.insertRecord(tableLinguisticValue, "LV019", "main", "name", "Good");
-       client.insertRecord(tableLinguisticValue, "LV019", "main", "value1", "0.59");
-       client.insertRecord(tableLinguisticValue, "LV019", "main", "value2", "0.62");
-       client.insertRecord(tableLinguisticValue, "LV019", "main", "value3", "0.66");
-       client.insertRecord(tableLinguisticValue, "LV019", "main", "value4", "0.69");
+client.insertRecord(tableLinguisticValue, "LV019", "main", "id", "LV019");
+client.insertRecord(tableLinguisticValue, "LV019", "main", "name", "Good");
+client.insertRecord(tableLinguisticValue, "LV019", "main", "value1", "0.5862");
+client.insertRecord(tableLinguisticValue, "LV019", "main", "value2", "0.6207");
+client.insertRecord(tableLinguisticValue, "LV019", "main", "value3", "0.6552");
+client.insertRecord(tableLinguisticValue, "LV019", "main", "value4", "0.6897");
 
-       client.insertRecord(tableLinguisticValue, "LV020", "main", "id", "LV020");
-       client.insertRecord(tableLinguisticValue, "LV020", "main", "name", "At least good");
-       client.insertRecord(tableLinguisticValue, "LV020", "main", "value1", "0.62");
-       client.insertRecord(tableLinguisticValue, "LV020", "main", "value2", "0.66");
-       client.insertRecord(tableLinguisticValue, "LV020", "main", "value3", "0.93");
-       client.insertRecord(tableLinguisticValue, "LV020", "main", "value4", "0.97");
+client.insertRecord(tableLinguisticValue, "LV020", "main", "id", "LV020");
+client.insertRecord(tableLinguisticValue, "LV020", "main", "name", "At least good");
+client.insertRecord(tableLinguisticValue, "LV020", "main", "value1", "0.6207");
+client.insertRecord(tableLinguisticValue, "LV020", "main", "value2", "0.6552");
+client.insertRecord(tableLinguisticValue, "LV020", "main", "value3", "0.9310");
+client.insertRecord(tableLinguisticValue, "LV020", "main", "value4", "0.9655");
 
-       client.insertRecord(tableLinguisticValue, "LV021", "main", "id", "LV021");
-       client.insertRecord(tableLinguisticValue, "LV021", "main", "name", "Between good and very good");
-       client.insertRecord(tableLinguisticValue, "LV021", "main", "value1", "0.62");
-       client.insertRecord(tableLinguisticValue, "LV021", "main", "value2", "0.66");
-       client.insertRecord(tableLinguisticValue, "LV021", "main", "value3", "0.76");
-       client.insertRecord(tableLinguisticValue, "LV021", "main", "value4", "0.79");
+client.insertRecord(tableLinguisticValue, "LV021", "main", "id", "LV021");
+client.insertRecord(tableLinguisticValue, "LV021", "main", "name", "Between good and very good");
+client.insertRecord(tableLinguisticValue, "LV021", "main", "value1", "0.6207");
+client.insertRecord(tableLinguisticValue, "LV021", "main", "value2", "0.6552");
+client.insertRecord(tableLinguisticValue, "LV021", "main", "value3", "0.7586");
+client.insertRecord(tableLinguisticValue, "LV021", "main", "value4", "0.7931");
 
-       client.insertRecord(tableLinguisticValue, "LV022", "main", "id", "LV022");
-       client.insertRecord(tableLinguisticValue, "LV022", "main", "name", "Between good and perfect");
-       client.insertRecord(tableLinguisticValue, "LV022", "main", "value1", "0.62");
-       client.insertRecord(tableLinguisticValue, "LV022", "main", "value2", "0.66");
-       client.insertRecord(tableLinguisticValue, "LV022", "main", "value3", "0.97");
-       client.insertRecord(tableLinguisticValue, "LV022", "main", "value4", "1.00");
+client.insertRecord(tableLinguisticValue, "LV022", "main", "id", "LV022");
+client.insertRecord(tableLinguisticValue, "LV022", "main", "name", "Between good and perfect");
+client.insertRecord(tableLinguisticValue, "LV022", "main", "value1", "0.6207");
+client.insertRecord(tableLinguisticValue, "LV022", "main", "value2", "0.6552");
+client.insertRecord(tableLinguisticValue, "LV022", "main", "value3", "0.9655");
+client.insertRecord(tableLinguisticValue, "LV022", "main", "value4", "1.0000");
 
-       client.insertRecord(tableLinguisticValue, "LV023", "main", "id", "LV023");
-       client.insertRecord(tableLinguisticValue, "LV023", "main", "name", "At most good");
-       client.insertRecord(tableLinguisticValue, "LV023", "main", "value1", "0.00");
-       client.insertRecord(tableLinguisticValue, "LV023", "main", "value2", "0.03");
-       client.insertRecord(tableLinguisticValue, "LV023", "main", "value3", "0.59");
-       client.insertRecord(tableLinguisticValue, "LV023", "main", "value4", "0.62");
+client.insertRecord(tableLinguisticValue, "LV023", "main", "id", "LV023");
+client.insertRecord(tableLinguisticValue, "LV023", "main", "name", "At most good");
+client.insertRecord(tableLinguisticValue, "LV023", "main", "value1", "0.0000");
+client.insertRecord(tableLinguisticValue, "LV023", "main", "value2", "0.0345");
+client.insertRecord(tableLinguisticValue, "LV023", "main", "value3", "0.5862");
+client.insertRecord(tableLinguisticValue, "LV023", "main", "value4", "0.6207");
 
-       client.insertRecord(tableLinguisticValue, "LV024", "main", "id", "LV024");
-       client.insertRecord(tableLinguisticValue, "LV024", "main", "name", "Very good");
-       client.insertRecord(tableLinguisticValue, "LV024", "main", "value1", "0.76");
-       client.insertRecord(tableLinguisticValue, "LV024", "main", "value2", "0.79");
-       client.insertRecord(tableLinguisticValue, "LV024", "main", "value3", "0.83");
-       client.insertRecord(tableLinguisticValue, "LV024", "main", "value4", "0.86");
+client.insertRecord(tableLinguisticValue, "LV024", "main", "id", "LV024");
+client.insertRecord(tableLinguisticValue, "LV024", "main", "name", "Very good");
+client.insertRecord(tableLinguisticValue, "LV024", "main", "value1", "0.7586");
+client.insertRecord(tableLinguisticValue, "LV024", "main", "value2", "0.7931");
+client.insertRecord(tableLinguisticValue, "LV024", "main", "value3", "0.8276");
+client.insertRecord(tableLinguisticValue, "LV024", "main", "value4", "0.8621");
 
-       client.insertRecord(tableLinguisticValue, "LV025", "main", "id", "LV025");
-       client.insertRecord(tableLinguisticValue, "LV025", "main", "name", "At least very good");
-       client.insertRecord(tableLinguisticValue, "LV025", "main", "value1", "0.79");
-       client.insertRecord(tableLinguisticValue, "LV025", "main", "value2", "0.83");
-       client.insertRecord(tableLinguisticValue, "LV025", "main", "value3", "0.93");
-       client.insertRecord(tableLinguisticValue, "LV025", "main", "value4", "0.97");
+client.insertRecord(tableLinguisticValue, "LV025", "main", "id", "LV025");
+client.insertRecord(tableLinguisticValue, "LV025", "main", "name", "At least very good");
+client.insertRecord(tableLinguisticValue, "LV025", "main", "value1", "0.7931");
+client.insertRecord(tableLinguisticValue, "LV025", "main", "value2", "0.8276");
+client.insertRecord(tableLinguisticValue, "LV025", "main", "value3", "0.9310");
+client.insertRecord(tableLinguisticValue, "LV025", "main", "value4", "0.9655");
 
-       client.insertRecord(tableLinguisticValue, "LV026", "main", "id", "LV026");
-       client.insertRecord(tableLinguisticValue, "LV026", "main", "name", "Between very good and perfect");
-       client.insertRecord(tableLinguisticValue, "LV026", "main", "value1", "0.79");
-       client.insertRecord(tableLinguisticValue, "LV026", "main", "value2", "0.83");
-       client.insertRecord(tableLinguisticValue, "LV026", "main", "value3", "0.97");
-       client.insertRecord(tableLinguisticValue, "LV026", "main", "value4", "1.00");
+client.insertRecord(tableLinguisticValue, "LV026", "main", "id", "LV026");
+client.insertRecord(tableLinguisticValue, "LV026", "main", "name", "Between very good and perfect");
+client.insertRecord(tableLinguisticValue, "LV026", "main", "value1", "0.7931");
+client.insertRecord(tableLinguisticValue, "LV026", "main", "value2", "0.8276");
+client.insertRecord(tableLinguisticValue, "LV026", "main", "value3", "0.9655");
+client.insertRecord(tableLinguisticValue, "LV026", "main", "value4", "1.0000");
 
-       client.insertRecord(tableLinguisticValue, "LV027", "main", "id", "LV027");
-       client.insertRecord(tableLinguisticValue, "LV027", "main", "name", "At most very good");
-       client.insertRecord(tableLinguisticValue, "LV027", "main", "value1", "0.00");
-       client.insertRecord(tableLinguisticValue, "LV027", "main", "value2", "0.03");
-       client.insertRecord(tableLinguisticValue, "LV027", "main", "value3", "0.76");
-       client.insertRecord(tableLinguisticValue, "LV027", "main", "value4", "0.79");
+client.insertRecord(tableLinguisticValue, "LV027", "main", "id", "LV027");
+client.insertRecord(tableLinguisticValue, "LV027", "main", "name", "At most very good");
+client.insertRecord(tableLinguisticValue, "LV027", "main", "value1", "0.0000");
+client.insertRecord(tableLinguisticValue, "LV027", "main", "value2", "0.0345");
+client.insertRecord(tableLinguisticValue, "LV027", "main", "value3", "0.7586");
+client.insertRecord(tableLinguisticValue, "LV027", "main", "value4", "0.7931");
 
-       client.insertRecord(tableLinguisticValue, "LV028", "main", "id", "LV028");
-       client.insertRecord(tableLinguisticValue, "LV028", "main", "name", "At least perfect");
-       client.insertRecord(tableLinguisticValue, "LV028", "main", "value1", "0.93");
-       client.insertRecord(tableLinguisticValue, "LV028", "main", "value2", "0.97");
-       client.insertRecord(tableLinguisticValue, "LV028", "main", "value3", "1.00");
-       client.insertRecord(tableLinguisticValue, "LV028", "main", "value4", "1.00");
+client.insertRecord(tableLinguisticValue, "LV028", "main", "id", "LV028");
+client.insertRecord(tableLinguisticValue, "LV028", "main", "name", "At least perfect");
+client.insertRecord(tableLinguisticValue, "LV028", "main", "value1", "0.9310");
+client.insertRecord(tableLinguisticValue, "LV028", "main", "value2", "0.9655");
+client.insertRecord(tableLinguisticValue, "LV028", "main", "value3", "1.0000");
+client.insertRecord(tableLinguisticValue, "LV028", "main", "value4", "1.0000");
 
-       client.insertRecord(tableLinguisticValue, "LV029", "main", "id", "LV029");
-       client.insertRecord(tableLinguisticValue, "LV029", "main", "name", "At most perfect");
-       client.insertRecord(tableLinguisticValue, "LV029", "main", "value1", "0.00");
-       client.insertRecord(tableLinguisticValue, "LV029", "main", "value2", "0.03");
-       client.insertRecord(tableLinguisticValue, "LV029", "main", "value3", "0.97");
-       client.insertRecord(tableLinguisticValue, "LV029", "main", "value4", "1.00");
+client.insertRecord(tableLinguisticValue, "LV029", "main", "id", "LV029");
+client.insertRecord(tableLinguisticValue, "LV029", "main", "name", "At most perfect");
+client.insertRecord(tableLinguisticValue, "LV029", "main", "value1", "0.0000");
+client.insertRecord(tableLinguisticValue, "LV029", "main", "value2", "0.0345");
+client.insertRecord(tableLinguisticValue, "LV029", "main", "value3", "0.9655");
+client.insertRecord(tableLinguisticValue, "LV029", "main", "value4", "1.0000");
 
-       client.insertRecord(tableLinguisticValue, "LV030", "main", "id", "LV030");
-       client.insertRecord(tableLinguisticValue, "LV030", "main", "name", "Perfect");
-       client.insertRecord(tableLinguisticValue, "LV030", "main", "value1", "0.97");
-       client.insertRecord(tableLinguisticValue, "LV030", "main", "value2", "1.00");
-       client.insertRecord(tableLinguisticValue, "LV030", "main", "value3", "1.00");
-       client.insertRecord(tableLinguisticValue, "LV030", "main", "value4", "1.00");
+client.insertRecord(tableLinguisticValue, "LV030", "main", "id", "LV030");
+client.insertRecord(tableLinguisticValue, "LV030", "main", "name", "Perfect");
+client.insertRecord(tableLinguisticValue, "LV030", "main", "value1", "0.9655");
+client.insertRecord(tableLinguisticValue, "LV030", "main", "value2", "1.0000");
+client.insertRecord(tableLinguisticValue, "LV030", "main", "value3", "1.0000");
+client.insertRecord(tableLinguisticValue, "LV030", "main", "value4", "1.0000");
 
        // Insert Question Criteria
 
@@ -979,7 +986,7 @@ public class HBaseClientStructure {
       new HashMap<String, String>() {{
           put("id", "Dosen10");
           put("nidn", "dummy");
-          put("name", "ranpo123");
+          put("name", "Irsyad Arif Mashudi, S.Kom., M.Kom.");
           put("place_born", "dummy");
           put("date_born", "2024-06-21T17:10:48.134Z");
           put("gender", "L");
@@ -991,11 +998,28 @@ public class HBaseClientStructure {
           put("study_program_id", "SP001");
           put("study_program_name", "D4 Teknik Informatika");
           put("user_id", "Dosen10");
-          put("user_name", "ranpo123");
+          put("user_name", "IrsyadArief");
           put("created_by", "Doyatama");
 
-      }}
-
+      }},
+    new HashMap<String, String>() {{
+          put("id", "Dosen11");
+          put("nidn", "dummy");
+          put("name", "Inggrid Yanuar Risca Pratiwi, S.Kom., M.Kom.");
+          put("place_born", "dummy");
+          put("date_born", "2024-06-21T17:10:48.134Z");
+          put("gender", "L");
+          put("status", "dosen");
+          put("address", "dummy");
+          put("phone", "6123123");
+          put("religion_id", "RLG001");
+          put("religion_name", "Islam");
+          put("study_program_id", "SP001");
+          put("study_program_name", "D4 Teknik Informatika");
+          put("user_id", "Dosen11");
+          put("user_name", "InggridYanuar");
+          put("created_by", "Doyatama");
+        }}
       );
 
 //       // Loop over the data and insert each lecturer
@@ -1046,10 +1070,10 @@ public class HBaseClientStructure {
        client.insertRecord(tableRPS, "RPS001", "subject", "name", "Pemrograman Berbasis Object");
        client.insertRecord(tableRPS, "RPS001", "developerLecturer", "id", "dosen6");
        client.insertRecord(tableRPS, "RPS001", "developerLecturer", "name", "Gunawan Budiprasetyo, S.T., M.MT., Ph.D.");
-       client.insertRecord(tableRPS, "RPS001", "coordinatorLecturer", "id", "Dosen3");
-       client.insertRecord(tableRPS, "RPS001", "coordinatorLecturer", "name", "Milyun Ni’ma Shoumi, S.Kom., M.Kom.");
-       client.insertRecord(tableRPS, "RPS001", "instructorLecturer", "id", "Dosen8");
-       client.insertRecord(tableRPS, "RPS001", "instructorLecturer", "name", "Priska Choirina, S.S.T., M.Tr.T");
+       client.insertRecord(tableRPS, "RPS001", "coordinatorLecturer", "id", "Dosen10");
+       client.insertRecord(tableRPS, "RPS001", "coordinatorLecturer", "name", "Irsyad Arif Mashudi, S.Kom., M.Kom.");
+       client.insertRecord(tableRPS, "RPS001", "instructorLecturer", "id", "Dosen11");
+       client.insertRecord(tableRPS, "RPS001", "instructorLecturer", "name", "Inggrid Yanuar Risca Pratiwi, S.Kom., M.Kom.");
        client.insertRecord(tableRPS, "RPS001", "detail", "created_by", "Doyatama");
        client.insertRecord(tableRPS, "RPS001", "detail", "created_at", instant.toString());
 
@@ -1065,10 +1089,10 @@ public class HBaseClientStructure {
        client.insertRecord(tableRPS, "RPS002", "subject", "name", "Pemrograman Berbasis Object");
        client.insertRecord(tableRPS, "RPS002", "developerLecturer", "id", "dosen6");
        client.insertRecord(tableRPS, "RPS002", "developerLecturer", "name", "Gunawan Budiprasetyo, S.T., M.MT., Ph.D.");
-       client.insertRecord(tableRPS, "RPS002", "coordinatorLecturer", "id", "Dosen3");
-       client.insertRecord(tableRPS, "RPS002", "coordinatorLecturer", "name", "Milyun Ni’ma Shoumi, S.Kom., M.Kom.");
-       client.insertRecord(tableRPS, "RPS002", "instructorLecturer", "id", "Dosen8");
-       client.insertRecord(tableRPS, "RPS002", "instructorLecturer", "name", "Priska Choirina, S.S.T., M.Tr.T");
+       client.insertRecord(tableRPS, "RPS001", "coordinatorLecturer", "id", "Dosen10");
+       client.insertRecord(tableRPS, "RPS001", "coordinatorLecturer", "name", "Irsyad Arif Mashudi, S.Kom., M.Kom.");
+       client.insertRecord(tableRPS, "RPS001", "instructorLecturer", "id", "Dosen11");
+       client.insertRecord(tableRPS, "RPS001", "instructorLecturer", "name", "Inggrid Yanuar Risca Pratiwi, S.Kom., M.Kom.");
        client.insertRecord(tableRPS, "RPS002", "detail", "created_by", "Doyatama");
        client.insertRecord(tableRPS, "RPS002", "detail", "created_at", instant.toString());
 //
@@ -1078,6 +1102,7 @@ public class HBaseClientStructure {
        client.insertRecord(tableRPSDetail, "RPS001-D001", "rps", "idRps", "RPS001");
        client.insertRecord(tableRPSDetail, "RPS001-D001", "rps", "nameRps", "RPS 1");
        client.insertRecord(tableRPSDetail, "RPS001-D001", "main", "sub_cp_mk", "Dummy Sub CP MK");
+       client.insertRecord(tableRPSDetail, "RPS001-D001", "main", "learning_materials", "Operation");
        client.insertRecord(tableRPSDetail, "RPS001-D001", "form_learning", "id", "BP001");
        client.insertRecord(tableRPSDetail, "RPS001-D001", "form_learning", "name", "Daring");
        client.insertRecord(tableRPSDetail, "RPS001-D001", "main", "weight", "3");
@@ -1089,6 +1114,7 @@ public class HBaseClientStructure {
        client.insertRecord(tableRPSDetail, "RPS001-D002", "rps", "idRps", "RPS001");
        client.insertRecord(tableRPSDetail, "RPS001-D002", "rps", "nameRps", "RPS 1");
        client.insertRecord(tableRPSDetail, "RPS001-D002", "main", "sub_cp_mk", "Dummy Sub CP MK");
+         client.insertRecord(tableRPSDetail, "RPS001-D002", "main", "learning_materials", "Operation");
        client.insertRecord(tableRPSDetail, "RPS001-D002", "form_learning", "id", "BP001");
        client.insertRecord(tableRPSDetail, "RPS001-D002", "form_learning", "name", "Daring");
        client.insertRecord(tableRPSDetail, "RPS001-D002", "main", "weight", "3");
@@ -1100,6 +1126,7 @@ public class HBaseClientStructure {
        client.insertRecord(tableRPSDetail, "RPS002-D001", "rps", "idRps", "RPS002");
        client.insertRecord(tableRPSDetail, "RPS002-D001", "rps", "nameRps", "RPS 2");
        client.insertRecord(tableRPSDetail, "RPS002-D001", "main", "sub_cp_mk", "Dummy Sub CP MK");
+       client.insertRecord(tableRPSDetail, "RPS002-D001", "main", "learning_materials", "Operation");
        client.insertRecord(tableRPSDetail, "RPS002-D001", "form_learning", "id", "BP001");
        client.insertRecord(tableRPSDetail, "RPS002-D001", "form_learning", "name", "Daring");
        client.insertRecord(tableRPSDetail, "RPS002-D001", "main", "weight", "3");
@@ -1111,6 +1138,7 @@ public class HBaseClientStructure {
        client.insertRecord(tableRPSDetail, "RPS002-D002", "rps", "idRps", "RPS002");
        client.insertRecord(tableRPSDetail, "RPS002-D002", "rps", "nameRps", "RPS 2");
        client.insertRecord(tableRPSDetail, "RPS002-D002", "main", "sub_cp_mk", "Dummy Sub CP MK");
+       client.insertRecord(tableRPSDetail, "RPS002-D002", "main", "learning_materials", "Operation");
        client.insertRecord(tableRPSDetail, "RPS002-D002", "form_learning", "id", "BP001");
        client.insertRecord(tableRPSDetail, "RPS002-D002", "form_learning", "name", "Daring");
        client.insertRecord(tableRPSDetail, "RPS002-D002", "main", "weight", "3");
@@ -2642,5 +2670,1603 @@ client.insertRecord(tableAnswer, "RPS001-D001-Q023-A008", "main", "description",
 client.insertRecord(tableAnswer, "RPS001-D001-Q023-A008", "main", "type", "NORMAL");
 client.insertRecord(tableAnswer, "RPS001-D001-Q023-A008", "main", "is_right", "false");
 
+// Question 24
+client.insertRecord(tableQuestion, "RPS001-D002-Q024", "main", "idQuestion", "RPS001-D002-Q024");
+client.insertRecord(tableQuestion, "RPS001-D002-Q024", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q024", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q024", "main", "title", "Which of the following Java operators can be used with boolean variables? (Choose all that apply.)");
+client.insertRecord(tableQuestion, "RPS001-D002-Q024", "main", "description", "Pertanyaan tentang operator Java untuk variabel boolean");
+client.insertRecord(tableQuestion, "RPS001-D002-Q024", "main", "question_type", "NORMAL");
+client.insertRecord(tableQuestion, "RPS001-D002-Q024", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q024", "main", "examType2", "QUIZ");
+
+// Answer for Q024
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A001", "main", "idAnswer", "RPS001-D002-Q024-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A001", "question", "idQuestion", "RPS001-D002-Q024");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A001", "main", "title", "A. &");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A001", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A002", "main", "idAnswer", "RPS001-D002-Q024-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A002", "question", "idQuestion", "RPS001-D002-Q024");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A002", "main", "title", "B. +");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A002", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A003", "main", "idAnswer", "RPS001-D002-Q024-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A003", "question", "idQuestion", "RPS001-D002-Q024");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A003", "main", "title", "C. --");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A003", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A004", "main", "idAnswer", "RPS001-D002-Q024-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A004", "question", "idQuestion", "RPS001-D002-Q024");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A004", "main", "title", "D. !");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A004", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A005", "main", "idAnswer", "RPS001-D002-Q024-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A005", "question", "idQuestion", "RPS001-D002-Q024");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A005", "main", "title", "E. %");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A005", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A006", "main", "idAnswer", "RPS001-D002-Q024-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A006", "question", "idQuestion", "RPS001-D002-Q024");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A006", "main", "title", "F. ~");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A006", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A007", "main", "idAnswer", "RPS001-D002-Q024-A007");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A007", "question", "idQuestion", "RPS001-D002-Q024");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A007", "main", "title", "G. Cast with (boolean)");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A007", "main", "description", "G");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A007", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q024-A007", "main", "is_right", "true");
+
+
+// Question 25
+client.insertRecord(tableQuestion, "RPS001-D002-Q025", "main", "idQuestion", "RPS001-D002-Q025");
+client.insertRecord(tableQuestion, "RPS001-D002-Q025", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q025", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q025", "main", "title", "What data type (or types) will allow the following code snippet to compile? (Choose all that apply.)");
+client.insertRecord(tableQuestion, "RPS001-D002-Q025", "main", "description", "Pertanyaan tentang tipe data yang valid");
+client.insertRecord(tableQuestion, "RPS001-D002-Q025", "main", "question_type", "IMAGE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q025", "main", "file_path", "/images/questions/RPS001-D002-Q025.png");
+client.insertRecord(tableQuestion, "RPS001-D002-Q025", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q025", "main", "examType2", "QUIZ");
+
+// Answer for Q025
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A001", "main", "idAnswer", "RPS001-D002-Q025-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A001", "question", "idQuestion", "RPS001-D002-Q025");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A001", "main", "title", "A. int");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A001", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A002", "main", "idAnswer", "RPS001-D002-Q025-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A002", "question", "idQuestion", "RPS001-D002-Q025");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A002", "main", "title", "B. long");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A002", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A003", "main", "idAnswer", "RPS001-D002-Q025-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A003", "question", "idQuestion", "RPS001-D002-Q025");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A003", "main", "title", "C. boolean");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A003", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A004", "main", "idAnswer", "RPS001-D002-Q025-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A004", "question", "idQuestion", "RPS001-D002-Q025");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A004", "main", "title", "D. double");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A004", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A005", "main", "idAnswer", "RPS001-D002-Q025-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A005", "question", "idQuestion", "RPS001-D002-Q025");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A005", "main", "title", "E. short");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A005", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A006", "main", "idAnswer", "RPS001-D002-Q025-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A006", "question", "idQuestion", "RPS001-D002-Q025");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A006", "main", "title", "F. byte");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q025-A006", "main", "is_right", "false");
+
+
+// Question 26
+client.insertRecord(tableQuestion, "RPS001-D002-Q026", "main", "idQuestion", "RPS001-D002-Q026");
+client.insertRecord(tableQuestion, "RPS001-D002-Q026", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q026", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q026", "main", "title", "What change, when applied independently, would allow the following code snippet to compile? (Choose all that apply.)");
+client.insertRecord(tableQuestion, "RPS001-D002-Q026", "main", "description", "Pertanyaan tentang kompilasi kode Java");
+client.insertRecord(tableQuestion, "RPS001-D002-Q026", "main", "question_type", "IMAGE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q026", "main", "file_path", "/images/questions/RPS001-D002-Q026.png");
+client.insertRecord(tableQuestion, "RPS001-D002-Q026", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q026", "main", "examType2", "QUIZ");
+
+// Answer for Q026
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A001", "main", "idAnswer", "RPS001-D002-Q026-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A001", "question", "idQuestion", "RPS001-D002-Q026");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A001", "main", "title", "A. No change; it compiles as is.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A001", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A002", "main", "idAnswer", "RPS001-D002-Q026-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A002", "question", "idQuestion", "RPS001-D002-Q026");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A002", "main", "title", "B. Cast ear on line 4 to int.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A002", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A003", "main", "idAnswer", "RPS001-D002-Q026-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A003", "question", "idQuestion", "RPS001-D002-Q026");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A003", "main", "title", "C. Change the data type of ear on line 3 to short.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A003", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A004", "main", "idAnswer", "RPS001-D002-Q026-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A004", "question", "idQuestion", "RPS001-D002-Q026");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A004", "main", "title", "D. Cast 2 * ear on line 4 to int.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A004", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A005", "main", "idAnswer", "RPS001-D002-Q026-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A005", "question", "idQuestion", "RPS001-D002-Q026");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A005", "main", "title", "E. Change the data type of hearing on line 4 to short.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A005", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A006", "main", "idAnswer", "RPS001-D002-Q026-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A006", "question", "idQuestion", "RPS001-D002-Q026");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A006", "main", "title", "F. Change the data type of hearing on line 4 to long.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q026-A006", "main", "is_right", "true");
+
+
+// Question 27
+client.insertRecord(tableQuestion, "RPS001-D002-Q027", "main", "idQuestion", "RPS001-D002-Q027");
+client.insertRecord(tableQuestion, "RPS001-D002-Q027", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q027", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q027", "main", "title", "What is the output of the following code snippet?");
+client.insertRecord(tableQuestion, "RPS001-D002-Q027", "main", "description", "Pertanyaan tentang output kode Java");
+client.insertRecord(tableQuestion, "RPS001-D002-Q027", "main", "question_type", "IMAGE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q027", "main", "file_path", "/images/questions/RPS001-D002-Q027.png");
+client.insertRecord(tableQuestion, "RPS001-D002-Q027", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q027", "main", "examType2", "QUIZ");
+
+// Answer for Q027
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A001", "main", "idAnswer", "RPS001-D002-Q027-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A001", "question", "idQuestion", "RPS001-D002-Q027");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A001", "main", "title", "A. true, 20, true");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A001", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A002", "main", "idAnswer", "RPS001-D002-Q027-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A002", "question", "idQuestion", "RPS001-D002-Q027");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A002", "main", "title", "B. true, 20, false");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A002", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A003", "main", "idAnswer", "RPS001-D002-Q027-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A003", "question", "idQuestion", "RPS001-D002-Q027");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A003", "main", "title", "C. false, 10, true");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A003", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A004", "main", "idAnswer", "RPS001-D002-Q027-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A004", "question", "idQuestion", "RPS001-D002-Q027");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A004", "main", "title", "D. false, 20, false");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A004", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A005", "main", "idAnswer", "RPS001-D002-Q027-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A005", "question", "idQuestion", "RPS001-D002-Q027");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A005", "main", "title", "E. The code will not compile because of line 5.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A005", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A006", "main", "idAnswer", "RPS001-D002-Q027-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A006", "question", "idQuestion", "RPS001-D002-Q027");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A006", "main", "title", "F. None of the above.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q027-A006", "main", "is_right", "false");
+
+
+// Question 28
+client.insertRecord(tableQuestion, "RPS001-D002-Q028", "main", "idQuestion", "RPS001-D002-Q028");
+client.insertRecord(tableQuestion, "RPS001-D002-Q028", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q028", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q028", "main", "title", "Which of the following operators are ranked in increasing or the same order of precedence? Assume the + operator is binary addition, not the unary form. (Choose all that apply.)");
+client.insertRecord(tableQuestion, "RPS001-D002-Q028", "main", "description", "Pertanyaan tentang operator precedence");
+client.insertRecord(tableQuestion, "RPS001-D002-Q028", "main", "question_type", "NORMAL");
+client.insertRecord(tableQuestion, "RPS001-D002-Q028", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q028", "main", "examType2", "QUIZ");
+
+// Answer for Q028
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A001", "main", "idAnswer", "RPS001-D002-Q028-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A001", "question", "idQuestion", "RPS001-D002-Q028");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A001", "main", "title", "A. +, %, --");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A001", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A002", "main", "idAnswer", "RPS001-D002-Q028-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A002", "question", "idQuestion", "RPS001-D002-Q028");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A002", "main", "title", "B. ++, (int), *");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A002", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A003", "main", "idAnswer", "RPS001-D002-Q028-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A003", "question", "idQuestion", "RPS001-D002-Q028");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A003", "main", "title", "C. =, !, =");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A003", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A004", "main", "idAnswer", "RPS001-D002-Q028-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A004", "question", "idQuestion", "RPS001-D002-Q028");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A004", "main", "title", "D. (short), =, !, *");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A004", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A005", "main", "idAnswer", "RPS001-D002-Q028-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A005", "question", "idQuestion", "RPS001-D002-Q028");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A005", "main", "title", "E. *, /, %, +, =");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A005", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A006", "main", "idAnswer", "RPS001-D002-Q028-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A006", "question", "idQuestion", "RPS001-D002-Q028");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A006", "main", "title", "F. !, , &");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A006", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A007", "main", "idAnswer", "RPS001-D002-Q028-A007");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A007", "question", "idQuestion", "RPS001-D002-Q028");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A007", "main", "title", "G. ^, +, =, +=");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A007", "main", "description", "G");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A007", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q028-A007", "main", "is_right", "false");
+
+
+// Question 29
+client.insertRecord(tableQuestion, "RPS001-D002-Q029", "main", "idQuestion", "RPS001-D002-Q029");
+client.insertRecord(tableQuestion, "RPS001-D002-Q029", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q029", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q029", "main", "title", "What is the output of the following program?");
+client.insertRecord(tableQuestion, "RPS001-D002-Q029", "main", "description", "Pertanyaan tentang output program Java");
+client.insertRecord(tableQuestion, "RPS001-D002-Q029", "main", "question_type", "IMAGE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q029", "main", "file_path", "/images/questions/RPS001-D002-Q029.png");
+client.insertRecord(tableQuestion, "RPS001-D002-Q029", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q029", "main", "examType2", "QUIZ");
+
+// Answer for Q029
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A001", "main", "idAnswer", "RPS001-D002-Q029-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A001", "question", "idQuestion", "RPS001-D002-Q029");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A001", "main", "title", "A. 4, 6, 6.0");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A001", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A002", "main", "idAnswer", "RPS001-D002-Q029-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A002", "question", "idQuestion", "RPS001-D002-Q029");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A002", "main", "title", "B. 3, 5, 6");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A002", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A003", "main", "idAnswer", "RPS001-D002-Q029-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A003", "question", "idQuestion", "RPS001-D002-Q029");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A003", "main", "title", "C. 3, 6, 6");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A003", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A004", "main", "idAnswer", "RPS001-D002-Q029-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A004", "question", "idQuestion", "RPS001-D002-Q029");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A004", "main", "title", "D. 4, 5, 6");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A004", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A005", "main", "idAnswer", "RPS001-D002-Q029-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A005", "question", "idQuestion", "RPS001-D002-Q029");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A005", "main", "title", "E. The code does not compile because of line 9.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A005", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A006", "main", "idAnswer", "RPS001-D002-Q029-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A006", "question", "idQuestion", "RPS001-D002-Q029");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A006", "main", "title", "F. None of the above.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q029-A006", "main", "is_right", "true");
+
+
+// Question 30
+client.insertRecord(tableQuestion, "RPS001-D002-Q030", "main", "idQuestion", "RPS001-D002-Q030");
+client.insertRecord(tableQuestion, "RPS001-D002-Q030", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q030", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q030", "main", "title", "What is the output of the following code snippet?");
+client.insertRecord(tableQuestion, "RPS001-D002-Q030", "main", "description", "Pertanyaan tentang output kode Java");
+client.insertRecord(tableQuestion, "RPS001-D002-Q030", "main", "question_type", "IMAGE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q030", "main", "file_path", "/images/questions/RPS001-D002-Q030.png");
+client.insertRecord(tableQuestion, "RPS001-D002-Q030", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q030", "main", "examType2", "QUIZ");
+
+// Answer for Q030
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A001", "main", "idAnswer", "RPS001-D002-Q030-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A001", "question", "idQuestion", "RPS001-D002-Q030");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A001", "main", "title", "A. true-true-true");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A001", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A002", "main", "idAnswer", "RPS001-D002-Q030-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A002", "question", "idQuestion", "RPS001-D002-Q030");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A002", "main", "title", "B. true-true-false");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A002", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A003", "main", "idAnswer", "RPS001-D002-Q030-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A003", "question", "idQuestion", "RPS001-D002-Q030");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A003", "main", "title", "C. true-false-true");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A003", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A004", "main", "idAnswer", "RPS001-D002-Q030-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A004", "question", "idQuestion", "RPS001-D002-Q030");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A004", "main", "title", "D. true-false-false");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A004", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A005", "main", "idAnswer", "RPS001-D002-Q030-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A005", "question", "idQuestion", "RPS001-D002-Q030");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A005", "main", "title", "E. false-true-true");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A005", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A006", "main", "idAnswer", "RPS001-D002-Q030-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A006", "question", "idQuestion", "RPS001-D002-Q030");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A006", "main", "title", "F. false-true-false");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A006", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A007", "main", "idAnswer", "RPS001-D002-Q030-A007");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A007", "question", "idQuestion", "RPS001-D002-Q030");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A007", "main", "title", "G. false-false-true");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A007", "main", "description", "G");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A007", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A007", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A008", "main", "idAnswer", "RPS001-D002-Q030-A008");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A008", "question", "idQuestion", "RPS001-D002-Q030");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A008", "main", "title", "H. false-false-false");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A008", "main", "description", "H");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A008", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q030-A008", "main", "is_right", "false");
+
+
+// Question 31
+client.insertRecord(tableQuestion, "RPS001-D002-Q031", "main", "idQuestion", "RPS001-D002-Q031");
+client.insertRecord(tableQuestion, "RPS001-D002-Q031", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q031", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q031", "main", "title", "What is the output of the following code snippet?");
+client.insertRecord(tableQuestion, "RPS001-D002-Q031", "main", "description", "Pertanyaan tentang output kode Java");
+client.insertRecord(tableQuestion, "RPS001-D002-Q031", "main", "question_type", "IMAGE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q031", "main", "file_path", "/images/questions/RPS001-D002-Q031.png");
+client.insertRecord(tableQuestion, "RPS001-D002-Q031", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q031", "main", "examType2", "QUIZ");
+
+// Answer for Q031
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A001", "main", "idAnswer", "RPS001-D002-Q031-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A001", "question", "idQuestion", "RPS001-D002-Q031");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A001", "main", "title", "A. 4-1");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A001", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A002", "main", "idAnswer", "RPS001-D002-Q031-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A002", "question", "idQuestion", "RPS001-D002-Q031");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A002", "main", "title", "B. 4-2");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A002", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A003", "main", "idAnswer", "RPS001-D002-Q031-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A003", "question", "idQuestion", "RPS001-D002-Q031");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A003", "main", "title", "C. 5-1");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A003", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A004", "main", "idAnswer", "RPS001-D002-Q031-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A004", "question", "idQuestion", "RPS001-D002-Q031");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A004", "main", "title", "D. 5-2");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A004", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A005", "main", "idAnswer", "RPS001-D002-Q031-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A005", "question", "idQuestion", "RPS001-D002-Q031");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A005", "main", "title", "E. The code does not compile due to line 7.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A005", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A006", "main", "idAnswer", "RPS001-D002-Q031-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A006", "question", "idQuestion", "RPS001-D002-Q031");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A006", "main", "title", "F. None of the above.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q031-A006", "main", "is_right", "false");
+
+
+// Question 32
+client.insertRecord(tableQuestion, "RPS001-D002-Q032", "main", "idQuestion", "RPS001-D002-Q032");
+client.insertRecord(tableQuestion, "RPS001-D002-Q032", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q032", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q032", "main", "title", "What are the unique outputs of the following code snippet? (Choose all that apply.)");
+client.insertRecord(tableQuestion, "RPS001-D002-Q032", "main", "description", "Pertanyaan tentang output kode Java");
+client.insertRecord(tableQuestion, "RPS001-D002-Q032", "main", "question_type", "IMAGE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q032", "main", "file_path", "/images/questions/RPS001-D002-Q032.png");
+client.insertRecord(tableQuestion, "RPS001-D002-Q032", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q032", "main", "examType2", "QUIZ");
+
+// Answer for Q032
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A001", "main", "idAnswer", "RPS001-D002-Q032-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A001", "question", "idQuestion", "RPS001-D002-Q032");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A001", "main", "title", "A. 1");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A001", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A002", "main", "idAnswer", "RPS001-D002-Q032-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A002", "question", "idQuestion", "RPS001-D002-Q032");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A002", "main", "title", "B. 2");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A002", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A003", "main", "idAnswer", "RPS001-D002-Q032-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A003", "question", "idQuestion", "RPS001-D002-Q032");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A003", "main", "title", "C. 3");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A003", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A004", "main", "idAnswer", "RPS001-D002-Q032-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A004", "question", "idQuestion", "RPS001-D002-Q032");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A004", "main", "title", "D. 4");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A004", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A005", "main", "idAnswer", "RPS001-D002-Q032-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A005", "question", "idQuestion", "RPS001-D002-Q032");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A005", "main", "title", "E. 5");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A005", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A006", "main", "idAnswer", "RPS001-D002-Q032-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A006", "question", "idQuestion", "RPS001-D002-Q032");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A006", "main", "title", "F. 6");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A006", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A007", "main", "idAnswer", "RPS001-D002-Q032-A007");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A007", "question", "idQuestion", "RPS001-D002-Q032");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A007", "main", "title", "G. The code does not compile.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A007", "main", "description", "G");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A007", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q032-A007", "main", "is_right", "false");
+
+
+// Question 33
+client.insertRecord(tableQuestion, "RPS001-D002-Q033", "main", "idQuestion", "RPS001-D002-Q033");
+client.insertRecord(tableQuestion, "RPS001-D002-Q033", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q033", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q033", "main", "title", "What are the unique outputs of the following code snippet? (Choose all that apply.)");
+client.insertRecord(tableQuestion, "RPS001-D002-Q033", "main", "description", "Pertanyaan tentang output kode Java");
+client.insertRecord(tableQuestion, "RPS001-D002-Q033", "main", "question_type", "IMAGE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q033", "main", "file_path", "/images/questions/RPS001-D002-Q033.png");
+client.insertRecord(tableQuestion, "RPS001-D002-Q033", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q033", "main", "examType2", "QUIZ");
+
+// Answer for Q033
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A001", "main", "idAnswer", "RPS001-D002-Q033-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A001", "question", "idQuestion", "RPS001-D002-Q033");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A001", "main", "title", "A. 1");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A001", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A002", "main", "idAnswer", "RPS001-D002-Q033-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A002", "question", "idQuestion", "RPS001-D002-Q033");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A002", "main", "title", "B. 2");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A002", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A003", "main", "idAnswer", "RPS001-D002-Q033-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A003", "question", "idQuestion", "RPS001-D002-Q033");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A003", "main", "title", "C. 3");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A003", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A004", "main", "idAnswer", "RPS001-D002-Q033-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A004", "question", "idQuestion", "RPS001-D002-Q033");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A004", "main", "title", "D. 4");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A004", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A005", "main", "idAnswer", "RPS001-D002-Q033-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A005", "question", "idQuestion", "RPS001-D002-Q033");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A005", "main", "title", "E. 5");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A005", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A006", "main", "idAnswer", "RPS001-D002-Q033-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A006", "question", "idQuestion", "RPS001-D002-Q033");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A006", "main", "title", "F. 6");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A006", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A007", "main", "idAnswer", "RPS001-D002-Q033-A007");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A007", "question", "idQuestion", "RPS001-D002-Q033");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A007", "main", "title", "G. The code does not compile.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A007", "main", "description", "G");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A007", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q033-A007", "main", "is_right", "true");
+
+
+// Question 34
+client.insertRecord(tableQuestion, "RPS001-D002-Q034", "main", "idQuestion", "RPS001-D002-Q034");
+client.insertRecord(tableQuestion, "RPS001-D002-Q034", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q034", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q034", "main", "title", "What is the output of the following code?");
+client.insertRecord(tableQuestion, "RPS001-D002-Q034", "main", "description", "Pertanyaan tentang output program Java");
+client.insertRecord(tableQuestion, "RPS001-D002-Q034", "main", "question_type", "IMAGE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q034", "main", "file_path", "/images/questions/RPS001-D002-Q034.png");
+client.insertRecord(tableQuestion, "RPS001-D002-Q034", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q034", "main", "examType2", "QUIZ");
+
+// Answer for Q034
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A001", "main", "idAnswer", "RPS001-D002-Q034-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A001", "question", "idQuestion", "RPS001-D002-Q034");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A001", "main", "title", "A. 0, 0, 5");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A001", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A002", "main", "idAnswer", "RPS001-D002-Q034-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A002", "question", "idQuestion", "RPS001-D002-Q034");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A002", "main", "title", "B. 1, 2, 10");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A002", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A003", "main", "idAnswer", "RPS001-D002-Q034-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A003", "question", "idQuestion", "RPS001-D002-Q034");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A003", "main", "title", "C. 2, 1, 5");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A003", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A004", "main", "idAnswer", "RPS001-D002-Q034-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A004", "question", "idQuestion", "RPS001-D002-Q034");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A004", "main", "title", "D. 2, 0, 5");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A004", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A005", "main", "idAnswer", "RPS001-D002-Q034-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A005", "question", "idQuestion", "RPS001-D002-Q034");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A005", "main", "title", "E. 3, 1, 10");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A005", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A006", "main", "idAnswer", "RPS001-D002-Q034-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A006", "question", "idQuestion", "RPS001-D002-Q034");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A006", "main", "title", "F. 3, 2, 6");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A006", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A007", "main", "idAnswer", "RPS001-D002-Q034-A007");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A007", "question", "idQuestion", "RPS001-D002-Q034");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A007", "main", "title", "G. The code does not compile");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A007", "main", "description", "G");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A007", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q034-A007", "main", "is_right", "false");
+
+
+// Question 35
+client.insertRecord(tableQuestion, "RPS001-D002-Q035", "main", "idQuestion", "RPS001-D002-Q035");
+client.insertRecord(tableQuestion, "RPS001-D002-Q035", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q035", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q035", "main", "title", "The operator increases a value and returns the original value, while the operator decreases a value and returns the new value.");
+client.insertRecord(tableQuestion, "RPS001-D002-Q035", "main", "description", "Pertanyaan tentang operator increment dan decrement");
+client.insertRecord(tableQuestion, "RPS001-D002-Q035", "main", "question_type", "NORMAL");
+client.insertRecord(tableQuestion, "RPS001-D002-Q035", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q035", "main", "examType2", "QUIZ");
+
+// Answer for Q035
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A001", "main", "idAnswer", "RPS001-D002-Q035-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A001", "question", "idQuestion", "RPS001-D002-Q035");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A001", "main", "title", "A. post-increment, post-increment");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A001", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A002", "main", "idAnswer", "RPS001-D002-Q035-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A002", "question", "idQuestion", "RPS001-D002-Q035");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A002", "main", "title", "B. pre-decrement, post-decrement");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A002", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A003", "main", "idAnswer", "RPS001-D002-Q035-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A003", "question", "idQuestion", "RPS001-D002-Q035");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A003", "main", "title", "C. post-increment, post-decrement");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A003", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A004", "main", "idAnswer", "RPS001-D002-Q035-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A004", "question", "idQuestion", "RPS001-D002-Q035");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A004", "main", "title", "D. post-increment, pre-decrement");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A004", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A005", "main", "idAnswer", "RPS001-D002-Q035-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A005", "question", "idQuestion", "RPS001-D002-Q035");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A005", "main", "title", "E. pre-increment, pre-decrement");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A005", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A006", "main", "idAnswer", "RPS001-D002-Q035-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A006", "question", "idQuestion", "RPS001-D002-Q035");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A006", "main", "title", "F. pre-increment, post-decrement");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q035-A006", "main", "is_right", "false");
+
+
+// Question 36
+client.insertRecord(tableQuestion, "RPS001-D002-Q036", "main", "idQuestion", "RPS001-D002-Q036");
+client.insertRecord(tableQuestion, "RPS001-D002-Q036", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q036", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q036", "main", "title", "What is the output of the following code snippet?");
+client.insertRecord(tableQuestion, "RPS001-D002-Q036", "main", "description", "Pertanyaan tentang output kode Java");
+client.insertRecord(tableQuestion, "RPS001-D002-Q036", "main", "question_type", "IMAGE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q036", "main", "file_path", "/images/questions/RPS001-D002-Q036.png");
+client.insertRecord(tableQuestion, "RPS001-D002-Q036", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q036", "main", "examType2", "QUIZ");
+
+// Answer for Q036
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A001", "main", "idAnswer", "RPS001-D002-Q036-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A001", "question", "idQuestion", "RPS001-D002-Q036");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A001", "main", "title", "A. true-false-false");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A001", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A002", "main", "idAnswer", "RPS001-D002-Q036-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A002", "question", "idQuestion", "RPS001-D002-Q036");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A002", "main", "title", "B. false-true-false");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A002", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A003", "main", "idAnswer", "RPS001-D002-Q036-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A003", "question", "idQuestion", "RPS001-D002-Q036");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A003", "main", "title", "C. true-true-true");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A003", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A004", "main", "idAnswer", "RPS001-D002-Q036-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A004", "question", "idQuestion", "RPS001-D002-Q036");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A004", "main", "title", "D. false-true-true");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A004", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A005", "main", "idAnswer", "RPS001-D002-Q036-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A005", "question", "idQuestion", "RPS001-D002-Q036");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A005", "main", "title", "E. false-false-false");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A005", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A006", "main", "idAnswer", "RPS001-D002-Q036-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A006", "question", "idQuestion", "RPS001-D002-Q036");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A006", "main", "title", "F. true-true-false");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A006", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A007", "main", "idAnswer", "RPS001-D002-Q036-A007");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A007", "question", "idQuestion", "RPS001-D002-Q036");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A007", "main", "title", "G. None of the above");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A007", "main", "description", "G");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A007", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q036-A007", "main", "is_right", "false");
+
+
+// Question 37
+client.insertRecord(tableQuestion, "RPS001-D002-Q037", "main", "idQuestion", "RPS001-D002-Q037");
+client.insertRecord(tableQuestion, "RPS001-D002-Q037", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q037", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q037", "main", "title", "Which of the following statements are correct? (Choose all that apply.)");
+client.insertRecord(tableQuestion, "RPS001-D002-Q037", "main", "description", "Pertanyaan tentang pernyataan yang benar di Java");
+client.insertRecord(tableQuestion, "RPS001-D002-Q037", "main", "question_type", "NORMAL");
+client.insertRecord(tableQuestion, "RPS001-D002-Q037", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q037", "main", "examType2", "QUIZ");
+
+// Answer for Q037
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A001", "main", "idAnswer", "RPS001-D002-Q037-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A001", "question", "idQuestion", "RPS001-D002-Q037");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A001", "main", "title", "A. The return value of an assignment operation expression can be void.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A001", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A002", "main", "idAnswer", "RPS001-D002-Q037-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A002", "question", "idQuestion", "RPS001-D002-Q037");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A002", "main", "title", "B. The inequality operator (!=) can be used to compare objects.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A002", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A003", "main", "idAnswer", "RPS001-D002-Q037-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A003", "question", "idQuestion", "RPS001-D002-Q037");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A003", "main", "title", "C. The equality operator (=) can be used to compare a boolean value with a numeric value.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A003", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A004", "main", "idAnswer", "RPS001-D002-Q037-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A004", "question", "idQuestion", "RPS001-D002-Q037");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A004", "main", "title", "D. During runtime, the & and operators may cause only the left side of the expression to be evaluated.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A004", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A005", "main", "idAnswer", "RPS001-D002-Q037-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A005", "question", "idQuestion", "RPS001-D002-Q037");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A005", "main", "title", "E. The return value of an assignment operation expression is the value of the newly assigned variable.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A005", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A006", "main", "idAnswer", "RPS001-D002-Q037-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A006", "question", "idQuestion", "RPS001-D002-Q037");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A006", "main", "title", "F. In Java, 0 and false may be used interchangeably.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A006", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A007", "main", "idAnswer", "RPS001-D002-Q037-A007");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A007", "question", "idQuestion", "RPS001-D002-Q037");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A007", "main", "title", "G. The logical complement operator (!) cannot be used to flip numeric values");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A007", "main", "description", "G");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A007", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q037-A007", "main", "is_right", "true");
+
+
+// Question 38
+client.insertRecord(tableQuestion, "RPS001-D002-Q038", "main", "idQuestion", "RPS001-D002-Q038");
+client.insertRecord(tableQuestion, "RPS001-D002-Q038", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q038", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q038", "main", "title", "Which operators take three operands or values? (Choose all that apply.)");
+client.insertRecord(tableQuestion, "RPS001-D002-Q038", "main", "description", "Pertanyaan tentang operator Java");
+client.insertRecord(tableQuestion, "RPS001-D002-Q038", "main", "question_type", "NORMAL");
+client.insertRecord(tableQuestion, "RPS001-D002-Q038", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q038", "main", "examType2", "QUIZ");
+
+// Answer for Q038
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A001", "main", "idAnswer", "RPS001-D002-Q038-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A001", "question", "idQuestion", "RPS001-D002-Q038");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A001", "main", "title", "A. =");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A001", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A002", "main", "idAnswer", "RPS001-D002-Q038-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A002", "question", "idQuestion", "RPS001-D002-Q038");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A002", "main", "title", "B. &&");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A002", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A003", "main", "idAnswer", "RPS001-D002-Q038-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A003", "question", "idQuestion", "RPS001-D002-Q038");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A003", "main", "title", "C. *=");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A003", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A004", "main", "idAnswer", "RPS001-D002-Q038-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A004", "question", "idQuestion", "RPS001-D002-Q038");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A004", "main", "title", "D. ?:");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A004", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A005", "main", "idAnswer", "RPS001-D002-Q038-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A005", "question", "idQuestion", "RPS001-D002-Q038");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A005", "main", "title", "E. &");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A005", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A006", "main", "idAnswer", "RPS001-D002-Q038-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A006", "question", "idQuestion", "RPS001-D002-Q038");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A006", "main", "title", "F. ++");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A006", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A007", "main", "idAnswer", "RPS001-D002-Q038-A007");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A007", "question", "idQuestion", "RPS001-D002-Q038");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A007", "main", "title", "G. /");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A007", "main", "description", "G");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A007", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q038-A007", "main", "is_right", "false");
+
+
+// Question 39
+client.insertRecord(tableQuestion, "RPS001-D002-Q039", "main", "idQuestion", "RPS001-D002-Q039");
+client.insertRecord(tableQuestion, "RPS001-D002-Q039", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q039", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q039", "main", "title", "How many lines of the following code contain compiler errors?");
+client.insertRecord(tableQuestion, "RPS001-D002-Q039", "main", "description", "Pertanyaan tentang error kompilasi");
+client.insertRecord(tableQuestion, "RPS001-D002-Q039", "main", "question_type", "IMAGE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q039", "main", "file_path", "/images/questions/RPS001-D002-Q039.png");
+client.insertRecord(tableQuestion, "RPS001-D002-Q039", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q039", "main", "examType2", "QUIZ");
+
+// Answer for Q039
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A001", "main", "idAnswer", "RPS001-D002-Q039-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A001", "question", "idQuestion", "RPS001-D002-Q039");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A001", "main", "title", "A. 0");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A001", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A002", "main", "idAnswer", "RPS001-D002-Q039-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A002", "question", "idQuestion", "RPS001-D002-Q039");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A002", "main", "title", "B. 1");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A002", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A003", "main", "idAnswer", "RPS001-D002-Q039-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A003", "question", "idQuestion", "RPS001-D002-Q039");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A003", "main", "title", "C. 2");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A003", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A004", "main", "idAnswer", "RPS001-D002-Q039-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A004", "question", "idQuestion", "RPS001-D002-Q039");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A004", "main", "title", "D. 3");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A004", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A005", "main", "idAnswer", "RPS001-D002-Q039-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A005", "question", "idQuestion", "RPS001-D002-Q039");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A005", "main", "title", "E. 4");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q039-A005", "main", "is_right", "false");
+
+
+// Question 40
+client.insertRecord(tableQuestion, "RPS001-D002-Q040", "main", "idQuestion", "RPS001-D002-Q040");
+client.insertRecord(tableQuestion, "RPS001-D002-Q040", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q040", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q040", "main", "title", "Given the following code snippet, what are the values of the variables after it is executed? (Choose all that apply.)");
+client.insertRecord(tableQuestion, "RPS001-D002-Q040", "main", "description", "Pertanyaan tentang nilai variabel setelah eksekusi kode");
+client.insertRecord(tableQuestion, "RPS001-D002-Q040", "main", "question_type", "IMAGE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q040", "main", "file_path", "/images/questions/RPS001-D002-Q040.png");
+client.insertRecord(tableQuestion, "RPS001-D002-Q040", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q040", "main", "examType2", "QUIZ");
+
+// Answer for Q040
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A001", "main", "idAnswer", "RPS001-D002-Q040-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A001", "question", "idQuestion", "RPS001-D002-Q040");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A001", "main", "title", "A. ticketsSold is 8.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A001", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A002", "main", "idAnswer", "RPS001-D002-Q040-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A002", "question", "idQuestion", "RPS001-D002-Q040");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A002", "main", "title", "B. ticketsTaken is 2.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A002", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A003", "main", "idAnswer", "RPS001-D002-Q040-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A003", "question", "idQuestion", "RPS001-D002-Q040");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A003", "main", "title", "C. ticketsSold is 6.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A003", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A004", "main", "idAnswer", "RPS001-D002-Q040-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A004", "question", "idQuestion", "RPS001-D002-Q040");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A004", "main", "title", "D. ticketsTaken is 6.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A004", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A005", "main", "idAnswer", "RPS001-D002-Q040-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A005", "question", "idQuestion", "RPS001-D002-Q040");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A005", "main", "title", "E. ticketsSold is 7.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A005", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A006", "main", "idAnswer", "RPS001-D002-Q040-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A006", "question", "idQuestion", "RPS001-D002-Q040");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A006", "main", "title", "F. ticketsTaken is 4.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A006", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A007", "main", "idAnswer", "RPS001-D002-Q040-A007");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A007", "question", "idQuestion", "RPS001-D002-Q040");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A007", "main", "title", "G. The code does not compile.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A007", "main", "description", "G");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A007", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q040-A007", "main", "is_right", "false");
+
+
+// Question 41
+client.insertRecord(tableQuestion, "RPS001-D002-Q041", "main", "idQuestion", "RPS001-D002-Q041");
+client.insertRecord(tableQuestion, "RPS001-D002-Q041", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q041", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q041", "main", "title", "Which of the following can be used to change the order of operation in an expression? (Choose all that apply.)");
+client.insertRecord(tableQuestion, "RPS001-D002-Q041", "main", "description", "Pertanyaan tentang urutan operasi ekspresi");
+client.insertRecord(tableQuestion, "RPS001-D002-Q041", "main", "question_type", "NORMAL");
+client.insertRecord(tableQuestion, "RPS001-D002-Q041", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q041", "main", "examType2", "QUIZ");
+
+// Answer for Q041
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A001", "main", "idAnswer", "RPS001-D002-Q041-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A001", "question", "idQuestion", "RPS001-D002-Q041");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A001", "main", "title", "A. []");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A001", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A002", "main", "idAnswer", "RPS001-D002-Q041-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A002", "question", "idQuestion", "RPS001-D002-Q041");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A002", "main", "title", "B. <>");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A002", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A003", "main", "idAnswer", "RPS001-D002-Q041-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A003", "question", "idQuestion", "RPS001-D002-Q041");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A003", "main", "title", "C. ()");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A003", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A004", "main", "idAnswer", "RPS001-D002-Q041-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A004", "question", "idQuestion", "RPS001-D002-Q041");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A004", "main", "title", "D. /");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A004", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A005", "main", "idAnswer", "RPS001-D002-Q041-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A005", "question", "idQuestion", "RPS001-D002-Q041");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A005", "main", "title", "E. {}");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A005", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A006", "main", "idAnswer", "RPS001-D002-Q041-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A006", "question", "idQuestion", "RPS001-D002-Q041");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A006", "main", "title", "F. \"\"");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q041-A006", "main", "is_right", "false");
+
+
+// Question 42
+client.insertRecord(tableQuestion, "RPS001-D002-Q042", "main", "idQuestion", "RPS001-D002-Q042");
+client.insertRecord(tableQuestion, "RPS001-D002-Q042", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q042", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q042", "main", "title", "What is the result of executing the following code snippet? (Choose all that apply.)");
+client.insertRecord(tableQuestion, "RPS001-D002-Q042", "main", "description", "Pertanyaan tentang hasil eksekusi kode Java");
+client.insertRecord(tableQuestion, "RPS001-D002-Q042", "main", "question_type", "IMAGE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q042", "main", "file_path", "/images/questions/RPS001-D002-Q042.png");
+client.insertRecord(tableQuestion, "RPS001-D002-Q042", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q042", "main", "examType2", "QUIZ");
+
+// Answer for Q042
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A001", "main", "idAnswer", "RPS001-D002-Q042-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A001", "question", "idQuestion", "RPS001-D002-Q042");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A001", "main", "title", "A. start is 0.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A001", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A002", "main", "idAnswer", "RPS001-D002-Q042-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A002", "question", "idQuestion", "RPS001-D002-Q042");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A002", "main", "title", "B. start is -128.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A002", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A003", "main", "idAnswer", "RPS001-D002-Q042-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A003", "question", "idQuestion", "RPS001-D002-Q042");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A003", "main", "title", "C. start is 127.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A003", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A004", "main", "idAnswer", "RPS001-D002-Q042-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A004", "question", "idQuestion", "RPS001-D002-Q042");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A004", "main", "title", "D. end is 8.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A004", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A005", "main", "idAnswer", "RPS001-D002-Q042-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A005", "question", "idQuestion", "RPS001-D002-Q042");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A005", "main", "title", "E. end is 11.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A005", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A006", "main", "idAnswer", "RPS001-D002-Q042-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A006", "question", "idQuestion", "RPS001-D002-Q042");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A006", "main", "title", "F. end is 12.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A006", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A007", "main", "idAnswer", "RPS001-D002-Q042-A007");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A007", "question", "idQuestion", "RPS001-D002-Q042");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A007", "main", "title", "G. The code does not compile.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A007", "main", "description", "G");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A007", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A007", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A008", "main", "idAnswer", "RPS001-D002-Q042-A008");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A008", "question", "idQuestion", "RPS001-D002-Q042");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A008", "main", "title", "H. The code compiles but throws an exception at runtime");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A008", "main", "description", "H");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A008", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q042-A008", "main", "is_right", "false");
+
+
+// Question 43
+client.insertRecord(tableQuestion, "RPS001-D002-Q043", "main", "idQuestion", "RPS001-D002-Q043");
+client.insertRecord(tableQuestion, "RPS001-D002-Q043", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q043", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q043", "main", "title", "Which of the following statements about unary operators are true? (Choose all that apply.)");
+client.insertRecord(tableQuestion, "RPS001-D002-Q043", "main", "description", "Pertanyaan tentang operator unary");
+client.insertRecord(tableQuestion, "RPS001-D002-Q043", "main", "question_type", "NORMAL");
+client.insertRecord(tableQuestion, "RPS001-D002-Q043", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q043", "main", "examType2", "QUIZ");
+
+// Answer for Q043
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A001", "main", "idAnswer", "RPS001-D002-Q043-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A001", "question", "idQuestion", "RPS001-D002-Q043");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A001", "main", "title", "A. Unary operators are always executed before any surrounding numeric binary or ternary operators.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A001", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A002", "main", "idAnswer", "RPS001-D002-Q043-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A002", "question", "idQuestion", "RPS001-D002-Q043");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A002", "main", "title", "B. The ~ operator can be used to flip a boolean value.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A002", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A003", "main", "idAnswer", "RPS001-D002-Q043-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A003", "question", "idQuestion", "RPS001-D002-Q043");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A003", "main", "title", "C. The pre-increment operator (++) returns the value of the variable before the increment is applied.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A003", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A004", "main", "idAnswer", "RPS001-D002-Q043-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A004", "question", "idQuestion", "RPS001-D002-Q043");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A004", "main", "title", "D. The post-decrement operator (--) returns the value of the variable before the decrement is applied.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A004", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A005", "main", "idAnswer", "RPS001-D002-Q043-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A005", "question", "idQuestion", "RPS001-D002-Q043");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A005", "main", "title", "E. The ! operator cannot be used on numeric values.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A005", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A006", "main", "idAnswer", "RPS001-D002-Q043-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A006", "question", "idQuestion", "RPS001-D002-Q043");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A006", "main", "title", "F. None of the above");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q043-A006", "main", "is_right", "false");
+
+
+// Question 44
+client.insertRecord(tableQuestion, "RPS001-D002-Q044", "main", "idQuestion", "RPS001-D002-Q044");
+client.insertRecord(tableQuestion, "RPS001-D002-Q044", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q044", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q044", "main", "title", "What is the result of executing the following code snippet?");
+client.insertRecord(tableQuestion, "RPS001-D002-Q044", "main", "description", "Pertanyaan tentang hasil eksekusi kode Java");
+client.insertRecord(tableQuestion, "RPS001-D002-Q044", "main", "question_type", "IMAGE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q044", "main", "file_path", "/images/questions/RPS001-D002-Q044.png");
+client.insertRecord(tableQuestion, "RPS001-D002-Q044", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q044", "main", "examType2", "QUIZ");
+
+// Answer for Q044
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A001", "main", "idAnswer", "RPS001-D002-Q044-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A001", "question", "idQuestion", "RPS001-D002-Q044");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A001", "main", "title", "A. -7,-8,9");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A001", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A002", "main", "idAnswer", "RPS001-D002-Q044-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A002", "question", "idQuestion", "RPS001-D002-Q044");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A002", "main", "title", "B. -7,-8,10");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A002", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A003", "main", "idAnswer", "RPS001-D002-Q044-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A003", "question", "idQuestion", "RPS001-D002-Q044");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A003", "main", "title", "C. -8,-8,4");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A003", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A004", "main", "idAnswer", "RPS001-D002-Q044-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A004", "question", "idQuestion", "RPS001-D002-Q044");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A004", "main", "title", "D. -8,-8,5");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A004", "main", "is_right", "false");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A005", "main", "idAnswer", "RPS001-D002-Q044-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A005", "question", "idQuestion", "RPS001-D002-Q044");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A005", "main", "title", "E. -9,-8,9");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A005", "main", "is_right", "true");
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A006", "main", "idAnswer", "RPS001-D002-Q044-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A006", "question", "idQuestion", "RPS001-D002-Q044");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A006", "main", "title", "F. -9,-8,10");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q044-A006", "main", "is_right", "false");
+
+// Question 45 
+client.insertRecord(tableQuestion, "RPS001-D002-Q045", "main", "idQuestion", "RPS001-D002-Q045");
+client.insertRecord(tableQuestion, "RPS001-D002-Q045", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q045", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q045", "main", "title", "Which of the following data types can be used in a switch expression? (Choose all that apply.)");
+client.insertRecord(tableQuestion, "RPS001-D002-Q045", "main", "description", "Pertanyaan tentang tipe data yang dapat digunakan dalam ekspresi switch.");
+client.insertRecord(tableQuestion, "RPS001-D002-Q045", "main", "question_type", "NORMAL");
+client.insertRecord(tableQuestion, "RPS001-D002-Q045", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q045", "main", "examType2", "QUIZ");
+
+// Answer for Q045
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A001", "main", "idAnswer", "RPS001-D002-Q045-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A001", "question", "idQuestion", "RPS001-D002-Q045");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A001", "main", "title", "A. enum");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A001", "main", "is_right", "true"); // Marked as true based on source 1
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A002", "main", "idAnswer", "RPS001-D002-Q045-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A002", "question", "idQuestion", "RPS001-D002-Q045");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A002", "main", "title", "B. int");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A002", "main", "is_right", "true"); // Marked as true based on source 1
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A003", "main", "idAnswer", "RPS001-D002-Q045-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A003", "question", "idQuestion", "RPS001-D002-Q045");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A003", "main", "title", "C. Byte");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A003", "main", "is_right", "true"); // Marked as true based on source 2
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A004", "main", "idAnswer", "RPS001-D002-Q045-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A004", "question", "idQuestion", "RPS001-D002-Q045");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A004", "main", "title", "D. long");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A004", "main", "is_right", "false"); // Marked as false based on source 1
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A005", "main", "idAnswer", "RPS001-D002-Q045-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A005", "question", "idQuestion", "RPS001-D002-Q045");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A005", "main", "title", "E. String");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A005", "main", "is_right", "true"); // Marked as true based on source 1
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A006", "main", "idAnswer", "RPS001-D002-Q045-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A006", "question", "idQuestion", "RPS001-D002-Q045");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A006", "main", "title", "F. char");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A006", "main", "is_right", "true"); // Marked as true based on source 1
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A007", "main", "idAnswer", "RPS001-D002-Q045-A007");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A007", "question", "idQuestion", "RPS001-D002-Q045");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A007", "main", "title", "G. var");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A007", "main", "description", "G");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A007", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A007", "main", "is_right", "true"); // Marked as true based on source 1
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A008", "main", "idAnswer", "RPS001-D002-Q045-A008");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A008", "question", "idQuestion", "RPS001-D002-Q045");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A008", "main", "title", "H. double");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A008", "main", "description", "H");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A008", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q045-A008", "main", "is_right", "false"); // Marked as false based on source 1
+
+
+// Question 46
+client.insertRecord(tableQuestion, "RPS001-D002-Q046", "main", "idQuestion", "RPS001-D002-Q046");
+client.insertRecord(tableQuestion, "RPS001-D002-Q046", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q046", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q046", "main", "title", "What is the output of the following code snippet? (Choose all that apply.)");
+client.insertRecord(tableQuestion, "RPS001-D002-Q046", "main", "description", "Pertanyaan tentang output kode Java.");
+client.insertRecord(tableQuestion, "RPS001-D002-Q046", "main", "question_type", "IMAGE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q046", "main", "file_path", "/images/questions/RPS001-D002-Q046.png");
+client.insertRecord(tableQuestion, "RPS001-D002-Q046", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q046", "main", "examType2", "QUIZ");
+
+// Answer for Q046
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A001", "main", "idAnswer", "RPS001-D002-Q046-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A001", "question", "idQuestion", "RPS001-D002-Q046");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A001", "main", "title", "A. Too Low");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A001", "main", "is_right", "false"); // Marked as false based on source 3
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A002", "main", "idAnswer", "RPS001-D002-Q046-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A002", "question", "idQuestion", "RPS001-D002-Q046");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A002", "main", "title", "B. Just Right");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A002", "main", "is_right", "true"); // Marked as true based on source 3
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A003", "main", "idAnswer", "RPS001-D002-Q046-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A003", "question", "idQuestion", "RPS001-D002-Q046");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A003", "main", "title", "C. Too High");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A003", "main", "is_right", "false"); // Marked as false based on source 3
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A004", "main", "idAnswer", "RPS001-D002-Q046-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A004", "question", "idQuestion", "RPS001-D002-Q046");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A004", "main", "title", "D. A NullPointerException is thrown at runtime.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A004", "main", "is_right", "false"); // Marked as false based on source 3
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A005", "main", "idAnswer", "RPS001-D002-Q046-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A005", "question", "idQuestion", "RPS001-D002-Q046");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A005", "main", "title", "E. The code will not compile because of line 7.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A005", "main", "is_right", "false"); // Marked as false based on source 4
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A006", "main", "idAnswer", "RPS001-D002-Q046-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A006", "question", "idQuestion", "RPS001-D002-Q046");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A006", "main", "title", "F. The code will not compile because of line 8.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q046-A006", "main", "is_right", "false"); // Marked as false based on source 4
+
+
+// Question 47
+client.insertRecord(tableQuestion, "RPS001-D002-Q047", "main", "idQuestion", "RPS001-D002-Q047");
+client.insertRecord(tableQuestion, "RPS001-D002-Q047", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q047", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q047", "main", "title", "Which of the following data types are permitted on the right side of a for-each expression? (Choose all that apply.)");
+client.insertRecord(tableQuestion, "RPS001-D002-Q047", "main", "description", "Pertanyaan tentang tipe data yang diizinkan dalam for-each loop.");
+client.insertRecord(tableQuestion, "RPS001-D002-Q047", "main", "question_type", "NORMAL");
+client.insertRecord(tableQuestion, "RPS001-D002-Q047", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q047", "main", "examType2", "QUIZ");
+
+// Answer for Q047
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A001", "main", "idAnswer", "RPS001-D002-Q047-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A001", "question", "idQuestion", "RPS001-D002-Q047");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A001", "main", "title", "A. Double[][]");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A001", "main", "is_right", "true"); // Marked as true based on source 5
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A002", "main", "idAnswer", "RPS001-D002-Q047-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A002", "question", "idQuestion", "RPS001-D002-Q047");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A002", "main", "title", "B. Object");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A002", "main", "is_right", "false"); // Marked as false based on source 5
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A003", "main", "idAnswer", "RPS001-D002-Q047-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A003", "question", "idQuestion", "RPS001-D002-Q047");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A003", "main", "title", "C. Map");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A003", "main", "is_right", "false"); // Marked as false based on source 5
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A004", "main", "idAnswer", "RPS001-D002-Q047-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A004", "question", "idQuestion", "RPS001-D002-Q047");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A004", "main", "title", "D. List");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A004", "main", "is_right", "true"); // Marked as true based on source 5
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A005", "main", "idAnswer", "RPS001-D002-Q047-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A005", "question", "idQuestion", "RPS001-D002-Q047");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A005", "main", "title", "E. String");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A005", "main", "is_right", "false"); // Marked as false based on source 5
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A006", "main", "idAnswer", "RPS001-D002-Q047-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A006", "question", "idQuestion", "RPS001-D002-Q047");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A006", "main", "title", "F. char[]");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A006", "main", "is_right", "true"); // Marked as true based on source 5
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A007", "main", "idAnswer", "RPS001-D002-Q047-A007");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A007", "question", "idQuestion", "RPS001-D002-Q047");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A007", "main", "title", "G. Exception");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A007", "main", "description", "G");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A007", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A007", "main", "is_right", "false"); // Marked as false based on source 5
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A008", "main", "idAnswer", "RPS001-D002-Q047-A008");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A008", "question", "idQuestion", "RPS001-D002-Q047");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A008", "main", "title", "H. Set");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A008", "main", "description", "H");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A008", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q047-A008", "main", "is_right", "true"); // Marked as true based on source 5
+
+
+// Question 48
+client.insertRecord(tableQuestion, "RPS001-D002-Q048", "main", "idQuestion", "RPS001-D002-Q048");
+client.insertRecord(tableQuestion, "RPS001-D002-Q048", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q048", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q048", "main", "title", "What is the output of calling printReptile(6)?");
+client.insertRecord(tableQuestion, "RPS001-D002-Q048", "main", "description", "Pertanyaan tentang output dari pemanggilan method.");
+client.insertRecord(tableQuestion, "RPS001-D002-Q048", "main", "question_type", "IMAGE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q048", "main", "file_path", "/images/questions/RPS001-D002-Q048.png");
+client.insertRecord(tableQuestion, "RPS001-D002-Q048", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q048", "main", "examType2", "QUIZ");
+
+// Answer for Q048
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A001", "main", "idAnswer", "RPS001-D002-Q048-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A001", "question", "idQuestion", "RPS001-D002-Q048");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A001", "main", "title", "A. Snake");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A001", "main", "is_right", "false"); // Marked as false based on source 6
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A002", "main", "idAnswer", "RPS001-D002-Q048-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A002", "question", "idQuestion", "RPS001-D002-Q048");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A002", "main", "title", "B. Lizard");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A002", "main", "is_right", "false"); // Marked as false based on source 6
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A003", "main", "idAnswer", "RPS001-D002-Q048-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A003", "question", "idQuestion", "RPS001-D002-Q048");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A003", "main", "title", "C. Turtle");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A003", "main", "is_right", "false"); // Marked as false based on source 6
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A004", "main", "idAnswer", "RPS001-D002-Q048-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A004", "question", "idQuestion", "RPS001-D002-Q048");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A004", "main", "title", "D. Alligator");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A004", "main", "is_right", "false"); // Marked as false based on source 6
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A005", "main", "idAnswer", "RPS001-D002-Q048-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A005", "question", "idQuestion", "RPS001-D002-Q048");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A005", "main", "title", "E. TurtleAlligator");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A005", "main", "is_right", "false"); // Marked as false based on source 6
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A006", "main", "idAnswer", "RPS001-D002-Q048-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A006", "question", "idQuestion", "RPS001-D002-Q048");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A006", "main", "title", "F. None of the above");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q048-A006", "main", "is_right", "true"); // Marked as true based on source 7
+
+
+// Question 49
+client.insertRecord(tableQuestion, "RPS001-D002-Q049", "main", "idQuestion", "RPS001-D002-Q049");
+client.insertRecord(tableQuestion, "RPS001-D002-Q049", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q049", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q049", "main", "title", "What is the output of the following code snippet? (Choose all that apply.)");
+client.insertRecord(tableQuestion, "RPS001-D002-Q049", "main", "description", "Pertanyaan tentang output kode Java.");
+client.insertRecord(tableQuestion, "RPS001-D002-Q049", "main", "question_type", "IMAGE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q049", "main", "file_path", "/images/questions/RPS001-D002-Q049.png");
+client.insertRecord(tableQuestion, "RPS001-D002-Q049", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q049", "main", "examType2", "QUIZ");
+
+// Answer for Q049
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A001", "main", "idAnswer", "RPS001-D002-Q049-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A001", "question", "idQuestion", "RPS001-D002-Q049");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A001", "main", "title", "A. It compiles and runs without issue but does not produce any output.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A001", "main", "is_right", "false"); // Marked as false based on source 8
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A002", "main", "idAnswer", "RPS001-D002-Q049-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A002", "question", "idQuestion", "RPS001-D002-Q049");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A002", "main", "title", "B. 10, 14,");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A002", "main", "is_right", "false"); // Marked as false based on source 9
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A003", "main", "idAnswer", "RPS001-D002-Q049-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A003", "question", "idQuestion", "RPS001-D002-Q049");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A003", "main", "title", "C. 10, 10, 14,");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A003", "main", "is_right", "false"); // Marked as false based on source 9
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A004", "main", "idAnswer", "RPS001-D002-Q049-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A004", "question", "idQuestion", "RPS001-D002-Q049");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A004", "main", "title", "D. 10, 10, 14, 10, 14,");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A004", "main", "is_right", "false"); // Marked as false based on source 9
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A005", "main", "idAnswer", "RPS001-D002-Q049-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A005", "question", "idQuestion", "RPS001-D002-Q049");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A005", "main", "title", "E. Exactly one line of code does not compile.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A005", "main", "is_right", "true"); // Marked as true based on source 9
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A006", "main", "idAnswer", "RPS001-D002-Q049-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A006", "question", "idQuestion", "RPS001-D002-Q049");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A006", "main", "title", "F. Exactly two lines of code do not compile.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A006", "main", "is_right", "false"); // Marked as false based on source 10
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A007", "main", "idAnswer", "RPS001-D002-Q049-A007");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A007", "question", "idQuestion", "RPS001-D002-Q049");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A007", "main", "title", "G. Three or more lines of code do not compile.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A007", "main", "description", "G");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A007", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A007", "main", "is_right", "false"); // Marked as false based on source 10
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A008", "main", "idAnswer", "RPS001-D002-Q049-A008");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A008", "question", "idQuestion", "RPS001-D002-Q049");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A008", "main", "title", "H. The code contains an infinite loop and does not terminate.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A008", "main", "description", "H");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A008", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q049-A008", "main", "is_right", "false"); // Marked as false based on source 11
+
+
+// Question 50
+client.insertRecord(tableQuestion, "RPS001-D002-Q050", "main", "idQuestion", "RPS001-D002-Q050");
+client.insertRecord(tableQuestion, "RPS001-D002-Q050", "rps", "idRps", "RPS001");
+client.insertRecord(tableQuestion, "RPS001-D002-Q050", "rps_detail", "id", "RPS001-D002");
+client.insertRecord(tableQuestion, "RPS001-D002-Q050", "main", "title", "Which statements about decision structures are true? (Choose all that apply.)");
+client.insertRecord(tableQuestion, "RPS001-D002-Q050", "main", "description", "Pertanyaan tentang struktur keputusan dalam pemrograman.");
+client.insertRecord(tableQuestion, "RPS001-D002-Q050", "main", "question_type", "NORMAL");
+client.insertRecord(tableQuestion, "RPS001-D002-Q050", "main", "answer_type", "MULTIPLE_CHOICE");
+client.insertRecord(tableQuestion, "RPS001-D002-Q050", "main", "examType2", "QUIZ");
+
+// Answer for Q050
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A001", "main", "idAnswer", "RPS001-D002-Q050-A001");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A001", "question", "idQuestion", "RPS001-D002-Q050");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A001", "main", "title", "A. A for-each loop can be executed on any Collections Framework object.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A001", "main", "description", "A");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A001", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A001", "main", "is_right", "false"); // Marked as false based on source 12
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A002", "main", "idAnswer", "RPS001-D002-Q050-A002");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A002", "question", "idQuestion", "RPS001-D002-Q050");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A002", "main", "title", "B. The body of a while loop is guaranteed to be executed at least once.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A002", "main", "description", "B");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A002", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A002", "main", "is_right", "false"); // Marked as false based on source 13
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A003", "main", "idAnswer", "RPS001-D002-Q050-A003");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A003", "question", "idQuestion", "RPS001-D002-Q050");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A003", "main", "title", "C. The conditional expression of a for loop is evaluated before the first execution of the loop body.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A003", "main", "description", "C");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A003", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A003", "main", "is_right", "true"); // Marked as true based on source 14
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A004", "main", "idAnswer", "RPS001-D002-Q050-A004");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A004", "question", "idQuestion", "RPS001-D002-Q050");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A004", "main", "title", "D. A switch expression that takes a String and assigns the result to a variable requires a default branch.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A004", "main", "description", "D");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A004", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A004", "main", "is_right", "true"); // Marked as true based on source 15
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A005", "main", "idAnswer", "RPS001-D002-Q050-A005");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A005", "question", "idQuestion", "RPS001-D002-Q050");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A005", "main", "title", "E. The body of a do/while loop is guaranteed to be executed at least once.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A005", "main", "description", "E");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A005", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A005", "main", "is_right", "true"); // Marked as true based on source 16
+
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A006", "main", "idAnswer", "RPS001-D002-Q050-A006");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A006", "question", "idQuestion", "RPS001-D002-Q050");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A006", "main", "title", "F. An if statement can have multiple corresponding else statements.");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A006", "main", "description", "F");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A006", "main", "type", "NORMAL");
+client.insertRecord(tableAnswer, "RPS001-D002-Q050-A006", "main", "is_right", "false"); // Marked as false based on source 17
     }
 }

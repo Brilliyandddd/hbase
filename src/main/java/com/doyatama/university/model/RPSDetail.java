@@ -12,9 +12,9 @@ public class RPSDetail {
     private Integer week;
     private RPS rps;
     private String sub_cp_mk;
-    // private List<String> learning_materials;
+    private String learning_materials;
     private FormLearning form_learning;
-    private List<LearningMethod> learning_methods;
+    // private List<LearningMethod> learning_methods;
     // private List<String> assignments;
     // private List<String> estimated_times;
     // private List<String> student_learning_experiences;
@@ -22,6 +22,7 @@ public class RPSDetail {
     // private List<AppraisalForm> appraisal_forms;
     // private List<String> assessment_indicators;
     private Float weight;
+    private String created_by;
     private Instant created_at;
     private String weekLabel;
 
@@ -29,14 +30,14 @@ public class RPSDetail {
     public RPSDetail() {
     }
 
-    public RPSDetail(String id, Integer week, RPS rps, String sub_cp_mk, List<String> learning_materials, FormLearning form_learning, List<LearningMethod> learning_methods, List<String> assignments, List<String> estimated_times, List<String> student_learning_experiences, List<AssessmentCriteria> assessment_criterias, List<AppraisalForm> appraisal_forms, List<String> assessment_indicators, Float weight,String weekLabel, Instant created_at) {
+    public RPSDetail(String id, Integer week, RPS rps, String sub_cp_mk, String learning_materials, FormLearning form_learning, List<LearningMethod> learning_methods, List<String> assignments, List<String> estimated_times, List<String> student_learning_experiences, List<AssessmentCriteria> assessment_criterias, List<AppraisalForm> appraisal_forms, List<String> assessment_indicators, Float weight,String weekLabel, Instant created_at, String created_by) {
         this.id = id;
         this.week = week;
         this.rps = rps;
         this.sub_cp_mk = sub_cp_mk;
-        // this.learning_materials = learning_materials;
+        this.learning_materials = learning_materials;
         this.form_learning = form_learning;
-        this.learning_methods = learning_methods;
+        // this.learning_methods = learning_methods;
         // this.assignments = assignments;
         // this.estimated_times = estimated_times;
         // this.student_learning_experiences = student_learning_experiences;
@@ -45,6 +46,7 @@ public class RPSDetail {
         // this.assessment_indicators = assessment_indicators;
         this.weight = weight;
         this.weekLabel = weekLabel;
+        this.created_by = created_by;
         this.created_at = created_at;
         
     }
@@ -102,13 +104,13 @@ public class RPSDetail {
 
 
 
-//    public List<String> getLearning_materials() {
-//         return learning_materials != null ? learning_materials : new ArrayList<>();
-//     }
+   public String getLearning_materials() {
+        return learning_materials;
+    }
 
-//     public void setLearning_materials(List<String> learning_materials) {
-//         this.learning_materials = learning_materials != null ? learning_materials : new ArrayList<>();
-//     }
+    public void setLearning_materials(String learning_materials) {
+        this.learning_materials = learning_materials;
+    }
 
     public FormLearning getForm_learning() {
         return form_learning;
@@ -118,13 +120,13 @@ public class RPSDetail {
         this.form_learning = form_learning;
     }
 
-    public List<LearningMethod> getLearning_methods() {
-        return learning_methods != null ? learning_methods : new ArrayList<>();
-    }
+    // public List<LearningMethod> getLearning_methods() {
+    //     return learning_methods != null ? learning_methods : new ArrayList<>();
+    // }
 
-    public void setLearning_methods(List<LearningMethod> learning_methods) {
-        this.learning_methods = learning_methods != null ? learning_methods : new ArrayList<>();
-    }
+    // public void setLearning_methods(List<LearningMethod> learning_methods) {
+    //     this.learning_methods = learning_methods != null ? learning_methods : new ArrayList<>();
+    // }
 
     // public List<String> getAssignments() {
     //     return assignments != null ? assignments : new ArrayList<>();
@@ -181,9 +183,13 @@ public class RPSDetail {
     public void setWeight(Float weight) {
         this.weight = weight;
     }
-    
-     
 
+    public String getCreatedBy() {
+        return created_by;
+    }
+    public void setCreatedBy(String created_by) {
+        this.created_by = created_by;
+    }
 
     public Instant getCreatedAt() {
         return created_at;

@@ -19,7 +19,7 @@ public class QuestionRequest {
 
     private String idRps;
 
-    private String rps_detail_id;
+    private String rps_detail;
 
     private String examType;
     private String examType2;
@@ -54,7 +54,7 @@ public class QuestionRequest {
     }
 
     public QuestionRequest(String idQuestion, String title, String description, String question_type, String answer_type,
-                           String idRps, String rps_detail_id, String examType, String examType2, String examType3, String explanation,
+                           String idRps, String rps_detail, String examType, String examType2, String examType3, String explanation,
                            Boolean is_rated, Double averageValue1, String linguisticValue1Id, // Add linguisticValue1Id
                            Double averageValue2, String linguisticValue2Id, // Add linguisticValue2Id
                            Double averageValue3, String linguisticValue3Id, // Add linguisticValue3Id
@@ -73,7 +73,7 @@ public class QuestionRequest {
         this.question_type = question_type;
         this.answer_type = answer_type;
         this.idRps = idRps;
-        this.rps_detail_id = rps_detail_id;
+        this.rps_detail = rps_detail;
         this.examType = examType;
         this.examType2 = examType2;
         this.examType3 = examType3;
@@ -183,12 +183,12 @@ public class QuestionRequest {
         this.idRps = idRps;
     }
 
-    public String getRps_detail_id() {
-        return this.rps_detail_id;
+    public String getRps_detail() {
+        return this.rps_detail;
     }
 
-    public void setRps_detail_id(String rps_detail_id) {
-        this.rps_detail_id = rps_detail_id;
+    public void setRps_detail(String rps_detail) {
+        this.rps_detail = rps_detail;
     }
 
     public String getExplanation() {
@@ -367,8 +367,8 @@ public class QuestionRequest {
             case "idRps":
                 this.idRps = value;
                 break;
-            case "rps_detail_id":
-                this.rps_detail_id = value;
+            case "rps_detail":
+                this.rps_detail = value;
                 break;
             case "title":
                 this.title = value;
@@ -474,7 +474,7 @@ public class QuestionRequest {
                 ", question_type='" + question_type + '\'' +
                 ", answer_type='" + answer_type + '\'' +
                 ", idRps='" + idRps + '\'' +
-                ", rps_detail_id='" + rps_detail_id + '\'' +
+                ", rps_detail='" + rps_detail + '\'' +
                 ", examType='" + examType + '\'' +
                 ", examType2='" + examType2 + '\'' +
                 ", examType3='" + examType3 + '\'' +

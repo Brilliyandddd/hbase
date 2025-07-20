@@ -69,14 +69,37 @@ public class QuestionService {
         return new PagedResponse<>(questionResponse, questionResponse.size(), "Successfully get data", 200);
     }
 
-    public Question createQuestion(QuestionRequest questionRequest, String savePath) throws IOException {
-        RPSDetail rpsDetailResponse = rpsDetailRepository.findById(questionRequest.getRps_detail_id());
-        if (rpsDetailResponse == null) {
-            throw new IllegalArgumentException("RPS Detail dengan ID " + questionRequest.getRps_detail_id() + " tidak ditemukan.");
+    public PagedResponse<Question> getAllQuestionsByRpsDetailId(int page, int size, String rpsDetailId) throws IOException {
+        validatePageNumberAndSize(page, size);
+
+        // Validasi rpsDetailId
+        if (rpsDetailId == null || rpsDetailId.trim().isEmpty()) {
+            throw new BadRequestException("RPS Detail ID cannot be null or empty.");
         }
 
-        if (questionRequest.getRps_detail_id() == null || questionRequest.getRps_detail_id().trim().isEmpty()) {
-            throw new IllegalArgumentException("rps_detail_id wajib diisi.");
+        // Memanggil repository untuk memfilter pertanyaan berdasarkan rpsDetailId
+        // Anda perlu memastikan bahwa questionRepository memiliki metode findAllByRpsDetailId
+        List<Question> questionsList = questionRepository.findAllByRpsDetailId(rpsDetailId, size);
+
+        // Melakukan post-processing pada setiap pertanyaan
+        questionsList.forEach(q -> {
+            q.getQuestionRating(); 
+            q.getCriteriaValues(); 
+            q.setIs_rated(q.getQuestionRating() != null && !q.getQuestionRating().getReviewerRatings().isEmpty());
+        });
+
+        logger.info("QuestionService: Retrieved {} questions for rpsDetailId: {}", questionsList.size(), rpsDetailId);
+        return new PagedResponse<>(questionsList, questionsList.size(), "Successfully retrieved questions by RPS Detail ID", 200);
+    }
+
+    public Question createQuestion(QuestionRequest questionRequest, String savePath) throws IOException {
+        RPSDetail rpsDetailResponse = rpsDetailRepository.findById(questionRequest.getRps_detail());
+        if (rpsDetailResponse == null) {
+            throw new IllegalArgumentException("RPS Detail dengan ID " + questionRequest.getRps_detail() + " tidak ditemukan.");
+        }
+
+        if (questionRequest.getRps_detail() == null || questionRequest.getRps_detail().trim().isEmpty()) {
+            throw new IllegalArgumentException("rps_detail wajib diisi.");
         }
         
         RPS rpsResponse = rpsRepository.findById(questionRequest.getIdRps());
@@ -91,8 +114,8 @@ public class QuestionService {
         question.setIdQuestion(questionRequest.getIdQuestion());
         question.setTitle(questionRequest.getTitle());
         question.setDescription(questionRequest.getDescription());
-        question.setQuestionType(Question.QuestionType.valueOf(questionRequest.getQuestion_type()));
-        question.setAnswerType(Question.AnswerType.valueOf(questionRequest.getAnswer_type()));
+        question.setQuestion_type(Question.QuestionType.valueOf(questionRequest.getQuestion_type()));
+        question.setAnswer_type(Question.AnswerType.valueOf(questionRequest.getAnswer_type()));
 
         question.setIs_rated(false); 
         if (questionRequest.getIs_rated() != null) { 
@@ -120,7 +143,7 @@ public class QuestionService {
         question.setExplanation(questionRequest.getExplanation());
         question.setFile_path(savePath);
         question.setRps(rpsResponse);
-        question.setRps_detail_id(rpsDetailResponse);
+        question.setRps_detail(rpsDetailResponse);
         
         return questionRepository.save(question);
     }
@@ -216,39 +239,73 @@ public class QuestionService {
     }
 
     public Question updateQuestion(String questionId, QuestionRequest questionRequest) throws IOException {
-        Question question = questionRepository.findById(questionId);
-        
-        if (question != null) {
-            RPSDetail rpsDetailResponse = rpsDetailRepository.findById(questionRequest.getRps_detail_id().toString());
-            if (rpsDetailResponse.getSub_cp_mk() != null) {
-                question.setExplanation(questionRequest.getExplanation());
-                question.setTitle(questionRequest.getTitle());
-                question.setDescription(questionRequest.getDescription());
-                question.setQuestionType(Question.QuestionType.valueOf(questionRequest.getQuestion_type()));
-                question.setAnswerType(Question.AnswerType.valueOf(questionRequest.getAnswer_type()));
-                question.setExamType(Question.ExamType.valueOf(questionRequest.getExamType()));
-                question.setRps_detail_id(rpsDetailResponse);
-                
-                if (questionRequest.getIs_rated() != null) { 
-                    question.setIs_rated(questionRequest.getIs_rated());
-                } else {
-                    question.setIs_rated(question.getQuestionRating() != null && !question.getQuestionRating().getReviewerRatings().isEmpty());
-                }
+    Question question = questionRepository.findById(questionId);
 
-                return questionRepository.update(questionId,question);
+    if (question != null) {
+        RPSDetail rpsDetailResponse = rpsDetailRepository.findById(questionRequest.getRps_detail().toString());
+        if (rpsDetailResponse != null && rpsDetailResponse.getSub_cp_mk() != null) { // Added null check for rpsDetailResponse
+            question.setExplanation(questionRequest.getExplanation());
+            question.setTitle(questionRequest.getTitle());
+            question.setDescription(questionRequest.getDescription());
+
+            // --- Potential problematic lines and their fixes ---
+            if (questionRequest.getQuestion_type() != null) {
+                question.setQuestion_type(Question.QuestionType.valueOf(questionRequest.getQuestion_type()));
             } else {
-                return null;
+                // Handle the null case: e.g., throw an exception, log, or keep existing value
+                throw new BadRequestException("Question type cannot be null for update.");
             }
+
+            if (questionRequest.getAnswer_type() != null) {
+                question.setAnswer_type(Question.AnswerType.valueOf(questionRequest.getAnswer_type()));
+            } else {
+                throw new BadRequestException("Answer type cannot be null for update.");
+            }
+
+            // You already have a good check for examType, but ensure all relevant enums are covered
+            if (questionRequest.getExamType() != null && !questionRequest.getExamType().trim().isEmpty()) {
+                question.setExamType(Question.ExamType.valueOf(questionRequest.getExamType()));
+            } else {
+                question.setExamType(null); // Or keep existing value, or throw error if it's mandatory
+            }
+
+            // Add similar checks for ExamType2 and ExamType3 if they are part of update flow
+            if (questionRequest.getExamType2() != null && !questionRequest.getExamType2().trim().isEmpty()) {
+                question.setExamType2(Question.ExamType2.valueOf(questionRequest.getExamType2()));
+            } else {
+                question.setExamType2(null);
+            }
+
+            if (questionRequest.getExamType3() != null && !questionRequest.getExamType3().trim().isEmpty()) {
+                question.setExamType3(Question.ExamType3.valueOf(questionRequest.getExamType3()));
+            } else {
+                question.setExamType3(null);
+            }
+            // --- End of potential problematic lines and their fixes ---
+
+
+            question.setRps_detail(rpsDetailResponse);
+
+            if (questionRequest.getIs_rated() != null) {
+                question.setIs_rated(questionRequest.getIs_rated());
+            } else {
+                question.setIs_rated(question.getQuestionRating() != null && !question.getQuestionRating().getReviewerRatings().isEmpty());
+            }
+
+            return questionRepository.update(questionId, question);
         } else {
-            throw new ResourceNotFoundException("Question", "idQuestion", questionId);
+            throw new BadRequestException("RPS Detail not found or sub_cp_mk is null for given RPS Detail ID: " + questionRequest.getRps_detail().toString());
         }
+    } else {
+        throw new ResourceNotFoundException("Question", "idQuestion", questionId);
     }
-    public void deleteQuestionById(String rps_detail_id) throws IOException {
-        Question questionResponse = questionRepository.findById(rps_detail_id);
+}
+    public void deleteQuestionById(String rps_detail) throws IOException {
+        Question questionResponse = questionRepository.findById(rps_detail);
         if(questionResponse.isValid()){
-            questionRepository.deleteById(rps_detail_id);
+            questionRepository.deleteById(rps_detail);
         }else{
-            throw new ResourceNotFoundException("RPSDetail", "id", rps_detail_id);
+            throw new ResourceNotFoundException("RPSDetail", "id", rps_detail);
         }
     }
 
